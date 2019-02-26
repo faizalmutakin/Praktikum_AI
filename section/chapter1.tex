@@ -52,3 +52,191 @@ Solusi pemecahan masalah error tersebut[hari ke 2](10)
 
 \end{enumerate}
 
+\section{Imron Sumadireja / 1164076}
+\subsection{Teori}
+\begin{enumerate}
+\item
+Pengertian
+\subitem
+Kecerdasan Buatan Artificial Intelligence merupakan salah satu bagian dari ilmu komputer yang mempelajari cara membuat mesin komputer dapat melakukan pekerjaan sebaik bahkan lebih baik dari yang dilakukan oleh manusia. Agar mesin dapat bekerja layaknya manusia maka perlu diberi bekal pengetahuan, sehingga mempunyai kemampuan untuk menalar. Menurut para ahli kecerdasan buatan seperti berikut:
+\begin{itemize}
+\item
+H. A. Simon:
+Kecerdasan buatan Artificial Intelligence merupakan kawasan penelitian, aplikasi dan instruksi yang terkait dengan pemrograman komputer untuk melakukan sesuatu hal yang dalam pandangan manusia adalah cerdas.
+\item
+Rich and Knight:
+Kecerdasan buatan Artificial Intelligence merupakan sebuah studi tentang bagaimana membuat komputer melakukan hal-hal yang pada saat ini dapat dilakukan lebih baik oleh manusia.
+\end{itemize}
+
+\item
+Sejarah dan Perkembangan
+\subitem
+Kata intelligence berasal dari bahasa latin intelligo yang memiliki arti saya paham. Arti dasar dari intelligence merupakan kemampuan untuk memahami dan melakukan aksi. Area Kecerdasan Buatan Artificial Intelligence, bermula pada saat kemunculan komputer sekitar tahun 1940-an, walaupun sejarah perkembangannya dapat dilacak sejak zaman Mesir kuno. Pada masa saat ini, perhatian difokuskan pada kemampuan komputer mengerjakan sesuatu yang dapat dilakukan oleh manusia. Dalam hal ini, komputer tersebut dapat meniru kemampuan kecerdasan dan perilaku manusia dengan akurasi yang cukup baik \cite{warwick2013artificial}.
+\subitem
+Pada akhir tahun 1955, Newell dan Simon mengembangkan The Logic Theorist, program AI pertama, program ini merepresentasikan masalah sebagai model pohon, lalu penyelesaiannya dengan memilih cabang yang akan menghasilkan kesimpulan yang paling benar. Pada tahun 1956 John McCarthy dari Massacuhetts Institute of Technology dianggap sebagai bapak AI, menyelenggarakan konferensi untuk menarik para ahli komputer bertemu, dengan nama kegiatan The Dartmouth Summer Research Project on Artificial Intelligence. Konferensi Dartmouth itu mempertemukkan para pendiri AI, dan bertugas untuk meletakkan dasar bagi masa depan pengembangan dan penelitian AI. John McCarthy saat itu mengusulkan definisi AI adalah AI merupakan cabang dari ilmu komputer yang berfokus pada pengembangan komputer untuk dapat memiliki kemampuan dan berprilaku seperti manusia\cite{bassil2012expert}.
+
+\item
+Supervised Learning dan Unsupervised Learning
+\subitem
+Supervised Learning merupakan suatu pendekatan dimana sudah terdapat data yang dilatih, dan terdapat variable yang ditargetkan sehingga tujuan dari pendekatan ini adalah mengelompokan suatu data ke data yang sudah ada. Sebagai contoh, ketika Anda memiliki sejumlah buku yang sudah dibeli dengan beberapa kategori. Misalnya, kategori buku akademik, dan buku novel. Selanjutnya Anda membeli sejumlah buku baru, maka Anda harus mengindentifikasi buku tersebut, dan memasukannya dalam kategori yang sudah ada.
+\subitem
+Unsupervised Learning merupakan suatu pendekatan namun tidak memiliki data yang dilatih, sehingga dari data yang ada, kita dapat mengelompokan data tersebut menjadi 2 bagian atau 3 bagian dan seterusnya. Sebagai contoh, Anda belum pernah membeli sejumlah buku, suatu hari Anda membeli sejumlah buku dan ingin membaginya kedalam beberapa kategori agar mudah dicari. Anda akan mengidentifikasi buku mana yang mirip. Dalam hal ini, kita memilih buku berdasarkan isinya.
+
+
+\item
+Klasifikasi dan Regresi
+\subitem
+Klasifikasi merupakan penempatan objek-objek ke salah satu dari beberapa kategori yang telah ditentukan sebelumnya. Klasifikasi banyak digunakan untuk memprediksi kelas pada suatu label atau atribut tertentu, yaitu dengan mengklasifikasi data membangun model berdasarkan training set dan nilai-nilai dalm mengklasifikasikan data yang baru.
+Regresi dibedakan menjadi 2, diantaranya regresi linear dan regresi nonlinear.
+\begin{itemize}
+\item
+Regresi Linear
+Regresi Linear merupakan bentuk hubungan di mana variabel bebas x maupun variabel tergantung y sebagai faktor yang berpangkat satu.
+\item
+Regresi Nonlinear
+Regresi Nonlinear merupakan bentuk hubungan atau fungsi di mana variabel x dan variabel tidak bebas y dapat berfungsi sebagai faktor atau variabel dengan pangkat tertentu.
+\end{itemize}
+
+\item
+Data set, Training set, dan Testing set
+\subitem
+Untuk melakukan data set, training set, dan testing set diperlukan beberapa langkah, diantaranya:
+\begin{itemize}
+\item
+Membuat model atau mesin untuk memeriksa data,
+\item
+Membuat model atau mesin belajar dari kesalahannya,
+\item
+Membuat kesimpulan tentang sebarapa baik kinerja model atau mesin tersebut.
+\end{itemize}
+
+\begin{enumerate}
+\item
+Data set
+\subitem
+Data set ini mencakup sekumpulan contoh input yang modelnya akan cocok atau dilatih dengan menyesuaikan parameter.
+\item
+Training set
+\subitem
+Training set diperlukan oleh model atau mesin agar dapat dilatih. Dengan menghitung kerugian tingkat kesalahan yang dilakukan model atau mesin menghasilkan pada set validasi pada titik tertentu, agar kita tahu seberapa akuratnya. Selanjutnya, model akan menyesuaikan parameternya berdasarkan hasil evaluasi yang sering pada training set ini.
+\item
+Testing set
+\subitem
+Testing set sangat penting untuk menguji generelasi model atau mesin. Dengan testing set ini, kita bisa mendapatkan akurasi kinerja model atau mesin.
+\end{enumerate}
+
+\end{enumerate}
+
+\subsection{Instalasi}
+\subsubsection{Proses Instalasi Anaconda dan Library Scikit}
+\begin{enumerate}
+\item Pertama kita unduh terlebih dahulu aplikasi anaconda, seperti gambar berikut
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/1.png}
+\caption{Download Aplikasi Anaconda}
+\end{figure}
+
+\item Setelah di unduh, selanjutnya buka aplikasi tersebut. Lalu klik next untuk melanjutkan.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{figures/2.png}
+\caption{Proses Instalasi Aplikasi}
+\end{figure}
+
+\item Lalu klik I Agree untuk melanjutkan.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{figures/3.png}
+\caption{Proses Instalasi Aplikasi}
+\end{figure}
+
+\item Selanjutnya pilih Just me agar aplikasi tersebut hanya dapat digunakan oleh user yang login pada laptop tersebut.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{figures/4.png}
+\caption{Proses Instalasi Aplikasi}
+\end{figure}
+
+\item Lalu tentukan direktori penyimpanan file tersebut
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{figures/5.png}
+\caption{Proses Instalasi Aplikasi}
+\end{figure}
+
+\item Selanjutnya akan muncul pop up box tentang advance installation options, ceklis keduanya.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{figures/6.png}
+\caption{Proses Instalasi Aplikasi}
+\end{figure}
+
+\item Tunggu hingga proses install selesai
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{figures/7.png}
+\caption{Proses Instalasi Aplikasi}
+\end{figure}
+
+\item Setelah proses instalasi selesai, klik next
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{figures/8.png}
+\caption{Proses Instalasi Aplikasi}
+\end{figure}
+
+\item Pada bagian selanjutnya akan muncul box dengan memberikan pilihan untuk install VS Code,  jika tidak klik skip.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{figures/9.png}
+\caption{Proses Instalasi Aplikasi}
+\end{figure}
+
+\item Setelah selesai, klik finish
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{figures/10.png}
+\caption{Proses Instalasi Aplikasi}
+\end{figure}
+
+\item Setelah proses instalasi selesai, selanjutnya buka cmd dan ketikan seperti berikut.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/16.png}
+\caption{Instalasi Library}
+\end{figure}
+
+\item Selanjutnya ketikan perintah berikut untuk mengunduh library scikit
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/17.png}
+\caption{Instalasi Library}
+\end{figure}
+
+\item Jika sudah berhasil selanjutnya, ketikan perintah seperti gambar berikut untuk malakukan cek versi conda dan python
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{figures/18.png}
+\caption{Instalasi Library}
+\end{figure}
+
+\item Mencoba dan mengcompile source code, hasilnya seperti berikut
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/19.png}
+\caption{Instalasi Library}
+\end{figure}
+\end{enumerate}
+
+\subsection{Mencoba Loading Dataset}
+\begin{enumerate}
+\item Berikut source code yang menjelaskan tentang loading dataset. Pada baris pertama code tersebut berfungsi untuk import library datasets dari sklearn. Baris kedua berfungsi untuk menampilkan data secara berurutan. Baris ketiga untuk menampilkan data tersebut berupa angka dan baris keempat untuk menampilkan data tersebut.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/20.png}
+\caption{Loading dataset}
+\end{figure}
+\end{enumerate}
+
+
