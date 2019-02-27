@@ -177,24 +177,267 @@ Install pip, lihat pada gambar 1.3
 Hasil Kompile, lihat gambar 1.4
 \end{itemize}
 
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]{figures/32.PNG}}
+\caption{conda install scikit-learn.}
+\end{figure}
 
-\begin{figure}[ht]\centerline{\includegraphics[width=1\textwidth]{figures/32.PNG}}\caption{conda install scikit-learn.}\end{figure}
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]{figures/31.PNG}}
+\caption{Melihat Version.}
+\end{figure}
 
-\begin{figure}[ht]\centerline{\includegraphics[width=1\textwidth]{figures/31.PNG}}\caption{Melihat Version.}\end{figure}
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]{figures/33.PNG}}
+\caption{Install pip.}
+\end{figure}
 
-\begin{figure}[ht]\centerline{\includegraphics[width=1\textwidth]{figures/33.PNG}}\caption{Install pip.}\end{figure}
-
-\begin{figure}[ht]\centerline{\includegraphics[width=1\textwidth]{figures/35.PNG}}\caption{Hasil Kompile.}\end{figure}
-
-
-
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]{figures/35.PNG}}
+\caption{Hasil Kompile.}
+\end{figure}
 
 \subitem
 Dataset adalah objek seperti kamus yang menyimpan semua data dan berupa metadata tentang data. Data tersebut disimpan di .data anggota yang merupakan array. Misalnya dalam kasus dataset digit, memberikan akses ke fitur yang dapat digunakan untuk mengklarifikasikan sempel digit, lihat gambar 1.5.
 
-\begin{figure}[ht]\centerline{\includegraphics[width=1\textwidth]{figures/36.PNG}}\caption{Dataset.}\end{figure}
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]{figures/36.PNG}}
+\caption{Dataset.}
+\end{figure}
 
+\subsection{Learning And Predicting}
+\begin{verbatim}
+
+from sklearn import datasets
+iris = datasets.load_iris()
+digits = datasets.load_digits()
+from sklearn import svm
+clf = svm.SVC(gamma=0.0001, C=100.)
+clf.fit(digits.data[:-1], digits.target[:-1])
+clf.predict(digits.data[-1:])
+
+\end{verbatim}
+\subitem
+Pada baris pertama akan melakukan import datasets dari folder sklearn.
+Pada baris kedua akan mengambil datasets iris dari folder iris
+Pada baris ketiga yaitu akan mengambil datasets digit dari folder digit
+Pada baris keempat akan melakukan import svm dari folder sklearn
+Pada baris Kelimla akan melakukan deklarasi gamma
+Pada baris kenam akan membaca data digits dan target digits
+Pada baris ketujuh akan melakukan prediksi data
+
+\subsection{ Model Persistence}
+
+\begin{verbatim}
+
+from sklearn import svm
+from sklearn import datasets
+ clf = svm.SVC(gamma='scale')
+ iris = datasets.load_iris()
+ X, y = iris.data, iris.target
+ clf.fit(X, y)  
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='scale', kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+
+import pickle
+ s = pickle.dumps(clf)
+ clf2 = pickle.loads(s)
+ clf2.predict(X[0:1])
+array([0])
+ y[0]
+0
+
+\end{verbatim}
+\subitem
+Pada baris pertama akan melakukan import svm dari folder sklearn
+Pada baris kedua akan melakukan import datasets dari folder sklearn
+Pada baris ketiga akan mendeklarasikan gamma dengan scale
+Pada baris keempat akan mengambil datasets iris dari folder iris
+Pada bari kelima akan mendeklarasikan data iris dan target iris dengan X dan y
+Pada baris ke delapan akan melakukan import pickle
+Pada baris kesembilan akan memanggil deklarasi scale dengan s
+Pada baris kesepuluh akan mengambil data pickle
+Pada baris berikutnya akan melakukan prediksi dan memunculkan hasilnya
+
+\subsection{Conventions}
+\begin{verbatim}
+1.
+import numpy as np
+from sklearn import random_projection
+
+ rng = np.random.RandomState(0)
+ X = rng.rand(10, 2000)
+ X = np.array(X, dtype='float32')
+ X.dtype
+dtype('float32')
+
+ transformer = random_projection.GaussianRandomProjection()
+ X_new = transformer.fit_transform(X)
+ X_new.dtype
+dtype('float64')
+
+\end{verbatim}
+\subitem
+Pada baris pertama akan melakukan import numpy.
+Pada baris berikutnya akan melakukan import akan tetapi dengan data yang random pada folder sklearn.
+Pada baris berikutnya akan menentukan nilan array dan radian pada X.
+Pada baris berikutnya menentukan type data X.
+Pada baris berikutnya dijelaskan bahwa typenya yaitu float 32.
+Pada baris berikunya akan menentukan random project dengan menggunakan transformer.
+Baris berikutnya membuat nilai X baru dan mengirimnya dengan menggunakan transformer.fit\_transform.
+Pada baris berikutnya membuat type baru pada X.
+Pada baris berikutnya hasil dari type tersebut adalah float64.
+
+\begin{verbatim}
+
+2.
+ from sklearn import datasets
+ from sklearn.svm import SVC
+ iris = datasets.load_iris()
+ clf = SVC(gamma='scale')
+ clf.fit(iris.data, iris.target)  
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='scale', kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+
+ list(clf.predict(iris.data[:3]))
+[0, 0, 0]
+
+ clf.fit(iris.data, iris.target_names[iris.target])  
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='scale', kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+
+ list(clf.predict(iris.data[:3]))  
+['setosa', 'setosa', 'setosa']
+
+\end{verbatim}
+\subitem
+Pada baris pertama melakukan importdatasets dari folder sklearn.
+Pada baris berikutnya akan melakukan import SVC dari folder sklearn.
+Pada baris berikutnya akan mengambil datasets iriis dari folder iris.
+Pada baris berikutnya akan melakukan deklarasi pada gamma
+Pada baris berikutnya membaca data iris dan target iris.
+Pada baris berikutnya akan melakukan prediksi dan hasilnya adalah 0,0,0.
+Pada baris berikutnya akan memberikan nama pada setiap data iris.
+Pada baris berikutnya akan melakukan prediksi dan akan memunculkan hasilnya.
+
+\subsection{Refitting And Updating Parameters}
+
+\begin{verbatim}
+
+import numpy as np
+from sklearn.svm import SVC
+
+rng = np.random.RandomState(0)
+ X = rng.rand(100, 10)
+ y = rng.binomial(1, 0.5, 100)
+ X_test = rng.rand(5, 10)
+
+ clf = SVC()
+ clf.set_params(kernel='linear').fit(X, y)  
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='auto_deprecated',
+  kernel='linear', max_iter=-1, probability=False, random_state=None,
+  shrinking=True, tol=0.001, verbose=False) clf.predict(X_test)
+array([1, 0, 1, 1, 0])
+
+ clf.set_params(kernel='rbf', gamma='scale').fit(X, y)  
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='scale', kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+ clf.predict(X_test)
+array([1, 0, 1, 1, 0])
+
+\end{verbatim}
+\subitem
+Pada baris pertama akan melakukan import pada numpy.
+Pada baris selanjutnya akan melakukan import SVC dari folder sklearn.
+Pada baris berikutnya akan menentukan nilai dari RandomState.
+Pada baris berikutnya akan menentukan metode yang digunakan yaitu linier dan akan membaca data SVC.
+Hasilnya berupa da array.
+
+\subsection{Multiclass VS Multilabel Fitting}
+
+\begin{verbatim}
+1.
+ from sklearn.svm import SVC
+ from sklearn.multiclass import OneVsRestClassifier
+ from sklearn.preprocessing import LabelBinarizer
+
+ X = [[1, 2], [2, 4], [4, 5], [3, 2], [3, 1]]
+ y = [0, 0, 1, 1, 2]
+classif = OneVsRestClassifier(estimator=SVC(gamma='scale', random_state=0))
+classif.fit(X, y).predict(X)
+array([0, 0, 1, 1, 2])
+\end{verbatim}
+\subitem
+Pada baris pertama akan melakukan import SVC pada folder sklearn.
+Pada baris berikutnya akan melakukan import class.
+Class yang digunakan adalah OneVsRestClassifier sehingga akan menciptakan outputan array.
+\begin{verbatim}
+2.
+ y = LabelBinarizer().fit_transform(y)
+classif.fit(X, y).predict(X)
+array([[1, 0, 0],
+       [1, 0, 0],
+       [0, 1, 0],
+       [0, 0, 0],
+       [0, 0, 0]])
+\end{verbatim}
+\subitem
+Codingan tersebut akan membaca output pada label dan akan mengeluarkan data array.
+\begin{verbatim}
+3.
+from sklearn.preprocessing import MultiLabelBinarizer
+y = [[0, 1], [0, 2], [1, 3], [0, 2, 3], [2, 4]]
+y = MultiLabelBinarizer().fit_transform(y)
+classif.fit(X, y).predict(X)
+array([[1, 1, 0, 0, 0],
+       [1, 0, 1, 0, 0],
+       [0, 1, 0, 1, 0],
+       [1, 0, 1, 0, 0],
+       [1, 0, 1, 0, 0]])
+\end{verbatim}
+\subitem
+Pada baris pertama akan melakukan import Multilabelbinarizer yang berisikan data-data lalu di transform sehingga memunculkan data array.
+
+\subsection{Penjelasan Eror}
+\subitem
+Dimana Erorr Tersebut dapat di lihat pada gambar Figure Joblib Erorr
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]{figures/Joblib Erorr Y.PNG}}
+\caption{Joblib Erorr.}
+\end{figure}
+
+\subitem
+Codingan yang eror tersebut adalah
+\begin{verbatim}
+from joblib import dump, load
+\end{verbatim}
+\subitem
+Hal ini dikarenakan belum terinstallnya file joblib di dalam pc anda. Untuk menginstallnya cukup berikan perintah
+\begin{verbatim}
+pip install joblib
+\end{verbatim}
+
+\subitem
+maka hasilnya akan nampak sepeti pada gambar hasil joblib
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]{figures/Hasil Joblib Y.PNG}}
+\caption{Hasil Joblib.}
+\end{figure}
 \end{enumerate}
+
+
+
 
 
 
