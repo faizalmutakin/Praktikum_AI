@@ -327,8 +327,9 @@ Apabila sudah terinstall, dapat dilakukan lagi import library joblib, maka akan 
 \section{Yusniar Nur Syarif Sidiq/1164089}
 \subsection{Teori}
 \begin{enumerate}
+
 \item
-Definisi, Sejarah, Dan Perkembangan Sejarah AI
+Sejarah Perkembangan Dan Definisi AI
 \subitem
 Kecerdasan buatan merupakan sebuah bidang dalam ilmu computer yang begitu penting di zaman ini dan masa yang akan datang guna mewujudkan sebuah sistem computer yang begitu cerdas. Kecerdasan buatan sudah berkembang begitu pesat dalam 20 tahun terakhir seiring dengan adanya kebutuhan perangkat yang cerdas pada bidang industry dan rumah tangga.
 \subitem
@@ -337,9 +338,12 @@ Artificial Intelligence atau biasa di singkat dengan AI berasal dari bahasa lati
 Pada tahun 1955, Newell dan juga Simon telah mengembangkan The Logic Theorist, yaitu program AI pertama. Dimana program tersebut mempresentasikan sebuah masalah sebagai model pohon, lalu diselesaikan dengaan cara memilih cabang yang akan mewujudkan kesimpulan terbenar dan tepat. Program AI tersebut berdampak sangat besar dan dapat mendaji batu loncatan yang cukup penting dalam mengembangkan bidang AI. Sekitar tahun 1956 dimana orang yang dianggap sebagai bapak AI yaitu John McCarthy telah menyelenggarakan konferensi guna menarik para ahli dibidang komputer untuk bertemu, dengan acara yang diberi nama The Dartmouth Summer Research Project On Artificial Intelligence. Dalam konferensi tersebut telah mempertemukan pendiri dan pengembang AI. Pada konferensi tersebut bapak AI John McCarthy mengusulkan definisi AI yaitu merupakan cabang dari sebuah ilmu komputer yang dapat berfokus terhadap pengembangan computer sehingga dapat memiliki kemampuan dan juga prilaku seperti manusia.\cite{baraja2008kecerdasan}.
 
 \item
-Definisi Supervised Learning, Unsupervised Learning, Klasifikasi, Dan Regresi
+Definisi Supervised Learning Dan Unsupervised Learning
 \subitem
 Supervised Learning merupakan sebuah pendekatan yang dimana terdapat data dan variable yang telah ditargetkan sehingga pendekatan tersebut bertujuan untuk mengelompokkan sebuah data ke data yang sudah ada, beda dengan Unsupervised learning yang tidak mempunyai data, sehingga data yang ada harus di kelompokkan menjadi beberapa bagian.
+
+\item
+Definisi  Klasifikasi Dan Regresi
 \subitem
 Klasifikasi merupakan sebuah kegiatan penggolongan atau pengelompokkan. Menurut kamus besar bahasa Indonesia yang dimana klasifikasi merupakan penyusunan sistem di dalam kelompok atau golongan berdasarkan kaidah atau standar yang telah ditetapkan. Regresi merupakan sebuah metode analisis statistic yang akan digunakan untuk melihat pengaruh variable.
 
@@ -349,282 +353,267 @@ Devinisi Dataset, Training Set, Dan Testing Set
 Dataset merupakan sebuah objek yang akan mempresentasikan sebuah data dan relasinya di memory. Struktur pada dataset ini mirip dengan data yang ada di dalam database. Training set merupakan bagian dari dataset yang berperan dalam membuat prediksi atau algoritma sesuai tujuan masing – masing. Testing set merupakan bagian dari dataset yang akan di tes guna melihat keakuratatan atau ketepatan datanya.
 
 \subsection{Instalasi}
-
+\subitem
+Untuk melakukan instalasi Anaconda ikuti tutorial berikut.
 \begin{itemize}
 \item
-Memberikan perintah conda install scikit-learn di cmd, lihat gambar 1.1
+Memberikan perintah \begin{verbatim} conda install scikit-learn \end{verbatim} di cmd, lihat pada figure \ref{gambarYN1}
 \item
-Melihat versinya dengan memberikan perintah conda --version dan python --version, lihat gambar 1.2
+Melihat versinya dengan memberikan perintah \begin{verbatim} conda --version \end{verbatim} dan \begin{verbatim} python --version \end{verbatim} lihat pada figure \ref{gambarYN2}
 \item
-Install pip, lihat pada gambar 1.3
+Install pip, lihat pada figure \ref{gambarYN3}
 \item
-Hasil Kompile, lihat gambar 1.4
+Hasil Kompile, lihat pada figure \ref{gambarYN4}
 \end{itemize}
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=1\textwidth]{figures/32.PNG}}
 \caption{conda install scikit-learn.}
+\label{gambarYN1}
 \end{figure}
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=1\textwidth]{figures/31.PNG}}
 \caption{Melihat Version.}
+\label{gambarYN2}
 \end{figure}
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=1\textwidth]{figures/33.PNG}}
 \caption{Install pip.}
+\label{gambarYN3}
 \end{figure}
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=1\textwidth]{figures/35.PNG}}
 \caption{Hasil Kompile.}
+\label{gambarYN4}
 \end{figure}
 
 \subitem
-Dataset adalah objek seperti kamus yang menyimpan semua data dan berupa metadata tentang data. Data tersebut disimpan di .data anggota yang merupakan array. Misalnya dalam kasus dataset digit, memberikan akses ke fitur yang dapat digunakan untuk mengklarifikasikan sempel digit, lihat gambar 1.5.
+Dataset adalah objek seperti kamus yang menyimpan semua data dan berupa metadata tentang data. Data tersebut disimpan di .data anggota yang merupakan array. Misalnya dalam kasus dataset digit, memberikan akses ke fitur yang dapat digunakan untuk mengklarifikasikan sempel digit, lihat pada figure \ref{gambarYN5}.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=1\textwidth]{figures/36.PNG}}
 \caption{Dataset.}
+\label{gambarYN5}
 \end{figure}
 
 \subsection{Learning And Predicting}
-\begin{verbatim}
+\begin{itemize}
 
+\item Pada codingan di bawah ini yaitu terjadinya pengambilan package datasets dari Scikit-Learn.
+\begin{verbatim}
 from sklearn import datasets
+\end{verbatim}
+
+\item Pada codingan di bawah menjelaskan bahwa akan mengambil data iris dari package datasets.
+\begin{verbatim}
 iris = datasets.load_iris()
+\end{verbatim}
+
+\item Pada codingan di bawah menjelaskan bahwa akan mengambil data digits dari package datasets.
+\begin{verbatim}
 digits = datasets.load_digits()
+\end{verbatim}
+
+\item Pada codingan di bawah menjelaskan bahwa akan melakukan import sebuah Support Vector Machine (SVM) yang merupakan algoritma classification yang akan diambil dari Scikit-Learn.
+\begin{verbatim}
 from sklearn import svm
+\end{verbatim}
+
+\item Gamma tersebut akan didefinisikan secara manual, maka codingan akan terlihat seperti berikut
+\begin{verbatim}
 clf = svm.SVC(gamma=0.0001, C=100.)
+\end{verbatim}
+
+\item Untuk melihat angka prediksi dati data digits maka codingannya seperti berikut
+\begin{verbatim}
 clf.fit(digits.data[:-1], digits.target[:-1])
 clf.predict(digits.data[-1:])
-
 \end{verbatim}
-\subitem
-Pada baris pertama akan melakukan import datasets dari folder sklearn.
-Pada baris kedua akan mengambil datasets iris dari folder iris
-Pada baris ketiga yaitu akan mengambil datasets digit dari folder digit
-Pada baris keempat akan melakukan import svm dari folder sklearn
-Pada baris Kelimla akan melakukan deklarasi gamma
-Pada baris kenam akan membaca data digits dan target digits
-Pada baris ketujuh akan melakukan prediksi data
+
+\end{itemize}
 
 \subsection{ Model Persistence}
+\begin{itemize}
 
+\item  Pada codingan di bawah menjelaskan bahwa akan melakukan import sebuah Support Vector Machine (SVM) yang merupakan algoritma classification yang akan diambil dari Scikit-Learn.
 \begin{verbatim}
-
 from sklearn import svm
+\end{verbatim}
+
+\item Pada codingan di bawah menjelaskan bahwa akan melakukan import datasets yang akan diambil dari Scikit-Learn
+\begin{verbatim}
 from sklearn import datasets
+\end{verbatim}
+
+\item Codingan dibawah berfungsi untuk mendeklarasikan value pada clf yang berisi gamma
+\begin{verbatim}
  clf = svm.SVC(gamma='scale')
+\end{verbatim}
+
+\item Dimana codingan dibawah ini berfungsi untuk mengambil data iris dari datasets
+\begin{verbatim}
  iris = datasets.load_iris()
+\end{verbatim}
+
+\item Codingan dibawah menjelaskan bahwa nilai X sebagai data iris dan nilai y sebagai target iris
+\begin{verbatim}
  X, y = iris.data, iris.target
- clf.fit(X, y)  
+\end{verbatim}
+
+\item Codingan dibawah berfungsi untuk melakukan pengujian classifier
+\begin{verbatim}
+clf.fit(X, y)  
 SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
   decision_function_shape='ovr', degree=3, gamma='scale', kernel='rbf',
   max_iter=-1, probability=False, random_state=None, shrinking=True,
   tol=0.001, verbose=False)
+\end{verbatim}
 
+\item Pada codingan dibawah dijelaskan akan melakukan import pickle. Pickle digunakan sebagai serialisasi dan de-serialisasi struktur objek python. Pickle loads digunakan untuk memuat data pickle dari string byte.
+\begin{verbatim}
 import pickle
  s = pickle.dumps(clf)
  clf2 = pickle.loads(s)
+\end{verbatim}
+
+\item Codingan dibawah adalah pengujian dengan nilai baru dan target asumsinya adalah (0,1) dan hasilnya akan berbentuk array.
+\begin{verbatim}
  clf2.predict(X[0:1])
 array([0])
  y[0]
 0
-
 \end{verbatim}
-\subitem
-Pada baris pertama akan melakukan import svm dari folder sklearn
-Pada baris kedua akan melakukan import datasets dari folder sklearn
-Pada baris ketiga akan mendeklarasikan gamma dengan scale
-Pada baris keempat akan mengambil datasets iris dari folder iris
-Pada bari kelima akan mendeklarasikan data iris dan target iris dengan X dan y
-Pada baris ke delapan akan melakukan import pickle
-Pada baris kesembilan akan memanggil deklarasi scale dengan s
-Pada baris kesepuluh akan mengambil data pickle
-Pada baris berikutnya akan melakukan prediksi dan memunculkan hasilnya
+\end{itemize}
 
 \subsection{Conventions}
-\begin{verbatim}
-1.
-import numpy as np
-from sklearn import random_projection
+\begin{itemize}
 
+\item Melakukan import numpy sebagai np
+\begin{verbatim}
+import numpy as np
+\end{verbatim}
+
+\item Melakukan import project secara random dari Sciki-Learn
+\begin{verbatim}
+from sklearn import random_projection
+\end{verbatim}
+
+\item Digunakan untuk menginisialisasikan random number generator
+\begin{verbatim}
  rng = np.random.RandomState(0)
+\end{verbatim}
+
+\item Melakukan random value antara 10 sampai 2000
+\begin{verbatim}
  X = rng.rand(10, 2000)
+\end{verbatim}
+
+\item Mendeklarasikan X sebagai float32
+\begin{verbatim}
  X = np.array(X, dtype='float32')
  X.dtype
 dtype('float32')
+\end{verbatim}
 
+\item Melemparkan nilai X yaitu float32 ke float64 dengan menggunakan trasnform
+\begin{verbatim}
  transformer = random_projection.GaussianRandomProjection()
  X_new = transformer.fit_transform(X)
  X_new.dtype
 dtype('float64')
-
 \end{verbatim}
-\subitem
-Pada baris pertama akan melakukan import numpy.
-Pada baris berikutnya akan melakukan import akan tetapi dengan data yang random pada folder sklearn.
-Pada baris berikutnya akan menentukan nilan array dan radian pada X.
-Pada baris berikutnya menentukan type data X.
-Pada baris berikutnya dijelaskan bahwa typenya yaitu float 32.
-Pada baris berikunya akan menentukan random project dengan menggunakan transformer.
-Baris berikutnya membuat nilai X baru dan mengirimnya dengan menggunakan transformer.fit\_transform.
-Pada baris berikutnya membuat type baru pada X.
-Pada baris berikutnya hasil dari type tersebut adalah float64.
 
+\item Melakukan import datasets dari Sciki-Learn
 \begin{verbatim}
+from sklearn import datasets
+\end{verbatim}
 
-2.
- from sklearn import datasets
- from sklearn.svm import SVC
- iris = datasets.load_iris()
- clf = SVC(gamma='scale')
- clf.fit(iris.data, iris.target)  
+\item Melakukan import SVC dari sciki-learn yang ada pada svm
+\begin{verbatim}
+from sklearn.svm import SVC
+\end{verbatim}
+
+\item Mengambil datasets iris
+\begin{verbatim}
+iris = datasets.load_iris()
+\end{verbatim}
+
+\item Mendeklarasikan gamma dengan scale pada SVC dalam variabel clf
+\begin{verbatim}
+clf = SVC(gamma='scale')
+\end{verbatim}
+
+\item Membaca data iris dan target iris dari variabel clf
+\begin{verbatim}
+clf.fit(iris.data, iris.target)  
 SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
   decision_function_shape='ovr', degree=3, gamma='scale', kernel='rbf',
   max_iter=-1, probability=False, random_state=None, shrinking=True,
   tol=0.001, verbose=False)
+\end{verbatim}
 
+\item Melakukan pengujian prediksi dengan asumsi (0,3)
+\begin{verbatim}
  list(clf.predict(iris.data[:3]))
 [0, 0, 0]
+\end{verbatim}
 
+\item Membaca data iris dan nama target iris dari target iris pada variabel clf
+\begin{verbatim}
  clf.fit(iris.data, iris.target_names[iris.target])  
 SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
   decision_function_shape='ovr', degree=3, gamma='scale', kernel='rbf',
   max_iter=-1, probability=False, random_state=None, shrinking=True,
   tol=0.001, verbose=False)
+\end{verbatim}
 
+\item Melakukan pengujian prediksi dengan asumsi (0,3)
+\begin{verbatim}
  list(clf.predict(iris.data[:3]))  
 ['setosa', 'setosa', 'setosa']
-
 \end{verbatim}
-\subitem
-Pada baris pertama melakukan importdatasets dari folder sklearn.
-Pada baris berikutnya akan melakukan import SVC dari folder sklearn.
-Pada baris berikutnya akan mengambil datasets iriis dari folder iris.
-Pada baris berikutnya akan melakukan deklarasi pada gamma
-Pada baris berikutnya membaca data iris dan target iris.
-Pada baris berikutnya akan melakukan prediksi dan hasilnya adalah 0,0,0.
-Pada baris berikutnya akan memberikan nama pada setiap data iris.
-Pada baris berikutnya akan melakukan prediksi dan akan memunculkan hasilnya.
+\end{itemize}
 
-\subsection{Refitting And Updating Parameters}
+\subsection{Penanganan Error}
+\begin{itemize}
+\item
+Dimana Erorr Tersebut dapat di lihat pada figure \ref{joblibErorr}
 
-\begin{verbatim}
 
-import numpy as np
-from sklearn.svm import SVC
 
-rng = np.random.RandomState(0)
- X = rng.rand(100, 10)
- y = rng.binomial(1, 0.5, 100)
- X_test = rng.rand(5, 10)
-
- clf = SVC()
- clf.set_params(kernel='linear').fit(X, y)  
-SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
-  decision_function_shape='ovr', degree=3, gamma='auto_deprecated',
-  kernel='linear', max_iter=-1, probability=False, random_state=None,
-  shrinking=True, tol=0.001, verbose=False) clf.predict(X_test)
-array([1, 0, 1, 1, 0])
-
- clf.set_params(kernel='rbf', gamma='scale').fit(X, y)  
-SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
-  decision_function_shape='ovr', degree=3, gamma='scale', kernel='rbf',
-  max_iter=-1, probability=False, random_state=None, shrinking=True,
-  tol=0.001, verbose=False)
- clf.predict(X_test)
-array([1, 0, 1, 1, 0])
-
-\end{verbatim}
-\subitem
-Pada baris pertama akan melakukan import pada numpy.
-Pada baris selanjutnya akan melakukan import SVC dari folder sklearn.
-Pada baris berikutnya akan menentukan nilai dari RandomState.
-Pada baris berikutnya akan menentukan metode yang digunakan yaitu linier dan akan membaca data SVC.
-Hasilnya berupa da array.
-
-\subsection{Multiclass VS Multilabel Fitting}
-
-\begin{verbatim}
-1.
- from sklearn.svm import SVC
- from sklearn.multiclass import OneVsRestClassifier
- from sklearn.preprocessing import LabelBinarizer
-
- X = [[1, 2], [2, 4], [4, 5], [3, 2], [3, 1]]
- y = [0, 0, 1, 1, 2]
-classif = OneVsRestClassifier(estimator=SVC(gamma='scale', random_state=0))
-classif.fit(X, y).predict(X)
-array([0, 0, 1, 1, 2])
-\end{verbatim}
-\subitem
-Pada baris pertama akan melakukan import SVC pada folder sklearn.
-Pada baris berikutnya akan melakukan import class.
-Class yang digunakan adalah OneVsRestClassifier sehingga akan menciptakan outputan array.
-\begin{verbatim}
-2.
- y = LabelBinarizer().fit_transform(y)
-classif.fit(X, y).predict(X)
-array([[1, 0, 0],
-       [1, 0, 0],
-       [0, 1, 0],
-       [0, 0, 0],
-       [0, 0, 0]])
-\end{verbatim}
-\subitem
-Codingan tersebut akan membaca output pada label dan akan mengeluarkan data array.
-\begin{verbatim}
-3.
-from sklearn.preprocessing import MultiLabelBinarizer
-y = [[0, 1], [0, 2], [1, 3], [0, 2, 3], [2, 4]]
-y = MultiLabelBinarizer().fit_transform(y)
-classif.fit(X, y).predict(X)
-array([[1, 1, 0, 0, 0],
-       [1, 0, 1, 0, 0],
-       [0, 1, 0, 1, 0],
-       [1, 0, 1, 0, 0],
-       [1, 0, 1, 0, 0]])
-\end{verbatim}
-\subitem
-Pada baris pertama akan melakukan import Multilabelbinarizer yang berisikan data-data lalu di transform sehingga memunculkan data array.
-
-\subsection{Penjelasan Eror}
-\subitem
-Dimana Erorr Tersebut dapat di lihat pada gambar Figure Joblib Erorr
-
-\begin{figure}[ht]
-\centerline{\includegraphics[width=1\textwidth]{figures/Joblib Erorr Y.PNG}}
-\caption{Joblib Erorr.}
-\end{figure}
-
-\subitem
+\item
 Codingan yang eror tersebut adalah
 \begin{verbatim}
 from joblib import dump, load
 \end{verbatim}
-\subitem
-Hal ini dikarenakan belum terinstallnya file joblib di dalam pc anda. Untuk menginstallnya cukup berikan perintah
+
+\item
+Hal ini dikarenakan belum terinstallnya file joblib di dalam pc anda. Untuk menginstallnya cukup berikan perintah codingan dibawah, untuk lebih jelasnya liat pada figure \ref{installjb}
 \begin{verbatim}
 pip install joblib
 \end{verbatim}
 
-\subitem
-maka hasilnya akan nampak sepeti pada gambar hasil joblib
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]{figures/YN2.PNG}}
+\caption{Install Joblib.}
+\label{installjb}
+\end{figure}
+
+\item
+maka hasilnya akan nampak sepeti pada figure \ref{HasilJoblib}
 
 \begin{figure}[ht]
-\centerline{\includegraphics[width=1\textwidth]{figures/Hasil Joblib Y.PNG}}
+\centerline{\includegraphics[width=1\textwidth]{figures/YN3.PNG}}
 \caption{Hasil Joblib.}
+\label{HasilJoblib}
 \end{figure}
+
+\end{itemize}
+
 \end{enumerate}
-
-
-
-
-
-
 =======
 \section{Imron Sumadireja / 1164076}
 \subsection{Teori}
