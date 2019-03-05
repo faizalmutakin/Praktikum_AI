@@ -252,3 +252,109 @@ Misalnya, dalam contoh di bawah ini, decision tree belajar dari data untuk mempe
 \end{figure}
 \item Entropi adalah ukuran keacakan dalam informasi yang sedang diproses. Semakin tinggi entropi, semakin sulit untuk menarik kesimpulan dari informasi itu. Membalik koin adalah contoh tindakan yang memberikan informasi yang acak. Untuk koin yang tidak memiliki afinitas untuk kepala atau ekor, hasil dari sejumlah lemparan sulit diprediksi. Mengapa? Karena tidak ada hubungan antara membalik dan hasilnya. Inilah inti dari entropi.
 \end{enumerate}
+
+\section{Imron Sumadireja / 1164076}
+\subsection{Binary Classification}
+\begin{enumerate}
+\item Binary classification merupakan suatu cara untuk mengklasifikasikan atau mengkategorikan objek set dengan atribut ke dalam ke dua kategori yang sudah ada atau biasa di sebut dengan supervised. Binary classification dapat diterapkan dengan tujuan praktis, dalam banyak masalah binary classification. Untuk contoh binary classification dapat dilihat pada gambar \ref{bc}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/im11.jpg}}
+		\caption{Binary Classification.}
+		\label{bc}
+		\end{figure}
+\end{enumerate}
+
+\subsection{Supervised Learning, Unsupervised Learning, dan Classtering}
+\begin{enumerate}
+\item Supervised learning merupakan suatu pembelajaran bagi mesin untuk mempelajari suatu fungsi yang memetakan input ke output berdasarkan data yang telah diberikan dan terdapat variable yang telah ditargetkan sehingga tujuan dari pembelajaran ini mesin dapat memetakan output dengan baik. Sehingga proses training yang dilakukan pada mesin dapat berjalan sesuai dengan target yang ditentukan dan hasil dari data training tersebut dapat digunakan untuk melakukan prediksi.Contoh supervised learning dapat dilihat pada gambar berikut \ref{sl}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/im22.png}}
+		\caption{Supervised Learning.}
+		\label{sl}
+		\end{figure}
+
+\item Unsupervised learning merupakan suatu pembelajaran bagi mesin, namun tidak memiliki data latih, atau data training. Unsupervised ini dapat mengklasifikasikan suatu objek secara langsung dengan atribut seadanya pada data tersebut. Sebagai contoh, jika kita ingin mengelompokkan sekumpulan orang hanya diperlukan dari data yang ada misalnya dari jenis kelamin, pakaian yang digunakan, dan lain sebagainya. Oleh karena itu unsupervised learning ini tidak memiliki data training. Contoh supervised learning dapat dilihat pada gambar berikut \ref{ul}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/im33.png}}
+		\caption{Unsupervised Learning.}
+		\label{ul}
+		\end{figure}
+
+\item Clustering adalah metode pengelompokan data ke dalam beberapa cluster atau kelompok agar data dalam satu cluster tersebut memiliki tingkat kemiripan yang maksimum dan data dengan kemiripan yang minimum. Clustering merupakan proses satu set data ke dalam himpunan bagian atau kelompok yang disebut dengan cluster. Contoh clustering dapat dilihat pada gambar berikut \ref{c}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/im44.png}}
+		\caption{Clustering.}
+		\label{c}
+		\end{figure}
+\end{enumerate}
+
+\subsection{Evaluasi dan Akurasi}
+\begin{enumerate}
+\item Evaluasi adalah tentang bagaimana dapat mengevaluasi seberapa baik model bekerja dengan mengukur akurasinya. Dan akurasi akan didefinisikan sebagai persentase kasus yang diklasifikasikan dengan benar. Kita dapat menganalisis kesalahan yang dibuat oleh model, atau tingkat kebingungannya, menggunakan matriks kebungungan. Matriks kebingungan mengacu pada kebingungan mengacu pada kebingungan dalam model, tetapi matriks kebingungan ini bisa menjadi sedikit lebih sulit untuk dipahami ketika mereka menjadi sangat besar. Contohnya dapat dilihat pada gambar berikut \ref{EA}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/im00.png}}
+		\caption{Evaluasi dan Akurasi.}
+		\label{c}
+		\end{figure}
+\end{enumerate}
+
+\subsection{Confusion Matrix}
+\begin{enumerate}
+\item Terdapat beberapa cara untuk membuat dan membaca confusion matrix diantaranya, sebagai berikut
+	\begin{itemize}
+		\item Tentukan pokok permasalahan dan atributnya, misal pendapatan dan pengeluaran.
+		\item Buat decission tree
+		\item Buat data testingnya
+		\item Lalu mencari nilai a, b ,c dan d. Misal a = 8, b = 2, c = 2, dan d = 6.
+		\item Selanjutnya mencari nilai recall, precision, accuracy, dan error rate.
+	\end{itemize}
+\subitem Berikut contoh dari confusion matrix
+	\begin{verbatim}
+		Recall = 6/(2+6) = 1,33
+		Precision = 6/(2+6) = 1,33
+		Accuracy = (8+6)/(8+2+2+6) = 0,8
+		Error rate = (2+2)/(8+2+2+6) = 0,22
+	\end{verbatim}
+\end{enumerate}
+
+\subsection{Cara kerja K-Fold Cross Validation}
+\begin{enumerate}
+\item Untuk cara kerja K-Fold Cross Validation sebagai berikut
+	\begin{itemize}
+		\item Total instance dibagi menjadi N bagian
+		\item Fold yang pertama adalah bagian pertama menjadi data uji (testing) dan sisanya menjadi training data
+		\item Lalu hitung akurasi berdasarkan porsi data tersebut dengan menggunakan persamaan
+		\item Fold yang kedua adalah bagian ke dua menjadi data uji (testing) dan sisanya menjadi training data
+		\item Lalu hitung akurasi berdasarkan porsi data tersebut
+		\item Dan selanjutnya hingga mencapai fold ke-4
+		\item Terakhir hitung rata-rata akurasi K buah.
+	\end{itemize}
+\subitem Ilustrasi dari K-Fold Cross Validation dapat dilihat pada gambar \ref{KF}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/im55.png}}
+		\caption{K-Fold Cross Validation.}
+		\label{KF}
+		\end{figure}
+\end{enumerate}
+
+\subsection{Decision Tree}
+\begin{enumerate}
+\item Decision tree adalah sebuah metode pembelajaran yang diawasi non-parametik digunakan untuk klasifikasi dan regresi. Decision tree digunakan untuk membuat sebuah model yang dapat memprediksi variable dengan mempelajari aturan keputusan dengan ciri-ciri yang terdapat pada atribut tersebut. Sebagai contoh decision tree dapat melakukan prediksi apakah di bulan terdapat gravitasi atau bukan. Contohnya dapat dilihat pada gambar berikut \ref{DT}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/im66.png}}
+		\caption{Decision Tree.}
+		\label{DT}
+		\end{figure}
+\end{enumerate}
+
+\subsection{Information Gain dan Entropi}
+\begin{enumerate}
+\item Information Gain adalah informasi atau kriteria dalam pembagian sebuah objek. Sebagai contoh misalnya information gain pada gambar laki-laki, atribut yang biasanya dimiliki pada gambar laki-laki diantaranya berambut pendek, berjakun, berjenggot, berkumis. Dalam beberapa hal terdapat perempuan yang memiliki rambut pendek, berkumis, dan berjenggot, namun dari parameter yang telah di identifikasi bahwa gambar tersebut memiliki akurasi yang lebih tinggi jadi dapat disimpulkan bahwa gambar tersebut adalah laki-laki. Untuk lebih jelasnya bisa dilihat dalam gambar \ref{IGE}
+
+\item Entropi merupakan ukuran dari keacakan informasi, semakin tinggi entropi maka akan semakin sulit dalam menentukan suatu keputusan
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/im77.jpg}}
+		\caption{Information Gain dan Entropi.}
+		\label{IGE}
+		\end{figure}
+\end{enumerate}
