@@ -607,3 +607,275 @@ Dari percobaan yang telah dilakukan saya mengalami 2 kali error, berikut screens
 \item Setelah itu semua selesai, maka permasalahan pun sudah ditangani.
 \end{enumerate}
 
+\section{scikit-learn}
+HARI KEDUA ANDRI FAJAR SUNANDHAR 1164065
+
+\begin{enumerate}
+
+\item
+\begin{verbatim}
+	# load dataset (student Portuguese scores)
+	import pandas as apel
+	jeruk = apel.read_csv('E:\KAMPUS\Semester 6\Kecerdasan Buatan\modul\Python-Artificial-Intelligence-Projects-for-			 	Beginners\Chapter01\dataset\student-mat.csv', sep=';')
+	len(jeruk)
+\end{verbatim}
+
+\par
+Untuk mengimport atau memanggil module pandas sebagai apel. Kemudian mendefinisikan variabel "jeruk" yang akan memanggil dataset yang didapatkan dari data student-mat.csv 
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/1.png}
+\caption{Loading Dataset}
+\label{Spyder}
+\end{figure}
+\item
+\begin{verbatim}
+	# generate binary label (pass/fail) based on G1+G2+G3 (test grades, each 0-20 pts); threshold for passing is sum>=30
+	jeruk['pass'] = jeruk.apply(lambda row: 1 if (row['G1']+row['G2']+row['G3']) >= 35 else 0, axis=1)
+	jeruk = jeruk.drop(['G1', 'G2', 'G3'], axis=1)
+	jeruk.head()
+\end{verbatim}
+
+\par
+mendeklarasikan label pass/fail nya data berdasarkan G1+G2+G3. 
+kemudian pada variabel jeruk dideklarasikan  jika baris dengan G1+G2+G3 ditambahkan, dan hasilnya sama dengan 35 maka axisnya 1. 
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/2.png}
+\caption{Generate Binary Label}
+\label{Spyder}
+\end{figure}
+\item
+\begin{verbatim}
+	# use one-hot encoding on categorical columns
+	jeruk = apel.get_dummies(jeruk, columns=['sex', 'school', 'address', 'famsize', 'Pstatus', 'Mjob', 'Fjob', 
+                               'reason', 'guardian', 'schoolsup', 'famsup', 'paid', 'activities',
+                               'nursery', 'higher', 'internet', 'romantic'])
+	jeruk.head()
+\end{verbatim}
+\par
+One-hot encoding adalah proses di mana variabel kategorikal dikonversi menjadi bentuk yang dapat disediakan untuk algoritma .
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/3.png}
+\caption{One-hot Encoding}
+\label{Spyder}
+\end{figure}
+\item
+\begin{verbatim}
+	# shuffle rows
+	jeruk = jeruk.sample(frac=1)
+	# split training and testing data
+	jeruk_train = jeruk[:500]
+	jeruk_test = jeruk[500:]
+
+	jeruk_train_att = jeruk_train.drop(['pass'], axis=1)
+	jeruk_train_pass = jeruk_train['pass']
+
+	jeruk_test_att = jeruk_test.drop(['pass'], axis=1)
+	jeruk_test_pass = jeruk_test['pass']
+
+	jeruk_att = jeruk.drop(['pass'], axis=1)
+	jeruk_pass = jeruk['pass']
+
+	# number of passing students in whole dataset:
+	import numpy as np
+	print("Passing: %d out of %d (%.2f%%)" % (np.sum(jeruk_pass), len(jeruk_pass), 100*float(np.sum(jeruk_pass)) / 	len(jeruk_pass)))
+\end{verbatim}
+
+\par
+ Pada bagian tersebut, terdapat train dan test yaing digunakan untuk untuk membagi train, test dan kemudian membagi lagi train ke validasi dan test.\\
+Kemudia akan mengimport module numpy sebagai np yang akan digunakan untuk mengembalikan nilai passing dari pelajar dari keseluruhan dataset dengan cara print.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/4.png}
+\caption{Shuffle Rows}
+\label{Spyder}
+\end{figure}
+\item 
+\begin{verbatim}
+	# fit a decision tree
+	from sklearn import tree
+	semangka = tree.DecisionTreeClassifier(criterion="entropy", max_depth=5)
+	semangka = semangka.fit(jeruk_train_att, jeruk_train_pass)
+\end{verbatim}
+
+\par
+Dari librari scikitlearn import modul tree. Kemudian definisikan variabel semangka dengan menggunakan DecisionTreeClassifier. Kemudian pada variabel semangka terdapat Criterion , setelah itu agar DecisionTreeClassifier dapat dijalankan gunakan perintah fit. hasilnya seperti dibawah
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/5.png}
+\caption{Fit Decision Tree}
+\label{Spyder}
+\end{figure}
+\item
+\begin{verbatim}
+	# visualize tree
+	import graphviz
+	dot_data = tree.export_graphviz(semangka, out_file=None, label="all", impurity=False, proportion=True,
+                                feature_names=list(jeruk_train_att), class_names=["fail", "pass"], 
+                                filled=True, rounded=True)
+	graph = graphviz.Source(dot_data)
+	graph
+\end{verbatim}
+
+\par
+Mengimport Graphviz Sehingga akan muncul gambardiagram  grafik bercabang.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/6.png}
+\caption{Fit Decision Tree}
+\label{Spyder}
+\end{figure}
+\item
+\begin{verbatim}
+	# save tree
+	tree.export_graphviz(semangka, out_file="student-performance.dot", label="all", impurity=False, proportion=True,
+                     feature_names=list(jeruk_train_att), class_names=["fail", "pass"], 
+                     filled=True, rounded=True)
+\end{verbatim}
+
+\par
+tree.exportgraphviz merupakan fungsi yang menghasilkan representasi Graphviz dari decision tree.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/7.png}
+\caption{Fit Decision Tree}
+\label{Spyder}
+\end{figure}
+\item
+\begin{verbatim}
+	semangka.score(jeruk_test_att, jeruk_test_pass)
+\end{verbatim}
+
+\par
+Score juga disebut prediksi, Nilai atau skor yang dibuat dapat mewakili prediksi nilai masa depan, tetapi mereka juga mungkin mewakili kategori atau hasil yang mungkin. disini semangka akan memprediksi jeruk.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/88.jpeg}
+\caption{Score}
+\label{Spyder}
+\end{figure}
+\item
+\begin{verbatim}
+	from sklearn.model_selection import cross_val_score
+	scores = cross_val_score(semangka, jeruk_att, jeruk_pass, cv=5)
+	# show average score and +/- two standard deviations away (covering 95% of scores)
+	print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+\end{verbatim}
+
+\par
+ Dari sklearn.modelselection akan mengimport crossvalscore. Kemudian akan menampilkan score rata rata dan kurang lebih dua standar deviasi yang mencakup 95 persen score.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/9.png}
+\caption{Cross Val Score}
+\label{Spyder}
+\end{figure}
+\item 
+\begin{verbatim}
+	for max_depth in range(1, 20):
+   	 semangka = tree.DecisionTreeClassifier(criterion="entropy", max_depth=max_depth)
+    	scores = cross_val_score(semangka, jeruk_att, jeruk_pass, cv=5)
+    	print("Max depth: %d, Accuracy: %0.2f (+/- %0.2f)" % (max_depth, scores.mean(), scores.std() * 2))
+\end{verbatim}
+
+\par
+Semangka akan mendefinisikan tree.DecissionTreeClassifier nya yang kemudian variabel semangka akan mengevaluasi score dengan validasi silang.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/10.png}
+\caption{Max Depth}
+\label{Spyder}
+\end{figure}
+\item
+\begin{verbatim}
+	depth_acc = np.empty((19,3), float)
+	i = 0
+	for max_depth in range(1, 20):
+    	semangka = tree.DecisionTreeClassifier(criterion="entropy", max_depth=max_depth)
+    	scores = cross_val_score(semangka, jeruk_att, jeruk_pass, cv=5)
+   	 depth_acc[i,0] = max_depth
+   	 depth_acc[i,1] = scores.mean()
+   	 depth_acc[i,2] = scores.std() * 2
+   	 i += 1
+    
+	depth_acc
+
+\end{verbatim}
+
+\par
+Dengan 19 sebagai bentuk array kosong, 3 sebagai output data-type dan float urutan kolom-utama (gaya Fortran) dalam memori. variabel semangka yang akan melakukan split score dan nangka akan mengvalidasi score secara silang. 
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/11.png}
+\caption{Depth in Range}
+\label{Spyder}
+\end{figure}
+\item 
+\begin{verbatim}
+	import matplotlib.pyplot as plt
+	fig, ax = plt.subplots()
+	ax.errorbar(depth_acc[:,0], depth_acc[:,1], yerr=depth_acc[:,2])
+	plt.show()
+\end{verbatim}
+
+\par
+Mengimpor librari dari matplotlib yaitu pylot sebagai plt\\
+fig dan ax menggunakan subplots untuk membuat gambar .\\
+ax.errorbar akan membuat error bar
+\\
+\\
+\\
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/12.png}
+\caption{Matplotlib}
+\label{Spyder}
+\end{figure}
+\end{enumerate}
+
+\section{Penanganan Error}
+Hari Kedua Andri fajar Sunandhar 1164065
+\subsection{Error Graphviz}
+\begin{enumerate}
+	\item
+error yang didapatkan saat menjalankan Graphviz
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/20.png}
+\caption{Error Graphviz}
+\label{Error}
+\end{figure}
+	\item
+Kode erornya adalah ModuleNotFoundError. Eror ini terjadi karena module named Graphviz nya tidak ada.
+	\item
+Solusi yang bisa dilakukan untuk mengatasi eror tersebut adalah sebagai berikut : \\
+\begin{itemize}
+\item
+buka CMD kemudian perintah pip install graphviz
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/21.png}
+\caption{install Graphviz}
+\label{solusi}
+\end{figure}
+\item
+masukan perintah conda install pip, untuk solving environment
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/22.png}
+\caption{Solving Environment}
+\label{solusi}
+\end{figure}
+\item
+selanjutnya masukan perintah conda install python-graphviz , untuk menambahkan package python-graphviz pada conda
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/spyder/23.png}
+\caption{Evaluasi Eror}
+\label{Eror}
+\end{figure}
+\end{itemize}
+\end{enumerate}
+
