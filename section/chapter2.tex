@@ -141,6 +141,258 @@ cite and paraphrase method 2 if you have more method please add new subsection.
 		\end{figure}
 \end{enumerate}
 
+\section{Scikit Learn}
+
+\begin{enumerate}
+
+		\item
+		\begin{verbatim}
+			import pandas as salak
+			sawo = salak.read_csv('D:/Perkuliahan/Semester 6/
+			Kecerdasan Buatan/BUKU AI/
+			Python-Artificial-Intelligence-Projects-for-Beginners/
+			Chapter01/dataset/student-por.csv', sep=';')
+			len(sawo)
+		\end{verbatim}
+
+	\subitem Source Code tersebut digunakan untuk melakukan import pandas yang di rename dengan salak. Disini saya membuat 			variabel sawo yang dimana isinya fungsi dari read\_csv lalu panggil file csv nya yaitu student-por.csv dan separatornya adalah 		";". fungsi dari len sendiri yaitu hanya meng outputkan saja. Hasil source code yang di running dalam spyder tersebut adalah 			gambar \ref{YNO1}
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil1.png}}
+		\caption{Output No 1.}
+		\label{YNO1}
+	\end{figure}
+
+		\item
+	\begin{verbatim}
+		sawo['pass'] = sawo.apply(lambda row: 1 if 
+		(row['G1']+row['G2']+row['G3']) >= 35 else 0, axis=1)
+		sawo = sawo.drop(['G1', 'G2', 'G3'], axis=1)
+		sawo.head()
+	\end{verbatim}
+	\subitem Source Code tersebut akan menambahkan satu field yang diberi nama "pas", dimana lamda tersebut merupakan decision 			    yang berada di dalam decision atau if else. Dimana if else tersebut dinilai apabila lebih dari 35 maka dinyatakan lulus. 				    untuk axis sendiri yaitu apabila lulus maka akan di deklarasikan dengan angka 1 dan apabila tidak lulus akan di 					    deklarasikan dengan angka 0. Selanjutnya akan di running kembali. Hasil running dari spyder dapat dilihat pada gambar 			    \ref{YNO2}.
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil2.png}}
+		\caption{Output No 2.}
+		\label{YNO2}
+	\end{figure}
+
+		\item
+	\begin{verbatim}
+		sawo = salak.get_dummies(sawo, columns=
+		['sex', 'school', 'address', 'famsize', 'Pstatus', 'Mjob', 'Fjob', 
+                       'reason', 'guardian', 'schoolsup',
+		 'famsup', 'paid', 'activities',
+                       'nursery', 'higher', 'internet', 'romantic'])
+		sawo.head()
+	\end{verbatim}
+	\subitem Source Code tersebut hanya menambahkan field baru akan tetapi dengan fungsi Binary Classification. Hasil running dari 			    spyder adalah yang ditunjukan pada gambar \ref{YNO3}.
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil3.png}}
+		\caption{Output No 3.}
+		\label{YNO3}
+	\end{figure}
+
+		\item
+	\begin{verbatim}
+		sawo = sawo.sample(frac=1)
+
+		sawo_train = sawo[:500]
+		sawo_test = sawo[500:]
+
+		sawo_train_att = sawo_train.drop(['pass'], axis=1)
+		sawo_train_pass = sawo_train['pass']
+
+		sawo_test_att = sawo_test.drop(['pass'], axis=1)
+		sawo_test_pass = sawo_test['pass']
+
+		sawo_att = sawo.drop(['pass'], axis=1)
+		sawo_pass = sawo['pass']
+
+		import numpy as kelapa
+		print("Passing: %d out of %d (%.2f%%)" % (kelapa.sum(sawo_pass),
+				    len(sawo_pass),
+ 				   100*float(kelapa.sum(sawo_pass)) / len(sawo_pass)))
+	\end{verbatim}
+	\subitem Pada source code tersebut terdapat data train dan juga test yang dimana digunakan untuk membagi data training dan 			    juga data test. Selanjutnya akan melakukan import numpy yang di rename dengan kelapa yang digunakan untuk 				    mengembalikan suatu nilai passing dari keseluruhan datasets dengan cara melakukan print. Hasil running dalam spyder 			    ditunjukkan pada gambar \ref{YNO4}.
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil4.png}}
+		\caption{Output No 4.}
+		\label{YNO4}
+	\end{figure}
+
+		\item
+	\begin{verbatim}
+		from sklearn import tree
+		anggur = tree.DecisionTreeClassifier(criterion="entropy", max_depth=5)
+		anggur = anggur.fit(sawo_train_att, sawo_train_pass)
+	\end{verbatim}
+	\subitem Dimana akan di importkan modul bernama tree dari library scikitlearn dan kemudian akan di definisikan variabelnya 				    dengan anggur menggunakan DecisionClassifier. Pada variabel anggur terdapat fungsi Criterion yang dapat mengukur 			    kualitas split. Untuk menjalankan DecisionTreeClassifier dibutuhkan sebuah perintah fit. Hasil running dalam spyder dapat 		    dilihat pada gambar \ref{YNO5}
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil5.png}}
+		\caption{Output No 5.}
+		\label{YNO5}
+	\end{figure}
+
+		\item
+	\begin{verbatim}
+		import graphviz
+		dot_data = tree.export_graphviz(anggur, out_file=None, 
+							label="all", impurity=False, 
+							proportion=True,
+                                feature_names=list(sawo_train_att), 
+						class_names=["fail", "pass"], 
+                               				 filled=True, rounded=True)
+		graph = graphviz.Source(dot_data)
+		graph
+	\end{verbatim}
+	\subitem Graphviz merupakan software visualisasi grafik yang open source. Dimana ada yang dinamakan fungsi 						    Treexportgraphviz, dimana fungsi tersebut dapat menghasilkan representasi Graphviz yang di ambil dari Decision Tree 			    dan ditulis kedalam outfile sehingga dapat memunculkan gambar diagram dengan grafik bercabang. Bila Source code 				    tersebut di running dalam spyder maka hasilnya akan terlihat seperti pada gambar \ref{YNO6}.
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil6.png}}
+		\caption{Output No 6.}
+		\label{YNO6}
+	\end{figure}
+
+		\item
+	\begin{verbatim}
+		tree.export_graphviz(anggur, out_file=
+		"student-performance.dot", 
+		 label="all", impurity=False, proportion=True,
+                     feature_names=list(sawo_train_att), class_names=
+		["fail", "pass"], 
+                     filled=True, rounded=True)
+	\end{verbatim}
+	\subitem Treexportgraphviz, dimana fungsi tersebut dapat menghasilkan representasi Graphviz yang di ambil dari Decision Tree 			    dan ditulis kedalam outfile. Dalam source code tersebut akan menyimpen classifier dan melakukan ekspor ke file student 			    performance dan apabila salah akan mengembalikan sebuah nilai fail. Hasil running dalam spyder dapat dilihat pada 				    gambar \ref{YNO7}.
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil7.png}}
+		\caption{Output No 7.}
+		\label{YNO7}
+	\end{figure}
+
+		\item
+	\begin{verbatim}
+		anggur.score(sawo_test_att, sawo_test_pass)
+	\end{verbatim}
+	\subitem Dimana score adalah sebuah prediksi dan juga merupakan sebuah proses yang menghasilkan sebuah nilai berdasarkan 		model mechine learning yang terlatih dan sudah diberikan beberapa data baru. Score yang telah dibuat dapat mewakili prediksi 		suatu nilai, dalam kasus ini variabel anggur akan melakukan prediksi nilai dari variabel sawo dari data testing att dan testing pass. 		Apabila source code tersebut di running dalam spyder maka hasilnya akan terlihat seperti pada gambar \ref{YNO8}.
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil8.png}}
+		\caption{Output No 8.}
+		\label{YNO8}
+	\end{figure}
+
+		\item
+	\begin{verbatim}
+		from sklearn.model_selection import cross_val_score
+		scores = cross_val_score(anggur, sawo_att, sawo_pass, cv=5)
+		print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+	\end{verbatim}
+	\subitem Source code tersebut akan melakukan evaluasi terhadap nilai score dengan validasi silang. Dimana variabel Scores 				    berisikan cross\_val\_score yaitu sebuah fungsi bantu pada estimator dan juga dataset. Dari hasil tersebut akan 				    ditunjukkan score rata-rata dan kurang-lebih dua standar deviasi yang telah mencangkup 95\% score, data tersebut 				    akan di print sehingga menunjukkan hasil sperti pada gambar \ref{YNO9}.
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil9.png}}
+		\caption{Output No 9.}
+		\label{YNO9}
+	\end{figure}
+
+		\item
+	\begin{verbatim}
+		for max_depth in range(1, 20):
+    		t = tree.DecisionTreeClassifier(criterion="entropy", 
+						max_depth=max_depth)
+    		scores = cross_val_score(t, sawo_att, sawo_pass, cv=5)
+   		 print("Max depth: %d, Accuracy: %0.2f (+/- %0.2f)" % (max_depth, scores.mean(), 
+					scores.std() * 2))
+	\end{verbatim}
+	\subitem Dalam source code tersebut akan mendalami fungsi tree. Dimana semakin dalam tree maka akan semakin banya 				   perpecahan yang dimiliki dan dapat menangkap lebih banyak informasi. Dalam kasus ini variabel t akan melakukan 				  pendevinisian file tree yang kemudian variabel scores akan melakukan evaluasi score dengan validasi silang.Hasil running 			  source code tersebut di dalam spyder akan di perlihatkan pada gambar \ref{YNO10}.
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil10.png}}
+		\caption{Output No 10.}
+		\label{YNO10}
+	\end{figure}
+	
+		\item
+	\begin{verbatim}
+		depth_acc = kelapa.empty((19,3), float)
+		i = 0
+		for max_depth in range(1, 20):
+   		t = tree.DecisionTreeClassifier(criterion="entropy", 
+		max_depth=max_depth)
+    		scores = cross_val_score(t, sawo_att, 
+		sawo_pass, cv=5)
+   		depth_acc[i,0] = 
+		max_depth
+    		depth_acc[i,1] = 
+		scores.mean()
+    		depth_acc[i,2] = 
+		scores.std() * 2
+    		i += 1
+    
+		depth_acc
+	\end{verbatim}
+	\subitem Depth acc akan membuat array kosong dengan mengembalikan array baru dengan bentuk dan tipe yang diberikan, 				    tanpa menginisialisasi entri. Dimana 19 merupakan bentuk array kosong dan 3 adalah output data-tyoe sedangkan float 			    urutan kolom-utama dalam memori. Pada souce code tersebut jika di running dalam spyder maka akan menunjukkan hasil 			    seperti pada gambar \ref{YNO11}.
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil11.png}}
+		\caption{Output No 11.}
+		\label{YNO11}
+	\end{figure}
+
+		\item
+	\begin{verbatim}
+		import matplotlib.pyplot as plt
+		fig, ax = plt.subplots()
+		ax.errorbar(depth_acc[:,0], depth_acc[:,1], 
+		yerr=depth_acc[:,2])
+		plt.show()
+	\end{verbatim}
+	\subitem Dimana source code tersebut akan melakukan import dari library matplotlib yang berupa pyplot dan di rename menjadi 			   plt. fig dan juga ax akan menggunakan subplots guna membuat sebuah gambar dan satu set subplot. Fungsi ax.errorbar 			   sendiri yaitu akan membuat erorr bar dan kemudian grafik akan ditampilkan menggunakan plt.show. Hasil source code 			   	   tersebut jika di running dalam spyder ditunjukkan pada gambar \ref{YNO12}.
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNBerhasil12.png}}
+		\caption{Output No 12.}
+		\label{YNO12}
+	\end{figure}
+	
+\end{enumerate}
+\section{Penangan Erorr}
+\begin{enumerate}
+\item Untuk Screenshot yang erorr dapat dilihat pada gambar \ref{YNERORR}.
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNGraphvizErorr.png}}
+		\caption{Graphviz Erorr.}
+		\label{YNERORR}
+	\end{figure}
+
+\item Untuk bagian erorrnya adalah sebagai berikut
+
+	\begin{verbatim}
+		ExecutableNotFound: failed to execute
+		 ['dot', '-Tsvg'], make sure the Graphviz
+		executables are on your system' PATH
+	\end{verbatim}
+
+\item Untuk penanganannya dengan cara lakukan installasi graphviz seperti yang diperlihatkan pada gambar \ref{YNInstall1} dan \ref{YNInstall2}.
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNGraphvizInstall1.png}}
+		\caption{Graphviz Install 1.}
+		\label{YNInstall1}
+	\end{figure}
+
+	\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNGraphvizInstall2.png}}
+		\caption{Graphviz Install 2.}
+		\label{YNInstall2}
+	\end{figure}
+
+\end{enumerate}
+
+
  \section{Andri Fajar Sunandhar/1164065}
 \subsection{binary classification dilengkapi ilustrasi gambar}
 \begin{enumerate}
