@@ -98,3 +98,122 @@ Voting pada random forest berguna untuk mengambil nilai pada masing-masing tree 
 		\label{R3}
 		\end{figure}
 \end{enumerate}
+
+\section{Andri Fajar Sunandhar/1164065}
+\subsection{Teori}
+\begin{enumerate}
+\item Apa itu Random Forest Serta Gambar Ilustrasinya \par
+Random Forest adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar. Klasifikasi random forest dilakukan melalui penggabungan pohon  dengan melakukan training pada sampel data yang dimiliki. Penggunaan tree yang semakin banyak akan mempengaruhi akurasi yang akan didapatkan menjadi lebih baik. Penentuan klasifikasi dengan random forest diambil berdasarkan hasil voting dari pohon yang terbentuk. Pemenang dari pohon yang terbentuk ditentukan dengan vote terbanyak. Pembangunan pohon  pada random forest sampai dengan mencapai ukuran maksimum dari pohon data. Akan tetapi, pembangunan pohon Random Forest tidak dilakukan pemangkasan  yang merupakan sebuah metode untuk mengurangi kompleksitas ruang. Contoh Ilustrasi sederhana Gambar Random Forest. 
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/AFS/AFS1.png}}
+		\caption{Random Forest.}
+		\label{AFS1}
+		\end{figure}
+
+\item Cara Membaca Dataset
+	
+
+		\begin{enumerate}
+			\item Buka Anaconda Navigator.
+			\item Jalankan Spyder
+			\item Import libraries yang dibutuhkan
+			\item Masukan kode berikut untuk membaca file Data.csv.
+				\begin{figure}[ht]
+				\centering
+				\includegraphics[scale=0.8]{figures/AFS/2.png}
+				\caption{Kode membaca file.csv}
+				\label{contoh}
+				\end{figure}
+			\item Jalankan kode tersebut, maka di windiws console akan muncul pesan :
+				\begin{figure}[ht]
+				\centering
+				\includegraphics[scale=0.9]{figures/AFS/3.png}
+				\caption{ Window Console}
+				\label{contoh}
+				\end{figure}
+			\item Klik variable explorer, maka akan terlihat dataset yang baru ter-import.
+				\begin{figure}[ht]
+				\centering
+				\includegraphics[scale=0.6]{figures/AFS/4.png}
+				\caption{Variable Explorer}
+				\label{contoh}
+				\end{figure}
+			\item Kemudian double klik pada dataset cell, maka akan muncul pop-up windows seperti berikut: 
+				\begin{figure}[ht]
+				\centering
+				\includegraphics[scale=0.7]{figures/AFS/5.png}
+				\caption{ Dataset Cell}
+				\label{contoh}
+				\end{figure}
+			\item Seperti yang terlihat pada gambar tersebut dataset ini memiliki Kolom Country, Age, dan Salary sebagai 		   				independent variable-nya dan kolom Purchased sebagai dependent variable-nya.
+			
+		\end{enumerate}
+	
+
+\item Cross Validation \par
+Cross validation adalah metode statistik yang digunakan untuk memperkirakan keterampilan model pembelajaran mesin. Ini biasanya digunakan dalam pembelajaran mesin yang diterapkan untuk membandingkan dan memilih model untuk masalah pemodelan prediktif yang diberikan karena mudah dipahami, mudah diimplementasikan, dan menghasilkan estimasi keterampilan yang umumnya memiliki bias lebih rendah daripada metode lainnya.
+
+\item Arti Score 44\% Pada Random Forest, 27\% Pada Decision Tree dan 29\% Dari SVM \par
+\begin{enumerate}
+\item Arti Score 44\% \par
+Pada Random Forest, Score tersebut merupakan hasil dari akurasi.
+\item Arti Score 27\% \par
+Pada decission tree adalah presentasi hasil dari perhitungan dataset.
+\item Arti Score 29\% Pada SVM \par
+merupakan hasil pendekatan jaringan saraf. Jaringan saraf sendiri merupakan komponen jaringan utama dari sistem saraf. Sistem tersebut mengatur dan mengontrol fungsi tubuh dan aktivitas dan terdiri dari dua bagian:  (SSP) yang terdiri dari otak dan sumsum tulang belakang, dan percabangan saraf perifer dari sistem saraf tepi (SST) yang terdapat dalam pengolahan dataset terkait. 
+\end{enumerate}
+
+\begin {enumerate}
+\item Confusion Matrix Dan Ilustrasinya
+\begin{enumerate}
+\item Perhitungan confusion matrix adalah sebagai berikut, akan saya beri contoh sederhana yaitu pengambilan keputusan untuk mendapatkan bantuan beasiswa. Saya menggunakan dua atribut, yaitu rekening listrik dan gaji. Ini adalah pohon keputusannya:
+ 
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AFS/7.jpg}
+\caption{Pohon Keputusan}
+\label{contoh}
+\end{figure}
+\end{enumerate}
+
+
+Kemudian data testingnya adalah
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AFS/8.jpg}
+\caption{Data Testing}
+\label{contoh}
+\end{figure}
+
+Yang pertama kita lakukan yaitu mencari 4 nilai yaitu a,b,c, dan d:
+
+ a= 5
+
+ b= 1
+
+ c= 1
+
+ d= 3
+
+Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
+
+ Recall =3/(1+3) = 0,75
+
+ Precision = 3/(1+3) = 0,75
+
+ Accuracy =(5+3)/(5+1+1+3) = 0,8
+
+ Error Rate =(1+1)/(5+1+1+3) = 0,2
+
+\end {enumerate}
+
+\item Jelaskan Voting Pada Random Forest Beserta Ilustrasinya 
+\par Voting merupakan metode yang paling umum digunakan dalam random forest. Ketika classifier membuat keputusan, Anda dapat memanfaatkan yang terbaik keputusan umum dan rata-rata yang didefinisikan ke dalam bentuk "voting".
+\par Setelah pohon terbentuk,maka akan dilakukan voting pada setiap kelas dari data sampel. Kemudian, mengkombinasikan vote dari setiap kelas kemudian diambil vote yang paling banyak.Dengan menggunakan random forest pada klasifikasi data maka, akan menghasilkan vote yang paling baik. \ref{AFS6}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/AFS/6.png}}
+		\caption{Voting.}
+		\label{AFS6}
+		\end{figure}
+\end{enumerate}
