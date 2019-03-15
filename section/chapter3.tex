@@ -99,6 +99,332 @@ Voting pada random forest berguna untuk mengambil nilai pada masing-masing tree 
 		\end{figure}
 \end{enumerate}
 
+
+\subsection{Praktik Program / Imron Sumadireja / 1164076}
+\begin{enumerate}
+\item Aplikasi Sederhana Menggunakan Pandas \par
+	\begin{verbatim}
+		import pandas as pd
+		ron = {'Nama' : ['Arya','Razan','Bagja','MZ'], 'Umur' : [19,22,21,23], 
+		'NPM' : [1145032,1145031,1145065,1145098]}
+		df = pd.DataFrame(ron)
+		print (df)
+	\end{verbatim}
+\begin{itemize}
+\item Pada baris pertama menjelaskan bahwa code tersebut mengimport library pandas
+\item Pada baris kedua itu merupakan sekumpulan data yang hasilnya akan membentuk seperti ndarray
+\item Pada baris ketiga itu merupakan dataframe atau kerangka data yang berisi variable
+\item Pada baris keempat itu untuk melihat hasil dari code tersebut.
+\end{itemize}
+Untuk hasilnya bisa dilihat seperti gambar berikut \ref{ron1}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/ron1.png}}
+		\caption{Hasil dari pandas.}
+		\label{ron1}
+		\end{figure}
+
+\item Aplikasi Sederhana Menggunakan Numpy \par
+	\begin{verbatim}
+		import numpy as np
+		a = np.arange(24)
+		a.ndim
+		b = a.reshape(2,3,4)
+		print (b)
+	\end{verbatim}
+\begin{itemize}
+\item Pada baris pertama untuk import library numpy
+\item Pada baris kedua untuk menampilkan angka sebanyak 24 dimulai dari 0
+\item Pada baris ketiga merupakan nomor dari array dimensi
+\item Pada baris keempat tersebut akan merubah tampilannya menjadi 2 bagian dengan 4 kolom dan 3 baris
+\item Pada baris kelima untuk melihat hasil dari code tersebut.
+\end{itemize}
+Untuk hasilnya bisa dilihat seperti gambar berikut \ref{ron2}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/ron2.png}}
+		\caption{Hasil dari numpy.}
+		\label{ron2}
+		\end{figure}
+
+\item Aplikasi Sederhana Menggunakan Matplotlib \par
+	\begin{verbatim}
+		import pandas as pd
+		import matplotlib.pyplot as plot
+		data = pd.read_csv("F:/Imron/Kuliah/Semester 6/Artificial Intelegence/penjualan.csv")
+		data.plot()
+		data.show()
+	\end{verbatim}
+\begin{itemize}
+\item Pada baris pertama untuk import library pandas
+\item Pada baris kedua untuk import library matplotlib dengan inisialiasasi plt
+\item Pada baris ketiga untuk membaca file .csv pada direktori tersebut
+\item Pada baris keempat untuk membaca file .csv dengan library matplotlib
+\item Pada baris kelima untuk menampilkan grafik dari hasil data pada .csv
+\end{itemize}
+Untuk hasilnya bisa dilihat seperti gambar berikut \ref{ron3}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/ron3.png}}
+		\caption{Hasil dari matplotlib.}
+		\label{ron3}
+		\end{figure}
+
+\item Menjalankan Program Klasifikasi Random Forest \par
+Berikut ini adalah keluaran dari percobaan Klasifikasi Random Forest
+\begin{itemize}
+\item Hasil pada gambar \ref{rons1} tersebut menampilkan data dari file image attribute label. File tersebut berisi kategori, attribut pada setiap gambarnya dengan jumlah data sekitar 3 juta dan dibagi menjadi 3 kolom, pada code tersebut digunakan syntax error bad lines itu berfungsi untuk melewatkan data yang mengandung bad lines agar tidak terjadi errpr pada saat pembacaan file.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons1.png}}
+		\caption{Klasifikasi Random Forest1.}
+		\label{rons1}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons2} tersebut menampilkan 5 data teratas pada dataframe secara default.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons2.png}}
+		\caption{Klasifikasi Random Forest2.}
+		\label{rons2}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons3} menampilkan jumlah dari baris dan kolom pada file image attribute label atau dataframe
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons3.png}}
+		\caption{Klasifikasi Random Forest3.}
+		\label{rons3}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons4} merubah kolom menjadi baris, dan baris menjadi kolom dengan menggunakan fungsi dari pivot pada file sebelumnya
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons4.png}}
+		\caption{Klasifikasi Random Forest4.}
+		\label{rons4}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons5} tersebut menampilkan 5 data teratas secara default pada dataframe imgatt2
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons5.png}}
+		\caption{Klasifikasi Random Forest5.}
+		\label{rons5}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons6} menampilkan jumlah kolom dan baris pada dataframe imgatt2
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons6.png}}
+		\caption{Klasifikasi Random Forest6.}
+		\label{rons6}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons7} mengganti imgid menjadi index yang artinya unik untuk setiap datanya
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons7.png}}
+		\caption{Klasifikasi Random Forest7.}
+		\label{rons7}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons8} menampilkan 5 data teratas yang berisi apakah burung itu termasuk pada spesies yang mana. Kolom imgid ialah jenis burungnya dan kolom label itu spesies burungnya.
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons8.png}}
+		\caption{Klasifikasi Random Forest8.}
+		\label{rons8}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons9} menampilkan 11788 baris dan 1 kolom, dimana kolom tersebut merupakan spesies burungnya
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons9.png}}
+		\caption{Klasifikasi Random Forest9.}
+		\label{rons9}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons10} melakukan join antara imgatt2 dengan imglabels yang sebelumnya memiliki 312 kolom kini menjadi 313 kolom. Penggabungan ini termasuk ke dalam supervised learning karena kategorinya sudah tersedia.
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons10.png}}
+		\caption{Klasifikasi Random Forest10.}
+		\label{rons10}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons11} akan menghilangkan kolom pertama pada dataframe sebelumnya dan di rubah dengan kolom yang baru di join pada step sebelumnya
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons11.png}}
+		\caption{Klasifikasi Random Forest11.}
+		\label{rons11}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons12} menampilkan 5 data teratas dari dataframe att
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons12.png}}
+		\caption{Klasifikasi Random Forest12.}
+		\label{rons12}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons13} menampilkan 5 data teratas dari dataframe label
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons13.png}}
+		\caption{Klasifikasi Random Forest13.}
+		\label{rons13}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons14} membagi data menjadi 4 bagian, 8000 row pertama untuk data training atribut, 8000 row kedua untuk data training label, 8000 row ketiga untuk data testing atribut, dan 8000 row keempat untuk data testing label
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons14.png}}
+		\caption{Klasifikasi Random Forest14.}
+		\label{rons14}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons15} mengimport library sklearn ensemble untuk memanggil RandomForestClassifier, max features itu sebagai tanda ada berapa kolom untuk setiap tree nya pada kali ini setiap tree memiliki 50 kolom dengan estimasi 100 tree.
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons15.png}}
+		\caption{Klasifikasi Random Forest15.}
+		\label{rons15}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons16} hasil dari fit untuk membuat random forest dengan kategori yang sudah ditentukan dengan maksimum fitur sebanyak 50 kolom untuk setiap tree nya dengan estimasi 100 tree
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons16.png}}
+		\caption{Klasifikasi Random Forest16.}
+		\label{rons16}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons17} menampilkan hasil prediksi pada step sebelumnya pada random forest
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons17.png}}
+		\caption{Klasifikasi Random Forest17.}
+		\label{rons17}
+		\end{figure}
+
+\item Hasil pada gambar \ref{rons18} menampilkan hasil presentasi akurasi dengan menggunakan algoritma random forest
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/rons18.png}}
+		\caption{Klasifikasi Random Forest18.}
+		\label{rons18}
+		\end{figure}
+\end{itemize}
+
+\item Menjalankan Program Confusion Matrix \par
+Berikut ini adalah keluaran dari hasil percobaan Confusion Matrix
+\begin{itemize}
+\item Hasil pada gambar \ref{mat1} untuk memetakan data dari random forest ke dalam confusion matrix
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/mat1.png}}
+		\caption{Confusion Matrix1.}
+		\label{mat1}
+		\end{figure}
+
+\item Hasil pada gambar \ref{mat2} untuk menampilkan beberapa hasil dari data sebelumnya
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/mat2.png}}
+		\caption{Confusion Matrix2.}
+		\label{mat2}
+		\end{figure}
+
+\item Hasil pada gambar \ref{mat3} untuk merencanakan confusuin matrix dengan matplotlib sebelum di normalisasikan
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/mat3.png}}
+		\caption{Confusion Matrix3.}
+		\label{mat3}
+		\end{figure}
+
+\item Hasil pada gambar \ref{mat4} menampilkan file classes yang berisi nama-nama spesies burung 
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/mat4.png}}
+		\caption{Confusion Matrix4.}
+		\label{mat4}
+		\end{figure}
+
+\item Hasil pada gambar \ref{mat5} merupakan dari proses normalisasi yang pada step sebelumnya sudah direncanakan
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/mat5.png}}
+		\caption{Confusion Matrix5.}
+		\label{mat5}
+		\end{figure}
+\end{itemize}
+
+\item Menjalankan Klasifikasi SVM dan Decision Tree \par
+Berikut ini adalah hasil dari percobaan yang telah dilakukan
+\begin{itemize}
+\item Hasil pada gambar \ref{tree1} presentase prediksi yang dilakukan dengan menggunakan klasifikasi decision tree, dan hasilnya lebih buruk dibandingkan dengan random forest sebelumnya.
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/tree1.png}}
+		\caption{Decision Tree1.}
+		\label{tree1}
+		\end{figure}
+
+\item Hasil pada gambar \ref{svm1} presentase prediksi yang dilakukan dengan menggunakan klasifikasi SVM, dan hasilnya lebih baik di bandingkan dengan decision tree dan lebih buruk di bandingkan random forest
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/svm1.png}}
+		\caption{SVM1.}
+		\label{svm1}
+		\end{figure}
+\end{itemize}
+
+\item Menjalankan Program Cross Validation \par
+Berikut ini adalah hasil keluaran dari percobaan yang telah dilakukan
+\begin{itemize}
+\item Hasil pada gambar \ref{cross1} merupakan akurasi yang di dapatkan pada cross validation untuk random forest. Hasil tersebut masih warning dikarenakan mesinnya tidak kuat untuk melakukan prediksi secara menyeluruh
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/cross1.png}}
+		\caption{Cross Validation1.}
+		\label{cross1}
+		\end{figure}
+
+\item Hasil pada gambar \ref{cross2} merupakan akurasi yang didapatkan pada cross validation untuk decision tree. Hasil tersebut sama seperti step sebelumnya masih memiliki warning.
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/cross2.png}}
+		\caption{Cross Validation2.}
+		\label{cross2}
+		\end{figure}
+
+\item Hasil pada gambar \ref{cross3} merupakan akurasi yang didapatkan pada cross validation untuk SVM. Hasil tersebut masih sama seperti step sebelumnya masih memiliki tanda warning.
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/cross3.png}}
+		\caption{Cross Validation3.}
+		\label{cross3}
+		\end{figure}
+\end{itemize}
+
+\item Menjalankan Program Pengamatan Komponen Informasi \par
+Berikut ini adalah keluaran dari hasil percobaan yang telah saya lakukan
+\begin{itemize}
+\item Hasil pada gambar \ref{comp1} seharusnya mengeluarkan beberapa informasi mengenai banyaknya tree dan atribut lainnya. Namun yang terjadi pada percobaan saya hanya mengeluarkan akurasi saja. Dikarenakan masih terdapat warning
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/comp1.png}}
+		\caption{Pengamatan Komponen Informasi1.}
+		\label{comp1}
+		\end{figure}
+
+\item Hasil pada gambar \ref{comp2} ini merupakan hasil dari plotting komponen informasi, namun dikarenakan pada step sebelumnya terdapat warning jadi data-data yang terdapat pada gambar tersebut, terlihat sedikit acak
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/comp2.png}}
+		\caption{Pengamatan Komponen Informasi2.}
+		\label{comp2}
+		\end{figure}
+\end{itemize}
+\end{enumerate}
+
+\subsection{Penanganan Error / Imron Sumadireja / 1164076}
+Dari percobaan yang telah saya lakukan, saya menemukan beberapa error, diantaranya sebagai berikut
+\begin{itemize}
+\item Screenshot error \ref{error1}
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/error1.png}}
+		\caption{Error1.}
+		\label{error1}
+		\end{figure}
+
+\item Code error \ref{error2}
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/error2.png}}
+		\caption{Error2.}
+		\label{error2}
+		\end{figure}
+
+\item Solusi Pemecahan Masalah \ref{sol1} saya coba rubah data training dan data testingnya menjadi 1000 dan hasilnya teratasi dari pada yang sebelumnya. Error tersebut dikarenakan memorinya tidak muat untuk melakukan running dengan data yang begitu banyak. Bahkan laptop saya pun sudah coba di restart dan hasilnya tetap sama.
+ 		\begin{figure}[ht]
+		\centerline{\includegraphics[width=1\textwidth]{figures/im/sol1.png}}
+		\caption{Solusi1.}
+		\label{sol1}
+		\end{figure}
+
+\end{itemize}
+
+
 \section{Andri Fajar Sunandhar/1164065}
 \subsection{Teori}
 \begin{enumerate}
