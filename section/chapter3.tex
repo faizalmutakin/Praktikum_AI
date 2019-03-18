@@ -1,4 +1,6 @@
 \chapter{Methods}
+\extrafloats{100}
+\maxdeadcycles=200
 
 \section{The data}
 PLease tell where is the data come from, a little brief of company can be put here.
@@ -9,6 +11,7 @@ Definition, steps, algoritm or equation of method 1 and how to apply into your d
 Definition, steps, algoritm or equation of method 2 and how to apply into your data
 
 \section{Yusniar Nur Syarif Sidiq/1164089}
+\subsection{Teori}
 \begin{enumerate}
 
 \item Random Forest merupakan algoritma yang digunakan terhadapap klasifikasi data dalam jumlah yang besar. Klasifikasi pada random forest dilakukan dengan penggabungan dicision tree dengan melakuakn training terhadap sempel data yang dimiliki. Semakin banyak dicision tree maka data yang di dapat akan semakin akurat. Untuk gambar Random Forest dapat dilihat pada figure \ref{YNRF}
@@ -51,6 +54,390 @@ Dimana numpy akan mengurus semua data yang berhubungan dengan matrix. Pada sourc
 	\end{figure}
 
 Dimana ditunjukkan pada figure \ref{YNV} terdapat 3 tree. Dalam tree tersebut akan dilakukan proses voting. Saya akan memberikan contoh kasus, dimana akan diadakan voting untuk menentukan sebuah mobil. Dalam tree akan diberikan sejumlah data misalnya saja data tersebut berupa gambar, yang dimana data tersebut akan dipilih dengan cara voting. Hasil voting akhir dari setiap tree menunjukkan mobil jazz, yang berarti kesimpulan dari data yang telah diberikan menyatakan gambar tersebut adalah mobil jazz. Bagaimana apabila terjadi perbedaan data misalnya saja pada tree 1 dan 2 menunyatakan mobil jazz sedangkan pada tree 3 menyatakan mobil yaris, maka kesimpulan yang di ambil adalah mobil jazz dikarenakan hasil voting terbanyak adalah mobil jazz.
+
+\end{enumerate}
+
+\subsection{Praktek Program/Yusniar Nur Syarif Sidiq/1164089}
+\begin{enumerate}
+\item Aplikasi Sederhana Dengan Menggunakan Pandas
+\subitem Perhatikan source code berikut ini,
+	\begin{verbatim}
+	import pandas as sidiq
+	\end{verbatim}
+Untuk source code diatas menjelaskan bahwa akan melakukan import pada library pandas dan di rename menjadi sidiq. Selanjutnya kita akan membuat varibel yang bernama mobil, dan mengisikan variabel tersebut dengan nama-nama mobil, perhatikan source code dibawah.
+	\begin{verbatim}
+	mobil = {"Nama Mobil" : ['Ferari','Lamorgini','Civic','Mobilio']}
+	\end{verbatim}
+Selanjutnya kita akan membuat satu lagi variabel bernama yn, dimana variabel tersebut akan membuat DataFrame dari library pandas dan akan memanggil variabel mobil. Perhatikan source code dibawah.
+	\begin{verbatim}
+	yn = sidiq.DataFrame(mobil)
+	\end{verbatim}
+Selanjutnya kita panggil variabel yn untuk memunculkan data dari variabel mobil dengan cara print. Perhatikan source code dibawah.
+	\begin{verbatim}
+	print ('Yusniar Punya Mobil ' + yn)
+	\end{verbatim}
+Jalankan source code tersebut dengan menggunakan spyder, sehingga hasilnya akan nampak seperti pada figure \ref{YNP}
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/YNPandas.png}}
+	\caption{Aplikasi Sederhana Dengan Pandas.}
+	\label{YNP}
+	\end{figure}
+
+\item Aplikasi Sederhana dengan menggunakan numpy
+\subitem Perhatikan source code dibawah ini,
+	\begin{verbatim}
+	 import numpy as sidiq
+	\end{verbatim}
+Source Code diatas menjeaslkan akan melakukan import pada library numpy dan di rename dengan sidiq. Selanjutnya kita akan membuat matrix dengan numpy dengan menggunakan fungsi eye. Perhatikan source code dibawah,
+	\begin{verbatim}
+	matrix_one = sidiq.eye(10)
+	matrix_one
+	\end{verbatim}
+
+Selanjutnya kita akan memanggil matrix identitas 10x10. 
+	\begin{verbatim}
+	print (matrix_one)
+	\end{verbatim}
+Fungsi eye disini berguna untuk memanggil matrix identitas dengan jumlah colom dan baris sesuai yang ditentukan. Disini saya telah menentukan 10 colom dan baris maka dari itu hasilnya akan memunculkan matrix identitas 10x10, untuk lebih jelasnya dapat dilihat pada fugure \ref{YNN}
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/YNNumpy.png}}
+	\caption{Aplikasi Sederhana Dengan Numpy.}
+	\label{YNN}
+	\end{figure}
+
+\item Aplikasi sederhana dengan menggunakan Matplotlib
+\subitem Perhatikan source code dibawah ini,
+	\begin{verbatim}
+	import matplotlib.pyplot as sidiq
+
+	sidiq.plot([1,4,2,4,5,2,1])
+	sidiq.ylabel('YusniarNS 1164089')
+	sidiq.show()
+	\end{verbatim}
+		\begin{itemize}
+			\item Pada baris pertama akan melakukan import library Matplotlib dan di rename menjadi sidiq
+			\item Pada baris kedua kita akan memberikan nilai plot atau grafik  pada library sidiq
+			\item Pada baris ketiga kita akan memberikan nama atau label pada grafik tersebut
+			\item Pada baris terakhir kita akan melakukan show sehingga grafik dapat kita lihat
+		\end{itemize}
+Jalankan source code diatas dengan spyder sehingga hasilnya akan nampak seperti pada figure \ref{YNMG}
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/YNMatplotlibGrafik.png}}
+	\caption{Aplikasi Sederhana Dengan Matplotlib Grafik.}
+	\label{YNMG}
+	\end{figure}
+
+\subitem Selanjutnya perhatikan source code berikut ini,
+	\begin{verbatim}
+	import matplotlib.pyplot as sidiq
+
+	y = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	n = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+	sidiq.bar(y,n)
+	sidiq.ylabel('YusniarNS 1164089')
+	sidiq.show()
+	\end{verbatim}
+	
+Pada baris pertama akan melakukan import library Matplotlib dan di rename menjadi sidiq.Pada baris kedua dan ketiga kita akan menentukan nilai pada variabel y dan n.Pada baris kempat kita akan membuat diagram batang dengan fungsi bar.Pada baris kelima kita akan memberikan nama atau label pada diagram batang tersebut.Pada baris terakhir kita akan melakukan show sehingga kita dapat melihat hasilnya. Jalankan source code tersebut di dalam spyder maka hasilnya akan nampak seperti pada figure \ref{YNMD}
+	
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/YNMatplotlibDiagram.png}}
+	\caption{Aplikasi Sederhana Dengan Matplotlib Diagram Batang.}
+	\label{YNMD}
+	\end{figure}
+
+\item Klasifikasi Random Forest
+\begin{itemize}
+
+\item Source Code yang dihasilkan pada figure \ref{YNS40} berfungsi untuk membaca dataset yang memiliki format text file dengan mendefinisikan variabel yang bernama imgatt. Variabel tersebut berisi value untuk membaca data.
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS40.png}}
+	\caption{Random Forest.}
+	\label{YNS40}
+	\end{figure}
+
+\item Pada source code berikutnya akan menghasilkan output seperti pada figure \ref{YNS41}, dimana akan mengembalikan baris teratas dari DataFrame variabel imgatt.
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS41.png}}
+	\caption{Random Forest.}
+	\label{YNS41}
+	\end{figure}
+
+\item Pada output berikutnya akan menampilkan jumlah kolom dan baris dari DataFrame imgatt seperti yang dihasilkan pada figure \ref{YNS42}
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS42.png}}
+	\caption{Random Forest.}
+	\label{YNS42}
+	\end{figure}
+
+
+\item Pada output yang ditampilkan dapat dilihat pada figure \ref{YNS43} bahwa variabel imgatt2 telah menggunakan function yang bernama pivot guna mengubah kolom jadi baris dan sebaliknya dari DataFrame sebelumnya
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS43.png}}
+	\caption{Random Forest.}
+	\label{YNS43}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS44}, dimana imgatt2 head berfungsi untuk mengembalikan value teratas pada DataFrame imgatt2
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS44.png}}
+	\caption{Random Forest.}
+	\label{YNS44}
+	\end{figure}
+
+\item Pada output yang dikeluarkan pada figure \ref{YNS45} menandakan jumlah kolom dan baris pada DataFrame imgatt2
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS45.png}}
+	\caption{Random Forest.}
+	\label{YNS45}
+	\end{figure}
+
+\item Pada output yang ditampilkan pada figure \ref{YNS46} menunjukkan dalam melakukan pivot yang mana imgid menjadi sebuah index yang unik
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS46.png}}
+	\caption{Random Forest.}
+	\label{YNS46}
+	\end{figure}	
+
+\item Pada output yang ditampilkan pada figure \ref{YNS47} akan melakukan load jawabannya yang berisi apakah burung tersebut termasuk spesies yang mana. Kolom tersebut yaitu imgid dan label
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS47.png}}
+	\caption{Random Forest.}
+	\label{YNS47}
+	\end{figure}	
+
+\item Pada output yang diberikan pada figure \ref{YNS48} menunjukkan bahwa jumlah baris sebanyak 11788 dan kolom 1 yang dimana kolom tersebut adalah jenis spesies pada burung
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS48.png}}
+	\caption{Random Forest.}
+	\label{YNS48}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS49} akan melakukan join antara imgatt2 dengan imglabels dikarenakan memiliki isi yang sama sehingga akan mendapatkan sebuah data ciri-ciri dan data jawaban sehingga bisa dikategorikan sebagai supervised learning.
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS49.png}}
+	\caption{Random Forest.}
+	\label{YNS49}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS441} akan melakukan drop pada label yang ada didepan dan akan menggunakan label yang baru di joinkan.
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS441.png}}
+	\caption{Random Forest.}
+	\label{YNS441}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS442} akan mengecek isi 5 data teratas pada df att
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS442.png}}
+	\caption{Random Forest.}
+	\label{YNS442}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS443} akan mengecek isi data teratas dari df label
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS443.png}}
+	\caption{Random Forest.}
+	\label{YNS443}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS444} akan membagi 8000 row pertama menjadi data training dan sisanya adalah data testing
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS444.png}}
+	\caption{Random Forest.}
+	\label{YNS444}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS445} dilakukan pemanggilan class RandomForestClassifier. Dimana artinya menunjukkan banyak kolom pada setiap tree adalah 50
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS445.png}}
+	\caption{Random Forest.}
+	\label{YNS445}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS447} menunjukkan hasil prediksi dari Random Forest
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS447.png}}
+	\caption{Random Forest.}
+	\label{YNS447}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS449} akan menampilkan besaran akurasi dari prediksi pada Random Forest yang merupakan score perolehan klarifikasi
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No4/YNS449.png}}
+	\caption{Random Forest.}
+	\label{YNS449}
+	\end{figure}
+
+	\end{itemize}
+
+\item Menjalankan Program Confusion Matrix
+
+	\begin{itemize}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS51} akan melakukan import confusion matrix pada library sklearn matrix
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No5/YNS51.png}}
+	\caption{Confusion Matrix.}
+	\label{YNS51}
+	\end{figure}
+
+\item Pada output yang ditunjukkan oleh figure \ref{YNS52} bahwa akan menampilkan isi cm dalam bentuk matrix yang berupa array
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No5/YNS52.png}}
+	\caption{Confusion Matrix.}
+	\label{YNS52}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS53} akan melakukan plotting atau merencanakan confusion matrix dengan matplotlib
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No5/YNS53.png}}
+	\caption{Confusion Matrix.}
+	\label{YNS53}
+	\end{figure}
+
+\item Pada output yang ditunjukkan pada figure \ref{YNS54} akan melakukan set plot dengan nama datanta dan akan membaca file classes.txt
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No5/YNS54.png}}
+	\caption{Confusion Matrix.}
+	\label{YNS54}
+	\end{figure}
+
+\item Pada output yang ditunjukkan ada figure \ref{YNS55} merupakan hasil perubahan pada label
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No5/YNS55.png}}
+	\caption{Confusion Matrix.}
+	\label{YNS55}
+	\end{figure}
+	
+	\end{itemize}
+
+\item Klarifikasi SVM dan Decission
+
+	\begin{itemize}
+
+\item Pada figure \ref{YNS61} menunjukkan klarifikasi dengan decission tree menggunakan dataset yang sama dan akan memunculkan akurasi prediksi
+	
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No6/YNS61.png}}
+	\caption{Klarifikasi SVM Dan Decission Tree.}
+	\label{YNS61}
+	\end{figure}
+
+\item Pada figure \ref{YNS62} menunjukkan klarifikasi dengan SVM menggunakan dataset yang sama dan akan memunculkan akurasi prediksi
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No6/YNS62.png}}
+	\caption{Klarifikasi SVM Dan Decission Tree.}
+	\label{YNS62}
+	\end{figure}
+	
+	\end{itemize}
+
+\item Program Cross Validation
+
+	\begin{itemize}
+
+\item Pada figure \ref{YNS71} menunjukkan hasil cross validation pada Random Forest akan tetapi masih terdapat warning dikarenkan data numpy yang dikeluarkan oleh laptop saya tidak cukup memorynya
+	
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No7/YNS71.png}}
+	\caption{Program Cross Validation.}
+	\label{YNS71}
+	\end{figure}
+
+\item Pada figure \ref{YNS72} menunjukkan hasil cross validation pada Decission Tree akan tetapi masih terdapat warning dikarenakan hal yang sama terjadi pada cross validation Random Forest
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No7/YNS72.png}}
+	\caption{Program Cross Validation.}
+	\label{YNS72}
+	\end{figure}
+
+\item Pada figure \ref{YNS73} menunjukkan hasil cross validation pada SVM akan tetapi masih terdapat warning dikarenakan hal yang sama terjadi pada cross validation Random Forest
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No7/YNS73.png}}
+	\caption{Program Cross Validation.}
+	\label{YNS73}
+	\end{figure}
+	
+	\end{itemize}
+
+\item Program Komponen Informasi
+
+	\begin{itemize}
+
+\item Pada figure \ref{YNS81} menunjukkan informasi-informasi tree yang dibuat, atribut yang dipakai serta informasi lainnya akan tetapi terdapat warning dikarenakan data numpy pada kompeter saya tidak cukup memorynya
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No8/YNS81.png}}
+	\caption{Komponen Informasi.}
+	\label{YNS81}
+	\end{figure}
+
+\item Pada figure \ref{YNS82} menunjukkan hasil dari plotting komponen informasi sehingga dapat kita baca
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/No8/YNS82.png}}
+	\caption{Komponen Informasi.}
+	\label{YNS82}
+	\end{figure}
+	
+	\end{itemize}
+
+\end{enumerate}
+
+\subsection{Penangan Erorr/Yusniar Nur Syarif Sidiq/1164089}
+\begin{enumerate}
+
+\item Script erorr yang saya dapat ditunjukkan pada figure \ref{YNErorrC3}
+
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/YNErorrC3.png}}
+	\caption{Penanganan Erorr.}
+	\label{YNErorrC3}
+	\end{figure}	
+
+\item Erorrnya adalah
+\begin{verbatim}
+ FileNotFoundError: File b'data/CUB_200_2011/attributes/image_attribute_labels.txt does not exist
+\end{verbatim}
+ dikarenakan ektensi file tersebut tidak terbaca cara penanganannya bisa dilihat pada figure \ref{YNErorr2C3}
+
+\item Solusinya jadikan file python dan .txt nya menjadi satu folder saja sehingga file .txt tersebut dapat terbaca
+	
+	\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/YN/Chapter3/YNErorr2C3.png}}
+	\caption{Penanganan Erorr.}
+	\label{YNErorr2C3}
+	\end{figure}	
+
 
 \end{enumerate}
 
@@ -424,7 +811,6 @@ Dari percobaan yang telah saya lakukan, saya menemukan beberapa error, diantaran
 
 \end{itemize}
 
-
 \section{Andri Fajar Sunandhar/1164065}
 \subsection{Teori}
 \begin{enumerate}
@@ -471,8 +857,7 @@ Random Forest adalah suatu algoritma yang digunakan pada klasifikasi data dalam 
 				\caption{ Dataset Cell}
 				\label{contoh}
 				\end{figure}
-			\item Seperti yang terlihat pada gambar tersebut dataset ini memiliki Kolom Country, Age, dan Salary sebagai 		   				independent variable-nya dan kolom Purchased sebagai dependent variable-nya.
-			
+			\item Seperti yang terlihat pada gambar tersebut dataset ini memiliki Kolom Country, Age, dan Salary sebagai 		   				independent variable-nya dan kolom Purchased sebagai dependent variable-nya.			
 		\end{enumerate}
 	
 
@@ -491,6 +876,8 @@ merupakan hasil pendekatan jaringan saraf. Jaringan saraf sendiri merupakan komp
 
 \begin {enumerate}
 \item Confusion Matrix Dan Ilustrasinya
+\end{enumerate}
+
 \begin{enumerate}
 \item Perhitungan confusion matrix adalah sebagai berikut, akan saya beri contoh sederhana yaitu pengambilan keputusan untuk mendapatkan bantuan beasiswa. Saya menggunakan dua atribut, yaitu rekening listrik dan gaji. Ini adalah pohon keputusannya:
  
@@ -500,6 +887,7 @@ merupakan hasil pendekatan jaringan saraf. Jaringan saraf sendiri merupakan komp
 \caption{Pohon Keputusan}
 \label{contoh}
 \end{figure}
+
 \end{enumerate}
 
 
@@ -532,8 +920,6 @@ Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
 
  Error Rate =(1+1)/(5+1+1+3) = 0,2
 
-\end {enumerate}
-
 \item Jelaskan Voting Pada Random Forest Beserta Ilustrasinya 
 \par Voting merupakan metode yang paling umum digunakan dalam random forest. Ketika classifier membuat keputusan, Anda dapat memanfaatkan yang terbaik keputusan umum dan rata-rata yang didefinisikan ke dalam bentuk "voting".
 \par Setelah pohon terbentuk,maka akan dilakukan voting pada setiap kelas dari data sampel. Kemudian, mengkombinasikan vote dari setiap kelas kemudian diambil vote yang paling banyak.Dengan menggunakan random forest pada klasifikasi data maka, akan menghasilkan vote yang paling baik. \ref{AFS6}
@@ -542,230 +928,6 @@ Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
 		\caption{Voting.}
 		\label{AFS6}
 		\end{figure}
-\end{enumerate}
-
-\chapter{Methods}
-
-\section{The data}
-PLease tell where is the data come from, a little brief of company can be put here.
-
-\section{Method 1}
-Definition, steps, algoritm or equation of method 1 and how to apply into your data
-\section{Method 2}
-Definition, steps, algoritm or equation of method 2 and how to apply into your data
-
-\section{Yusniar Nur Syarif Sidiq/1164089}
-\begin{enumerate}
-
-\item Random Forest merupakan algoritma yang digunakan terhadapap klasifikasi data dalam jumlah yang besar. Klasifikasi pada random forest dilakukan dengan penggabungan dicision tree dengan melakuakn training terhadap sempel data yang dimiliki. Semakin banyak dicision tree maka data yang di dapat akan semakin akurat. Untuk gambar Random Forest dapat dilihat pada figure \ref{YNRF}
-
-	\begin{figure}[ht]
-	\centerline{\includegraphics[width=1\textwidth]{figures/YN/RF.PNG}}
-	\caption{Random Forest.}
-	\label{YNRF}
-	\end{figure}
-
-\item Pertama download dataset terlebih dahulu lalu buka dengan menggunakan software spyder guna melihat isi dari dataset tersebut. Data tersebut memiliki extensi file bernama .txt dan didalamnya terdapat class dari field. Misalnya saja pada data jenis burung memiliki file index dan angka, dimana index berisi angka yang memiliki makna berupa jenis burung atau bahkan nama burung sedangkan field memiliki isi nilai berupa 0 dan 1 yang dimana sifatnya boolean atau Ya dan Tidak. Hal ini dikarenakan komputer hanya dapat membaca bilangan biner maka dari itu field yang di isikan berupa angka. Artinya angka 0 berarti tidak dan angka 1 berarti Ya.
-
-\item Cross Validation adalah sebuah teknik validasi model yang digunakan untuk menilai bagaimana hasil analisis statistik akan digeneralisasi ke kumpulan data independen. Cross validation digunakan dengan tujuan prediksi, dan bila kita ingin memperkirakan seberapa akurat model model prediksi yang dilakukan dalam sebuah praktek. Tujuan dari cross validation yaitu untuk mendefinisikan dataset guna menguju dalam fase pelatihan untuk membatasi masalah seperti overfitting dan underfitting serta mendapatkan wawasan tentang bagaimana model akan digeneralisasikan ke set data independen.
-
-\item Dimana Score 44 \% diperoleh dari hasil pengelohan dataset jenis burung. Dimana akan dilakukan proses pembagian data testing dan data training lalu diproses dan menghasilkan score sebanyak 44 \% dimana menjelaskan bahwa score tersebut digunakan sebagai pembanding dalam tingkat keakuratannya. Pada dicision tree akan memperoleh data lebih kecil yaitu sebanyak 27 \% hal ini dikarenakan data yang diolah menggunakan dicision tree dibagi menjadi beberapa tree dan lalu disimpulkan untuk mendapatkan data yang akurat. Pada SVM akan memperoleh score sebanyak 29 \% hal ini dikarenakan data yang dimiliki masih bernilai netral sehingga tingkat keakuratannya masih belum jelas.
-
-\item Untuk membaca confusion matriks dapat menggunakan source code sebagai berikut,
-	\begin{verbatim}
-		import numpy as np
-		np.set_printoptions(precision=2)
-		plt.figure(figsize=(60,60), dpi=300)
-		plot_confusion_matrix(cm, classes=birds, normalize=True)
-		plt.show()
-	\end{verbatim}
-
-Dimana numpy akan mengurus semua data yang berhubungan dengan matrix. Pada source code tersebut digunakan dalam melakukan read pada dataset burung dengan menggunakan metode confusion matrix. Dalam confusion matrix memiliki 4 istilah yaitu True Positive yang merupakan data posotif yang terditeksi benar, True Negatif yang merupakan data negatif akan tetapi terditeksi benar, False Positif merupakan data negatif namun terditeksi sebagai data positif, False Negatif merupakan data posotif namun terditeksi sebagai data negatif. Adapun contoh hasil read dataset menggunakan confusion matrix dapat dilihat pada figure \ref{YNCM}
-	
-	\begin{figure}[ht]
-	\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNCM.PNG}}
-	\caption{Confusion Matrix.}
-	\label{YNCM}
-	\end{figure}
-
-\item Voting merupakan proses pemilihan dari tree yang dimana akan dimunculkan hasilnya dan disimpulkan menjadi informasi yang pasti. Untuk kebih jelasnya saya akan memberikan sebuah contoh bagaimana voting beerja.
-	
-	\begin{figure}[ht]
-	\centerline{\includegraphics[width=1\textwidth]{figures/YN/YNVoting.PNG}}
-	\caption{Voting.}
-	\label{YNV}
-	\end{figure}
-
-Dimana ditunjukkan pada figure \ref{YNV} terdapat 3 tree. Dalam tree tersebut akan dilakukan proses voting. Saya akan memberikan contoh kasus, dimana akan diadakan voting untuk menentukan sebuah mobil. Dalam tree akan diberikan sejumlah data misalnya saja data tersebut berupa gambar, yang dimana data tersebut akan dipilih dengan cara voting. Hasil voting akhir dari setiap tree menunjukkan mobil jazz, yang berarti kesimpulan dari data yang telah diberikan menyatakan gambar tersebut adalah mobil jazz. Bagaimana apabila terjadi perbedaan data misalnya saja pada tree 1 dan 2 menunyatakan mobil jazz sedangkan pada tree 3 menyatakan mobil yaris, maka kesimpulan yang di ambil adalah mobil jazz dikarenakan hasil voting terbanyak adalah mobil jazz.
-
-\end{enumerate}
-
-
-\section{Imron Sumadireja/1164076}
-\subsection{Teori}
-\begin{enumerate}
-\item Random Forest Beserta Ilustrasinya \par
-Random Forest adalah salah satu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar. Klasifikasi random forest ini dilakukan melalui penggabungan decision tree dengan melakukan training pada sampel data yang dimiliki atau biasa disebut dengan supervised learning. Semakin banyak menggunakan decision tree maka akan mempengaruhi akurasi yang didapatkan menjadi lebih baik. Setiap decision tree memiliki atribut yang berbeda, serta decision tree tersebut spesifik terhadap atributnya yang merupakan bagian kecil dari keseluruhan atribut pada data set. Contoh sederhananya bisa dilihat pada gambar berikut \ref{R1}
-		\begin{figure}[ht]
-		\centerline{\includegraphics[width=1\textwidth]{figures/im/R1.png}}
-		\caption{Random Forest.}
-		\label{R1}
-		\end{figure}
-
-\item Membaca Dataset, Makna Setiap File Serta Field Masing-Masing File\par
-Pertama download terlebih dahulu datasetnya kemudian buka menggunakan spyder untuk mengetahui isi dari dataset tersebut. Untuk menjalankan code tersebut tinggal blok bagian yang akan di jalankan. Dataset tersebut di dalamnya terdapat class dari field atau data. Sebagai contoh pada data burung terdapat field index dan angka, untuk index biasanya berupa angka, angka tersebut memiliki makna sebagai pengganti nama atau jenis burung. Sedangkan field berisi nilai 0 dan 1 maknanya untuk memberikan penilaian ya atau tidak pada setiap suatu data namun pada kasus ini field di ganti dari ya atau tidak menjadi 0 dan 1 karena komputer kesulitan membaca ya atau tidak dan hanya bisa membaca dengan 0 dan 1 saja.
-
-\item Cross Validation \par
-Cross validation adalah metode statistik yang dapat digunakan untuk mengevaluasi kinerja model atau algoritma dengan data dipisahkan menjadi dua subset yaitu data testing dan data training. Selain itu cross validation digunakan untuk memperkirakan seberapa akurat sebuah model prediktif ketika dijalankan. Untuk melakukan proses cross validation ini dibutuhkan sebuah data. Cross validation mengambil data dari output yang telah di eksekusi oleh algoritma sebelumnya. Hasil tersebut akan dipisahkan menjadi dua subset berdasarkan ukuran dataset. Selanjutnya dataset tersebut akan di test secara bergantian hingga seluruh bagian terpenuhi.
-
-\item Arti Score 44\% Pada Random Forest, 27\% Pada Decision Tree dan 29\% Dari SVM \par
-\begin{enumerate}
-\item Arti Score 44\% Pada Random Forest \par
-Score tersebut merupakan hasil prediksi dari data yang telah dieksekusi sebelumnya dengan algoritma random forest, score tersebut menandakan bahwa akurasi yang didapatkan tidak terlalu baik karena data yang diujinya cukup banyak. Tetapi itu jauh lebih baik daripada menebak secara acak.
-\item Arti Score 27\% Pada Decision Tree \par
-Score tersebut merupakan hasil prediksi dari data yang dieksekusi sebelumnya dengan algoritma decision tree, selain itu pada decision tree menggunakan library sklearn sebagai acuan untuk melakukan prediksi. Untuk decision tree ini hasil yang didapatkan ialah 27\%. Hasil tersebut lebih buruk dibandingkan dengan menggunakan algoritma random forest.
-\item Arti Score 29\% Pada SVM \par
-Score tersebut merupakan hasil prediksi dari data yang dieksekusi sebelumnya dengan algoritma Support Vector Machine, score tersebut lebih baik daripada hasil yang di prediksi oleh decision tree namun score yang dimiliki oleh SVM tidak lebih baik dari hasil random forest.
-\end{enumerate}
-
-\item Cara Membaca Confusion Matriks Beserta Ilustrasinya \par
-Cara untuk membaca confusion matriks yakni dengan cara memasukan parameter nilai yang tersedia pada datasets. Data tersebut akan  menghasilkan 0.5, 0.2 dan lain seterusnya sampai mendekati angka 1 atau akurasi yang sempurna. Pada confusion matriks terdapat 4 istilah sebagai representasi hasil proses klasifikasi, seperti gambar berikut \ref{R2}
-		\begin{figure}[ht]
-		\centerline{\includegraphics[width=1\textwidth]{figures/im/R2.png}}
-		\caption{Confusion Matrix.}
-		\label{R2}
-		\end{figure}
-
-\item Jelaskan Voting Pada Random Forest Beserta Ilustrasinya \par
-Voting pada random forest berguna untuk mengambil nilai pada masing-masing tree yang akan digunakan untuk menentukan hasil final dengan akurasi yang lebih baik. Untuk ilustrasi sederhananya sebagai berikut \ref{R3}
-		\begin{figure}[ht]
-		\centerline{\includegraphics[width=1\textwidth]{figures/im/R3.png}}
-		\caption{Voting.}
-		\label{R3}
-		\end{figure}
-\end{enumerate}
-
-
-
-
-\section{Andri Fajar Sunandhar/1164065}
-\subsection{Teori}
-\begin{enumerate}
-\item Apa itu Random Forest Serta Gambar Ilustrasinya \par
-Random Forest adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar. Klasifikasi random forest dilakukan melalui penggabungan pohon  dengan melakukan training pada sampel data yang dimiliki. Penggunaan tree yang semakin banyak akan mempengaruhi akurasi yang akan didapatkan menjadi lebih baik. Penentuan klasifikasi dengan random forest diambil berdasarkan hasil voting dari pohon yang terbentuk. Pemenang dari pohon yang terbentuk ditentukan dengan vote terbanyak. Pembangunan pohon  pada random forest sampai dengan mencapai ukuran maksimum dari pohon data. Akan tetapi, pembangunan pohon Random Forest tidak dilakukan pemangkasan  yang merupakan sebuah metode untuk mengurangi kompleksitas ruang. Contoh Ilustrasi sederhana Gambar Random Forest. 
-		\begin{figure}[ht]
-		\centerline{\includegraphics[width=1\textwidth]{figures/AFS/AFS1.png}}
-		\caption{Random Forest.}
-		\label{AFS1}
-		\end{figure}
-
-\item Cara Membaca Dataset
-	
-
-		\begin{enumerate}
-			\item Buka Anaconda Navigator.
-			\item Jalankan Spyder
-			\item Import libraries yang dibutuhkan
-			\item Masukan kode berikut untuk membaca file Data.csv.
-				\begin{figure}[ht]
-				\centering
-				\includegraphics[scale=0.8]{figures/AFS/2.png}
-				\caption{Kode membaca file.csv}
-				\label{contoh}
-				\end{figure}
-			\item Jalankan kode tersebut, maka di windiws console akan muncul pesan :
-				\begin{figure}[ht]
-				\centering
-				\includegraphics[scale=0.9]{figures/AFS/3.png}
-				\caption{ Window Console}
-				\label{contoh}
-				\end{figure}
-			\item Klik variable explorer, maka akan terlihat dataset yang baru ter-import.
-				\begin{figure}[ht]
-				\centering
-				\includegraphics[scale=0.6]{figures/AFS/4.png}
-				\caption{Variable Explorer}
-				\label{contoh}
-				\end{figure}
-			\item Kemudian double klik pada dataset cell, maka akan muncul pop-up windows seperti berikut: 
-				\begin{figure}[ht]
-				\centering
-				\includegraphics[scale=0.7]{figures/AFS/5.png}
-				\caption{ Dataset Cell}
-				\label{contoh}
-				\end{figure}
-			\item Seperti yang terlihat pada gambar tersebut dataset ini memiliki Kolom Country, Age, dan Salary sebagai 		   				independent variable-nya dan kolom Purchased sebagai dependent variable-nya.
-			
-		\end{enumerate}
-	
-
-\item Cross Validation \par
-Cross validation adalah metode statistik yang digunakan untuk memperkirakan keterampilan model pembelajaran mesin. Ini biasanya digunakan dalam pembelajaran mesin yang diterapkan untuk membandingkan dan memilih model untuk masalah pemodelan prediktif yang diberikan karena mudah dipahami, mudah diimplementasikan, dan menghasilkan estimasi keterampilan yang umumnya memiliki bias lebih rendah daripada metode lainnya.
-
-\item Arti Score 44\% Pada Random Forest, 27\% Pada Decision Tree dan 29\% Dari SVM \par
-\begin{enumerate}
-\item Arti Score 44\% \par
-Pada Random Forest, Score tersebut merupakan hasil dari akurasi.
-\item Arti Score 27\% \par
-Pada decission tree adalah presentasi hasil dari perhitungan dataset.
-\item Arti Score 29\% Pada SVM \par
-merupakan hasil pendekatan jaringan saraf. Jaringan saraf sendiri merupakan komponen jaringan utama dari sistem saraf. Sistem tersebut mengatur dan mengontrol fungsi tubuh dan aktivitas dan terdiri dari dua bagian:  (SSP) yang terdiri dari otak dan sumsum tulang belakang, dan percabangan saraf perifer dari sistem saraf tepi (SST) yang terdapat dalam pengolahan dataset terkait. 
-\end{enumerate}
-
-\begin {enumerate}
-\item Confusion Matrix Dan Ilustrasinya
-\begin{enumerate}
-\item Perhitungan confusion matrix adalah sebagai berikut, akan saya beri contoh sederhana yaitu pengambilan keputusan untuk mendapatkan bantuan beasiswa. Saya menggunakan dua atribut, yaitu rekening listrik dan gaji. Ini adalah pohon keputusannya:
- 
-\begin{figure}[ht]
-\centering
-\includegraphics[scale=0.5]{figures/AFS/7.jpg}
-\caption{Pohon Keputusan}
-\label{contoh}
-\end{figure}
-\end{enumerate}
-
-
-Kemudian data testingnya adalah
-
-\begin{figure}[ht]
-\centering
-\includegraphics[scale=0.5]{figures/AFS/8.jpg}
-\caption{Data Testing}
-\label{contoh}
-\end{figure}
-
-Yang pertama kita lakukan yaitu mencari 4 nilai yaitu a,b,c, dan d:
-
- a= 5
-
- b= 1
-
- c= 1
-
- d= 3
-
-Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
-
- Recall =3/(1+3) = 0,75
-
- Precision = 3/(1+3) = 0,75
-
- Accuracy =(5+3)/(5+1+1+3) = 0,8
-
- Error Rate =(1+1)/(5+1+1+3) = 0,2
-
-\end {enumerate}
-
-\item Jelaskan Voting Pada Random Forest Beserta Ilustrasinya 
-\par Voting merupakan metode yang paling umum digunakan dalam random forest. Ketika classifier membuat keputusan, Anda dapat memanfaatkan yang terbaik keputusan umum dan rata-rata yang didefinisikan ke dalam bentuk "voting".
-\par Setelah pohon terbentuk,maka akan dilakukan voting pada setiap kelas dari data sampel. Kemudian, mengkombinasikan vote dari setiap kelas kemudian diambil vote yang paling banyak.Dengan menggunakan random forest pada klasifikasi data maka, akan menghasilkan vote yang paling baik. \ref{AFS6}
-		\begin{figure}[ht]
-		\centerline{\includegraphics[width=1\textwidth]{figures/AFS/6.png}}
-		\caption{Voting.}
-		\label{AFS6}
-		\end{figure}
-\end{enumerate}
 
 
 
@@ -778,6 +940,8 @@ Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
 	\caption{Aplikasi Pandas}
 	\label{contoh}
 	\end{figure}
+
+\end{enumerate}
 	\par Penjelasan kodingan :
 		\begin{enumerate}
 		\item Memanggil library.
@@ -845,6 +1009,8 @@ Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
 \label{contoh}
 \end{figure}
 \par
+\end{itemize}
+
 \begin{itemize}
 \item Penjelasan : Membaca dataset. Codingan di atas menghasilkan variabel baru yaitu imgatt. Terdapat 3 kolom dan 3677856 baris data.
 \par 
@@ -1089,8 +1255,6 @@ Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
 \par
 \end{itemize}
 
-\end{itemize}
-
 \item Program Klasifikasi Confusion Matrix
 	\begin{itemize}
 		\item Setelah melakukan random forest kemudian dipetakan ke dalam confusion matrix.
@@ -1142,6 +1306,8 @@ Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
 \label{contoh}
 \end{figure}
 \par
+\end{itemize}
+
 \begin{itemize}
 \item Penjelasan : Pada gambar di atas cara untuk mencoba klasikasi dengan SVM dengan dataset yang sama.
 \par 
@@ -1160,7 +1326,7 @@ Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
 \item Penjelasan : Pada gambar di atas merupakan cara untuk mencoba klasikasi dengan decission tree dengan dataset yang sama.
 \par
 \par
-\end{itemize}
+
 \end{itemize}
 
 
@@ -1181,13 +1347,8 @@ Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
 			\label{contoh}
 			\end{figure}
 		\item Melakukan pengecekan cross validation untuk SVM.
-			\begin{figure}[ht]
-			\centering
-			\includegraphics[scale=0.5]{figures/AFS/fajar3.jpg}
-			\caption{Pengecekan cross validation SVM}
-			\label{contoh}
-			\end{figure}
 	\end{itemize}
+
 \item Program Pengamatan Komponen Informasi
 	\begin{itemize}
 		\item Melakukan pengamatan komponen informasi untuk menetahui berapa banyak tree yang dibuat, atribut yang dipakai, dan informasi lainnya.
@@ -1215,15 +1376,15 @@ Penyelesaian Tugas Harian  ( Penanganan Error )
 \item Menyelesaikan dan Membahas Penanganan Error :
 \begin{itemize}
 \item Skrinsut Error
-\par
-\begin{figure}[ht]
 
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.7]{figures/AFS/Error.jpg}
 \caption{Error}
 \label{contoh}
 \end{figure}
-\par
+\end{itemize}
+
 \begin{itemize}
 \item Kode Error: file b'data/CUB 200 2011/attributes/image attributes labels.txt'
 \par 
@@ -1231,6 +1392,4 @@ Penyelesaian Tugas Harian  ( Penanganan Error )
 \par 
 \par
 \end{itemize}
-\end{itemize}
 \end{enumerate}
-
