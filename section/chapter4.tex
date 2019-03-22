@@ -53,6 +53,360 @@ TF-IDF merupakan metode untuk menghitung bobot setiap kata pada suatu kalimat ya
 		\end{figure}
 \end{enumerate}
 
+\subsection{Praktikum / Imron Sumadireja / 1164076}
+\begin{enumerate}
+\item Buat aplikasi sederhana menggunakan pandas dengan format csv sebanyak 500 baris \par
+\begin{verbatim}
+import pandas as pd
+d = pd.read_csv("F:/Imron/../praktikum/PraktikumChapter4/trial.csv")
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama menjelaskan import library pandas dengan inisialisasi pd untuk mengelola dataframe
+\item Baris kedua untuk membaca file dengan format csv pada direktori tertentu
+\item Hasilnya seperti gambar berikut \ref{df1}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/df1.png}}
+		\caption{Data Frame.}
+		\label{df1}
+		\end{figure}
+
+\item Memecah dataframe tersebut menjadi dua bagian yaitu 450 row pertama dan 50 row kedua \par
+\begin{verbatim}
+d_train=d[:450]
+d_test=d[450:]
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama membagi data training menjadi 450
+\item Baris kedua membagi data menjadi 50 atau sisa dari data yang tersedia
+\item Hasilnya seperti gambar berikut \ref{df2}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/df2.png}}
+		\caption{Data Frame.}
+		\label{df2}
+		\end{figure}
+
+\item Praktik vektorisasi dan klasifikasi dari data katty perry dan tunjukan keluarannya
+\begin{verbatim}
+import pandas as pd
+d = pd.read_csv("F:/Imron/../Chapter03/Youtube02-KatyPerry.csv")
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama untuk import library pandas berguna untuk mengelola dataframe
+\item Baris kedua membaca file dengan format csv pada direktori tersebut
+\item Untuk hasilnya seperti gambar berikut \ref{yt1}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt1.png}}
+		\caption{Vektorisasi dan Klasifikasi.}
+		\label{yt1}
+		\end{figure}
+
+\begin{verbatim}
+spam=d.query('CLASS == 1')
+nospam=d.query('CLASS == 0')
+\end{verbatim}
+\begin{itemize}
+\item Coding tersebut untuk membagi menjadi 2 tabel spam dan nospam, untuk hasilnya seperti berikut \ref{yt2}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt2.png}}
+		\caption{Spam dan NoSpam.}
+		\label{yt2}
+		\end{figure}
+
+\begin{verbatim}
+from sklearn.feature_extraction.text import CountVectorizer
+vectorizer = CountVectorizer ()
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama untuk import countvectorizer berfungsi untuk memecah data tersebut menjadi sebuah kata yang lebih sederhana
+\item Baris kedua untuk menjalankan fungsi tersebut, pada code ini tidak ada hasilnya dikarenakan spyder tidak mendukung hasil dari instasiasi.
+\end{itemize}
+
+\begin{verbatim}
+dvec = vectorizer.fit_transform(d['CONTENT'])
+dvec
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama untuk melakukan pemecahan data pada dataframe yang terdapat pada kolom konten
+\item Untuk menampilkan hasil dari code sebelumnya, hasilnya seperti gambar berikut \ref{yt3}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt3.png}}
+		\caption{Vektorisasi.}
+		\label{yt3}
+		\end{figure}
+
+\begin{verbatim}
+Daptarkata= vectorizer.get_feature_names()
+\end{verbatim}
+\begin{itemize}
+\item Code tersebut untuk menampilkan setiap kata pada dataframe yang sudah di vektorisasi, untuk hasilnya seperti gambar berikut \ref{yt4}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt4.png}}
+		\caption{Daftar Kata.}
+		\label{yt4}
+		\end{figure}
+
+\begin{verbatim}
+dshuf = d.sample(frac=1)
+\end{verbatim}
+\begin{itemize}
+\item Code tersebut untuk mengacak dataframe tersebut agar tidak berurutan lagi sesuai dengan waktu, untuk hasilnya seperti gambar berikut \ref{yt5}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt5.png}}
+		\caption{Vektorisasi.}
+		\label{yt5}
+		\end{figure}
+
+\begin{verbatim}
+d_train=dshuf[:300]
+d_test=dshuf[300:]
+\end{verbatim}
+\begin{itemize}
+\item Code tersebut untuk membagi data menjadi data training dan data testing, hasilnya seperti gambar berikut \ref{yt6}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt6.png}}
+		\caption{Pembagian data training dan testing.}
+		\label{yt6}
+		\end{figure}
+
+\begin{verbatim}
+d_train_att = vectorizer.fit_transform(d_train['CONTENT'])
+d_train_att
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama untuk memecah data pada tabel training di kolom content dari setiap kalimat menjadi kata
+\item Untuk menampilkan hasil dari code tersebut
+\item Hasilnya seperti gambar berikut \ref{yt7}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt7.png}}
+		\caption{Pemecahan data pada table training.}
+		\label{yt7}
+		\end{figure}
+
+\begin{verbatim}
+d_test_att=vectorizer.transform(d_test['CONTENT'])
+d_test_att
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama untuk memecah data pada table testing di kolom content dari setiap kalimatnya menjadi kata
+\item Untuk menampilkan hasil dari code tersebut
+\item Hasilnya seperti gambar berikut \ref{yt8}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt8.png}}
+		\caption{Pemecahan data pada table testing.}
+		\label{yt8}
+		\end{figure}
+
+\begin{verbatim}
+d_train_label=d_train['CLASS']
+d_test_label=d_test['CLASS']
+\end{verbatim}
+\begin{itemize}
+\item Baris pertam untuk menampilkan kolom class dari data training
+\item Baris kedua untuk menampilkan kolom class dari data testing
+\item Hasilnya seperti gambar berikut \ref{yt9} dan \ref{yt10}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt9.png}}
+		\caption{Menampilkan kolom class.}
+		\label{yt9}
+		\end{figure}
+
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt10.png}}
+		\caption{Menampilkan kolom class.}
+		\label{yt10}
+		\end{figure}
+
+\item Klasifikasi dari data vektorisasi menggunakan klasifikasi SVM \par
+\begin{verbatim}
+from sklearn import svm
+clfsvm = svm.SVR(gamma = 'auto')
+clfsvm.fit(d_train_att, d_train_label)
+clfsvm.score(d_test_att, d_test_label)
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama untuk import method svm dari library sklearn
+\item Nilai gamma ini berfungsi untuk memperhitungkan perolehan presentase akhir agar lebih baik
+\item Untuk menyatukan data training atribut dengan label untuk di latih menggunakan metode svm
+\item Untuk memunculkan score dari hasil latihan tersebut, latihan ini sama seperti k-fold dengan menggunakan 2 data
+\item Hasilnya seperti gambar berikut \ref{yt11}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt11.png}}
+		\caption{SVM.}
+		\label{yt11}
+		\end{figure}
+
+\item Klasifikasi dari data vektorisasi menggunakan klasifikasi Decision Tree \par
+\begin{verbatim}
+from sklearn import tree
+clftree = tree.DecisionTreeClassifier()
+clftree.fit(d_train_att, d_train_label)
+clftree.score(d_test_att, d_test_label)
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama untuk import metode tree pada library sklearn
+\item Baris kedua menjalankan decision tree classifier pada metode tree
+\item Untuk menyatukan data training label dan atribut untuk dilatih menggunakan metode decision tree
+\item Untuk memunculkan score dari hasil latihan dengan menggunakan metode decision tree
+\item Hasilnya seperti berikut \ref{yt12}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt12.png}}
+		\caption{Decision Tree.}
+		\label{yt12}
+		\end{figure}
+
+\item Plotlah confusion matrix dari praktik modul ini menggunakan matplotlib \par
+\begin{verbatim}
+from sklearn.metrics import confusion_matrix
+pred_labels=clf.predict(d_test_att)
+cm=confusion_matrix(d_test_label,pred_labels)
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama untuk import metode confusion matrix pada library sklearn.metrics
+\item Baris kedua menjelaskan bahwa data testing atribut akan di jalankan untuk di normalisasikan
+\item Baris ketiga akan menjalankan data testing label dan data testing atribut untuk di normalisasikan pada step selanjutnya, dan code tersebut tidak mengeluarkan hasil apa-apa dikarenakan code tersebut hanya mempersiapkan data
+\end{itemize}
+
+\begin{verbatim}
+import matplotlib.pyplot as plt
+
+def plot_confusion_matrix(cm, classes,
+                          normalize=False,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
+ 
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        print("Normalized confusion matrix")
+    else:
+        print('Confusion matrix, without normalization')
+
+    print(cm)
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama untuk import library matplotlib dengan inisalisasi plt
+\item Fungsi dari plot confusion matrix ini menormalisasikan atau menyiapkan data untuk ditampilkan berupa grafik, untuk hasilnya seperti berikut \ref{yt13} maksudnya data tersebut di prediksi ada 26 data yang termasuk bukan spam dan memang bukan spam namun ada 1 data yang di prediksi bukan spam tetapi hasilnya spam, begitupun sebaliknya terdapat 22 prediksi data spam dan itu memang termasuk dalam kategori spam tetapi ada 1 data yang di prediksi merupakan spam namun hasilnya bukan spam.
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt13.png}}
+		\caption{Confusion Matrix.}
+		\label{yt13}
+		\end{figure}
+
+\item Menjalankan program cross validation
+\begin{verbatim}
+from sklearn.model_selection import cross_val_score
+scores=cross_val_score(clf,d_train_att,d_train_label,cv=5)
+
+skor_rata2=scores.mean()
+skoresd=scores.std()
+\end{verbatim}
+\begin{itemize}
+\item Baris pertama untuk import metode cross validation
+\item Melatih data training atribut dan label dengan menggunakan cross validation atau hampir sama dengan k-vold
+\item Untuk menampilkan hasil dari cross validation tersebur, seperti gambar berikut \ref{yt14}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt14.png}}
+		\caption{Cross Validation.}
+		\label{yt14}
+		\end{figure}
+
+\begin{verbatim}
+from sklearn.model_selection import cross_val_score
+scores = cross_val_score(clf, d_train_att, d_train_label, cv=5)
+# show average score and +/- two standard deviations away (covering 95 \% of scores)
+print("Accuracy: \%0.2f (+/-\%0.2f)" \% (scores.mean(), scores.std() * 2))
+\end{verbatim}
+\begin{itemize}
+\item Code tersebut akan menentukan akurasi menggunakan cross validation dari hasil akurasi yang model decision tree, hasilnya seperti gambar berikut \ref{yt15}
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt15.png}}
+		\caption{Cross Validation.}
+		\label{yt15}
+		\end{figure}
+
+\item Buatlah program pengamatan komponen informasi\par
+\begin{verbatim}
+max_features_opts = range(1, 10, 1)
+n_estimators_opts = range(2, 40, 4)
+rf_params = np.empty((len(max_features_opts)*len(n_estimators_opts),4), float)
+i = 0
+for max_features in max_features_opts:
+    for n_estimators in n_estimators_opts:
+        clf = RandomForestClassifier(max_features=max_features, n_estimators=n_estimators)
+        scores = cross_val_score(clf, d_train_att, d_train_label, cv=5)
+        rf_params[i,0] = max_features
+        rf_params[i,1] = n_estimators
+        rf_params[i,2] = scores.mean()
+        rf_params[i,3] = scores.std() * 2
+        i += 1
+        print("Max features: \%d, num estimators: \%d, accuracy: \%0.2f (+/- \%0.2f)" \%               
+              (max_features, n_estimators, scores.mean(), scores.std() * 2))
+\end{verbatim}
+\begin{itemize}
+\item Code tersebut menjelaskan bahwa hasil dari data cross validation sebelumnya yang telah dilakukan pelatihan. Untuk range pada max features ini berfungsi untuk menampilkan parameter dari data sebelumnya dan untuk yang estimator berfungsi untuk mengatur akurasi pada gambar yang akan ditampilkan. Code tersebut tidak menampilkan keluaran
+\end{itemize}
+
+\begin{verbatim}
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+fig = plt.figure()
+fig.clf()
+ax = fig.gca(projection='3d')
+x = rf_params[:,0]
+y = rf_params[:,1]
+z = rf_params[:,2]
+ax.scatter(x, y, z)
+ax.set_zlim(0.9, 1)
+ax.set_xlabel('Max features')
+ax.set_ylabel('Num estimators')
+ax.set_zlabel('Avg accuracy')
+plt.show()
+\end{verbatim}
+\begin{itemize}
+\item Code tersebut akan menampilkan grafik seperti berikut \ref{yt16} grafik tersebut dihasilkan dari data-data yang telah dilatih sebelumnya dengan menggunakan algoritma decision tree, cross validation, svm. Untuk codingan diatas pada baris kedua itu untuk import axes 3D yang berfungsi untuk menampilkan grafik 3D lalu untuk baris ke 11 itu diartikan rata-rata akurasi yang didapatkan pada pelatihan sebelumnya yang sudah dilakukan.
+\end{itemize}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yt16.png}}
+		\caption{Komponen Informasi.}
+		\label{yt16}
+		\end{figure}
+\end{enumerate}
+
+\section{Penanganan Error}
+\subsection{Imron Sumadireja /1164076}
+Hasil praktikum yang telah saya lakukan terdapat beberapa kendala error diantaranya sebagai berikut: \par
+\begin{enumerate}
+\item Screenshot error \ref{ytError1}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/yterror1.png}}
+		\caption{Screenshot error.}
+		\label{ytError1}
+		\end{figure}
+
+\item Error tersebut bermasalah dengan codingan yang seharusnya SVR, itu dikarenakan pada versi spyder yang saya gunakan SVC ini tidak dapat dirunning, walaupun di running itu akan menampilkan warning. Untuk menghilangkan warning maka solusi yang saya dapatkan seperti berikut \ref{ytSolusi1}
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/ytsolusi.png}}
+		\caption{Solusi error.}
+		\label{ytSolusi1}
+		\end{figure}
+\end{enumerate}
+
 \section{Yusniar Nur Syarif Sidiq/1164089}
 \subsection{Teori / Yusniar Nur Syarif Sidiq / 1164089}
 
