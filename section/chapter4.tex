@@ -3,6 +3,10 @@ brief of experiment and result.
 \section{Experiment}
 Please tell how the experiment conducted from method.
 
+\extrafloats{100}
+\maxdeadcycles=200
+
+
 \section{Result}
 Please provide the result of experiment
 
@@ -462,5 +466,407 @@ TF-IDF dapat memberikan kita frekuensi kata dalam setiap dokumen sehingga dapat 
 		\label{YNC4-5}
 	\end{figure}
 
+
+\end{enumerate}
+
+\subsection{Praktek Program / Yusniar Nur Syarif Sidiq / 1164089}
+\begin{enumerate}
+
+\item Buat data dummy dengan format csv sebanyak 500 baris dan melakukan load ke dataframe pandas. Jelaskan arti setiap baris kode yang dibuat.
+
+	\begin{verbatim}
+		import pandas as pd
+		yn = pd.read_csv("AttributeDataSet.csv")
+	\end{verbatim}
+
+Dimana pada baris pertama akan melakukan import pandas yang di rename menjadi pd. Pada baris kedua kita akan membuat variabel yn lalu di isikan dengan file csv nya. Untuk hasil output dalam spyder bisa dilihat pada figure \ref{YNC4-6}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/No1-2/YNC4-6.png}}
+		\caption{Import DataFrame 500 Baris}
+		\label{YNC4-6}
+	\end{figure}
+
+\item Dari DataFrame tersebut dipecah menjadi dua DataFrame yaitu 450 row pertama dan 50 row sisanya.
+
+	\begin{verbatim}
+		d_train=yn[:450]
+		d_test=yn[450:]
+	\end{verbatim}
+
+Dimana pada baris pertama menjelaskan bahwa akan membagi data traning sebanyak 450. Pada baris kedua akan membuat data testing sebanyak 50 yang merupakan sisanya. Untuk hasil output dalam spyder bisa dilihat pada figure \ref{YNC4-7}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/No1-2/YNC4-7.png}}
+		\caption{Membagi Data Menjadi 2 DataFrame}
+		\label{YNC4-7}
+	\end{figure}
+
+\item Praktekan vektorisasi dan klarifikasi dari data (NPM mod 4, jika 0 maka katty perry, 1 LMFAO, 2 Eminem, 3 Shakira). Tunjukan keluarannya dari komputer sendiri dan artikan maksud setiap keluaran yang di dapatkan.
+
+	\begin{verbatim}
+		import pandas as pd
+		yn=pd.read_csv("Youtube03-LMFAO.csv")
+	\end{verbatim}
+
+Dimana hasil dari output tersebut akan membaca data csv yaitu Youtube03-LMFAO. Untuk hasil output dalam spyder bisa dilihat pada figure \ref{YNC4-8}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No3/YNC4-8.png}}
+		\caption{Membaca File csv}
+		\label{YNC4-8}
+	\end{figure}	
+
+Selanjutnya perhatikan source code dibawah ini,
+
+	\begin{verbatim}
+		spam=yn.query('CLASS == 1')
+		nospam=yn.query('CLASS == 0')
+	\end{verbatim}	
+
+Dimana pada source code tersebut akan membagi data spam dan bukan spam, yang berarti data spam akan diberi tanda 1 dan data yang bukan spam akan diberi tanda 0. Untuk hasil output dalam spyder bisa dilihat pada figure \ref{YNC4-9}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No3/YNC4-9.png}}
+		\caption{Membagi Data Spam Dan Bukan Spam}
+		\label{YNC4-9}
+	\end{figure}	
+
+Lanjut ke source code berikutnya,
+
+	\begin{verbatim}
+		from sklearn.feature_extraction.text import CountVectorizer
+		vectorizer = CountVectorizer()
+	\end{verbatim}	
+
+Dimana source code diatas akan memanggil lib vektorisasi dan akan melakukan fungsi bag of word yaitu menghitung kata yang muncul perkalimat. Untuk hasil output dalam spyder bisa dilihat pada figure \ref{YNC4-10}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No3/YNC4-10.png}}
+		\caption{Fungsi Bag Of Word}
+		\label{YNC4-10}
+	\end{figure}
+
+Selanjutnya perhatikan source code berikut,
+
+	\begin{verbatim}
+		dvec = vectorizer.fit_transform(yn['CONTENT'])
+		dvec
+	\end{verbatim}	
+
+Dimana pada source code tersebut akan melakukan vektorisasi pada colom content dan akan ditampilkan hasilnya. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-11}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No3/YNC4-11.png}}
+		\caption{Melakukan Vektorisasi Pada Colom Content}
+		\label{YNC4-11}
+	\end{figure}
+
+Lanjut ke source code berikutnya,
+
+	\begin{verbatim}
+		dk=vectorizer.get_feature_names()
+	\end{verbatim}
+
+Dimana pada source code tersebut akan menampilkan data yang sudah di vektorisasi. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-12}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No3/YNC4-12.png}}
+		\caption{Data Yang Sudah Di Vektorisasi}
+		\label{YNC4-12}
+	\end{figure}
+
+Selanjutnya perhatikan source code dibawah,
+
+	\begin{verbatim}
+		yeay = yn.sample(frac=1)
+	\end{verbatim}
+
+Dimana pada source code tersebut akan melakukan pengacakan data pada database agar sempurna saat akan melakukan klasifikasi. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-13}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No3/YNC4-13.png}}
+		\caption{Pengacakan Data}
+		\label{YNC4-13}
+	\end{figure}
+
+Lanjut ke source code berikutnya,
+
+	\begin{verbatim}
+		yn_train=yeay[:300]
+		yn_test=yeay[300:]
+	\end{verbatim}
+
+Dimana pada source code tersebut akan membagi menjadi 2 DataFrame yaitu 300 pada data training dan sisanya data testing. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-14}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No3/YNC4-14.png}}
+		\caption{Membagi Data Yang Sudah Di Vektorisasi}
+		\label{YNC4-14}
+	\end{figure}
+
+Selanjutnya perhatikan source code dibawah,
+
+	
+	\begin{verbatim}
+		yn_train_att=vectorizer.fit_transform(yn_train['CONTENT'])
+		yn_train_att
+	\end{verbatim}
+
+Dimana akan dilakukannya training pada data training dan akan di vektorisasi.  Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-15}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No3/YNC4-15.png}}
+		\caption{Vektorisasi Pada Data Training}
+		\label{YNC4-15}
+	\end{figure}
+
+Selanjutnya perhatikan source code dibawah,
+
+	
+	\begin{verbatim}
+		yn_test_att=vectorizer.transform(yn_test['CONTENT'])
+		yn_test_att
+	\end{verbatim}
+
+Dimana akan dilakukannya testing pada data testing dan akan di vektorisasi.  Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-16}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No3/YNC4-16.png}}
+		\caption{Vektorisasi Pada Data Testing}
+		\label{YNC4-16}
+	\end{figure}
+
+Lanjut ke source code berikut ini,
+
+	\begin{verbatim}
+		yn_train_label=yn_train['CLASS']
+		yn_test_label=yn_test['CLASS']
+	\end{verbatim}
+
+Dimana pada source code tersebut akan mengambil data spam dan bukan spam dari data training dan testing. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-17}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No3/YNC4-17.png}}
+		\caption{Mengambil Data Spam Dan Bukan Dari Traning Dan Testing Data}
+		\label{YNC4-17}
+	\end{figure}
+
+\item Cobalah klasifikasikan dari data vektorisasi yang di tentukan di nomor sebelumnya dengan klasifikasi SVM.
+
+	\begin{verbatim}
+		from sklearn import svm
+		clfsvm = svm.SVR(gamma='auto')
+		clfsvm.fit(yn_train_att, yn_train_label)
+		clfsvm.score(yn_test_att, yn_test_label)
+	\end{verbatim}
+
+Dimana pada source code tersebut akan melakukan import svm dari library sklearn dan akan melakukan klasifikasi dari data yang sudah di vektorisasikan. Hasil output dari source code tersebut berupa score prediksi dari svm. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-18}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No4/YNC4-18.png}}
+		\caption{Score Prediksi Dari SVM}
+		\label{YNC4-18}
+	\end{figure}
+
+\item Cobalah klasifikasikan dari data vektorisasi yang di tentukan nomor sebelumnya dengan klasifikasi Decision Tree.
+
+	\begin{verbatim}
+		from sklearn import tree
+		clftree = tree.DecisionTreeClassifier()
+		clftree.fit(yn_train_att, yn_train_label)
+		clftree.score(yn_test_att, yn_test_label)
+	\end{verbatim}
+
+Dimana source code tersebut akan melakukan import modul tree dari library sklearn dan akan melakukan klasifikasi dari data yang sudah di vektorisasikan. Hasil dari output source code tersebut akan berupa score dari prediksi Decision Tree. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-19}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No5/YNC4-19.png}}
+		\caption{Score Prediksi Dari Decision Tree}
+		\label{YNC4-19}
+	\end{figure}
+
+\item Plotlah confusion matrix dari praktek modul ini menggunakan matplotlib.
+
+	\begin{verbatim}
+		import matplotlib.pyplot as plt
+
+		def plot_confusion_matrix(cm, classes,
+                         	 normalize=False,
+                         	 title='Confusion matrix',
+                         	 cmap=plt.cm.Blues):
+  		  """
+   		 This function prints and plots the confusion matrix.
+   		 Normalization can be applied by setting `normalize=True`.
+ 		   """
+   		 if normalize:
+       			 cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+     	   		 print("Normalized confusion matrix")
+    		else:
+        			print('Confusion matrix, without normalization')
+
+   		 print(cm)
+	\end{verbatim}
+
+Dalam source code tersebut akan melakukan import library matplotlib dan di rename menjadi plt lalu memasukkan fungsi confusion matrix. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-20}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No6/YNC4-20.png}}
+		\caption{Import Matplotlib}
+		\label{YNC4-20}
+	\end{figure}
+
+Selanjutnya perhatikan source code berikut ini,
+
+	\begin{verbatim}
+		import numpy as np
+		np.set_printoptions(precision=2)
+		plot_confusion_matrix(cm, classes=yn, normalize=True)
+		plt.show()
+	\end{verbatim}
+
+Dimana pada soirce code tersebut akan melakukan import pada library numpy yang dimana akan di rename menjadi np. Numpy disini berfungsi sebagai pengolah data matix arti dari numpy sendiri yaitu numarical matrix. Hasil dari source code tersebut akan memunculkan data matrix yang sudah di normalisasi. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-21}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No6/YNC4-21.png}}
+		\caption{Matrix Normalisasi}
+		\label{YNC4-21}
+	\end{figure}
+
+\item Jalankan program cross validation.
+
+	\begin{verbatim}
+		from sklearn.model_selection import cross_val_score
+		scores = cross_val_score(clf, yn_train_att, yn_train_label, cv=5)
+		print("Accurac")
+	\end{verbatim}
+
+Dimana pada source code diatas akan menampilkan score akurasi pada Random Forest. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-22}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No7/YNC4-22.png}}
+		\caption{Score Prediksi Akurasi RF}
+		\label{YNC4-22}
+	\end{figure}
+
+Selanjutnya perhatikan source code dibawah ini,
+
+	\begin{verbatim}
+		scorestree = cross_val_score(clftree, yn_train_att, yn_train_label, cv=5)
+		print("Accuracy")
+	\end{verbatim}
+
+Dimana pada source code diatas akan menampilkan score akurasi pada Decision Tree. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-23}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No7/YNC4-23.png}}
+		\caption{Score Prediksi Akurasi DT}
+		\label{YNC4-23}
+	\end{figure}
+
+Selanjutnya perhatikan source code dibawah ini,
+
+	\begin{verbatim}
+		scoressvm = cross_val_score(clfsvm, yn_train_att, yn_train_label, cv=5)
+		print("Accuracy")
+	\end{verbatim}
+
+Dimana pada source code diatas akan menampilkan score akurasi pada SVM. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-24}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No7/YNC4-24.png}}
+		\caption{Score Prediksi Akurasi SVM}
+		\label{YNC4-24}
+	\end{figure}
+
+\item Buatlah program pengamatan komponen informasi.
+
+	\begin{verbatim}
+		max_features_opts = range(1, 10, 1)
+		n_estimators_opts = range(2, 40, 4)
+		rf_params = np.empty((len(max_features_opts)*len(n_estimators_opts),4), float)
+		i = 0
+		for max_features in max_features_opts:
+    		for n_estimators in n_estimators_opts:
+        		clf = RandomForestClassifier(max_features=max_features, n_estimators=n_estimators)
+       		 scores = cross_val_score(clf, yn_train_att, yn_train_label, cv=5)
+      		 rf_params[i,0] = max_features
+       		 rf_params[i,1] = n_estimators
+        		rf_params[i,2] = scores.mean()
+       		 rf_params[i,3] = scores.std() * 2
+       		 i += 1
+       		 print("Max features"
+	\end{verbatim}
+
+Output dari source code diatas akan melakukan pengulangan dari data-data sebelumnya yang sudah di vektorisasi.  Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-25}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No8/YNC4-25.png}}
+		\caption{Pengulangan Data Vektorisasi}
+		\label{YNC4-25}
+	\end{figure}
+
+Selanjutnya perhatikan source code berikut,
+
+	\begin{verbatim}
+		import matplotlib.pyplot as plt
+		from mpl_toolkits.mplot3d import Axes3D
+		from matplotlib import cm
+		fig = plt.figure()
+		fig.clf()
+		ax = fig.gca(projection='3d')
+		x = rf_params[:,0]
+		y = rf_params[:,1]
+		z = rf_params[:,2]
+		ax.scatter(x, y, z)
+		ax.set_zlim(0.8, 1)
+		ax.set_xlabel('Max features')
+		ax.set_ylabel('Num estimators')
+		ax.set_zlabel('Avg accuracy')
+		plt.show()
+	\end{verbatim}
+
+Hasil output dari source code tersebut adalh menampilkan data pengulangan yang sudah di vektorisasi dalam bentuk grafik. Untuk output dalam spyder dapat dilihat pada figure \ref{YNC4-26}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4No8/YNC4-26.png}}
+		\caption{Grafik Data Pengulangan}
+		\label{YNC4-26}
+	\end{figure}
+
+\end{enumerate}
+
+\subsection{Penangan Error / Yusniar Nur Syarif Sidiq / 1164089}
+\begin{enumerate}
+
+\item Screenshoot Error
+Dimana error yang saya dapat ditunjukan pada figure \ref{YNC4-27}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter4/C4PE/YNC4-27.png}}
+		\caption{Syntax Error}
+		\label{YNC4-27}
+	\end{figure}
+
+\item Tuliskan kode error dan jenisnya
+
+	\begin{verbatim}
+		from sklearn import svm
+		clfsvm = svm.SVR()
+		clfsvm.fit(yn_train_att, yn_train_label)
+		clfsvm.score(yn_test_att, yn_test_label)
+	\end{verbatim}
+
+Dimana error tersebut merupakan syntax error yaitu terjadi kekurangan source code atau salah penulisannya.
+
+\item Solusi pemecahan masalah error
+Solusi dari error tersebut adalah dengan melengkapi source codenya. Untuk source code lengkapnya dapat dilihat dibawah ini
+
+	\begin{verbatim}
+		from sklearn import svm
+		clfsvm = svm.SVR(gamma='auto')
+		clfsvm.fit(yn_train_att, yn_train_label)
+		clfsvm.score(yn_test_att, yn_test_label)
+	\end{verbatim}
 
 \end{enumerate}
