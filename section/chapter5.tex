@@ -28,16 +28,48 @@ tell about result for purpose of this research.
 	\end{figure}
 
 \item Jelaskan mengapa dimensi dari vektor dataset google bisa sampe 300. Dilengkapi dengan ilustrasi atau gambar.
+	\subitem Dikarenakan pada setiap dataset didalamnya memiliki identitas masing-masing yang menyebabkan jumlah vektor dataset google bisa sampe 300. Saya akan memberikan sebuah ilustrasi yang saya dapat yaitu bagaimana pembagian dataset pada google. Didalam dataset google tersebut memiliki beberapa objek yaitu spatula, cat, dan dog. Dimana ketiga dataset tersebut akan dilakukan proses perbandingan dataset sehingga diproleh hasil antara cat dan dog yaitu 76\% dikarekan pada dataset cat dan dog memiliki kesamaan data sedangkan untuk hasil perbandingan antara cat dan spatula yaitu 12\%. Mengapa lebih sedikit, dikarenakan data yang dimiliki oleh cat dan spatula tidak memiliki kesamaan data. Hal ini dapat membuktikan setelah dilakukan vektorisasi mesin jadi dapat membedakan mana dataset yang memiliki kesamaan dan mana yang bukan. Mengenai pengertian dan ikustrasi tersebut dapat kita liat kedalam bentuk figure \ref{YNC5-5}
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Teori/YNC5-5.png}}
+		\caption{Dataset Google}
+		\label{YNC5-5}
+	\end{figure}
 
 \item Jelaskan konsep vektorisasi untuk kata. Dilengkapi dengan ilustrasi atau gambar.
+	\subitem Konsep pada vektorisasi kata yaitu dimana kata tersebut merupakan sebuah hasil pengolahan kata dari sebuah kalimat-kalimat yang telah kita olah. Misalnya saat kita membuka sosial media dan terdapat banyak komentar didalamnya. Ada sebuah kalimat yang mengatakan \" Follow instagram aku yah teman-teman \" , dimana dalam kalimat tersebut memiliki kata kunci instagram dan kata tersebut akan dijadikan data training untuk mesin. Diamana nantinya mesin akan menampilkan kata-kata yang ada kaitannya dengan kata kunci tersebut. Figure \ref{YNC5-3} merupakan sebuah ilustrasi pada vektorisasi kata.
+
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Teori/YNC5-2.png}}
+		\caption{Vektorisasi Kata}
+		\label{YNC5-2}
+	\end{figure}
 
 \item Jelaskan konsep vektorisasi untuk dokumen. Dilengkapi dengan ilustrasi atau gambar.
+	\subitem Sebenarnya konsep pada vektorisasi dokumen dan vektorisasi kata itu sama saja, hal yang membedakannya itu hanya proses awalnya. Dimana pada vektorisasi kata akan membaca kalimat per kalimat namun pada vektorisasi dokumen akan membaca keseluruhan kalimat yang terdapat pada sebuah dokumen yang nantinya kalimat-kalimat tersebut akan dipecah menjadia kata per kata. Pada figure \ref{YNC5-3} merupakan contoh ilustrasi sederhana.
 
-\item Jelaskan apa mean dan standar deviasi. Dilengkapi dengan ilustrasi atau gambar.
-	\subitem Mean merupakan nilai rata-rata dari suatu data. Mean dapat dicari dengan cara membagi jumlah data dengan banyak data sehingga diperoleh lah nilai rata-rata dari suatu data. Sedangkan standar deviasi merupakan sebuah teknik statistik yang digunakan dalam menjelaskan homogenitas kelompok.
+	\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Teori/YNC5-3.png}}
+		\caption{Vektorisasi Document}
+		\label{YNC5-3}
+	\end{figure}
+
+\item Jelaskan apa mean dan standar deviasi. Dilengkapi dengan ilustrasi.
+	\subitem Mean merupakan nilai rata-rata dari suatu data. Mean dapat dicari dengan cara membagi jumlah data dengan banyak data sehingga diperoleh lah nilai rata-rata dari suatu data. Sedangkan standar deviasi merupakan sebuah teknik statistik yang digunakan dalam menjelaskan homogenitas kelompok. Contoh sederhananya dimana kita menjumpai dataset yang memiliki 10 data yang berbeda dan 5 atribut yang berbeda. Untuk memperolah nilai mean kita harus menghitung keseluruhan data tersebut lalu hasilnya akan dibagi dengan jumlah datanya. Setelah kita mendapatkan nilai mean maka kita bisa menghitung standar deviasi untuk memperoleh nilai statisknya.
 
 \item Jelaskan apa itu skip-gram. Dilengkapi dengan ilustrasi atau gambar.
-	\subitem Skip-gram merupakan sebuah teknik yang digunakan pada area speech processing yang dimana n-gram dibentuk lalu ditambah dengan tindakan skip.
+	\subitem Skip-gram merupakan sebuah teknik yang digunakan pada area speech processing yang dimana n-gram dibentuk lalu ditambah dengan tindakan skip. Misalkan ada sebuah kalimat yaitu \" I hit the tennis ball \", kita akan membuatnya menjadi skip gram 3 kata maka akan menjadi,
+		\begin{itemize}
+			\item I hit the
+			\item Hit the tennis
+			\item The tennis ball
+		\end{itemize}
+Figure \ref{YNC5-4} merupakan ilustrasi sederhana.
+		\begin{figure}[ht]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Teori/YNC5-4.png}}
+		\caption{Kata-Kata Hasil Vektorisasi}
+		\label{YNC5-4}
+	\end{figure}
 
 \end{enumerate}
 
