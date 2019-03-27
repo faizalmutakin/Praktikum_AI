@@ -40,3 +40,51 @@ tell about result for purpose of this research.
 	\subitem Skip-gram merupakan sebuah teknik yang digunakan pada area speech processing yang dimana n-gram dibentuk lalu ditambah dengan tindakan skip.
 
 \end{enumerate}
+
+\section{Imron Sumadireja / 1164076}
+\subsection{Teori}
+\begin{enumerate}
+\item Jelaskan kenapa kata-kata harus dilakukan vektorisasi. Dilengkapi dengan ilustrasi \par
+Karena untuk mengetahui presentase kata yang sering muncul dalam setiap kalimatnya, yang berguna untuk menetukan kata kunci, serta untuk memberikan kemudahan bagi mesin untuk mempelajari kata yang bentuk aslinya serupa namun tak sama seperti bebek dan ayam. Selain itu fungsi dari vektorisasi kata ini untuk membaca setiap kata-katanya dengan merubah kata menjadi sebuah angka atau identitas itu sendiri \ref{vek1}.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/vek1.png}}
+		\caption{Ilustrasi Vektorisasi Kata.}
+		\label{vek1}
+		\end{figure}
+
+\item Jelaskan mengapa dimensi dari vektor dataset google bisa sampai 300. Dilengkapi dengan ilustrasi \par
+Karena pada masing-masing objek itu memiliki identitas tersendiri, contoh sederhananya. Pada dataset google ini memiliki 3 buah objek diantaranya, cat, dog, dan spatula. Lalu dari masing-masing objek itu dibandingkan datasetnya antara cat dan dog lalu cat dan spatula. Hasil yang didapatkan untuk cat dan dog itu sekitar 76\% sedangkan untuk cat dan spatula itu memiliki presentase 12\% itu artinya bahwa mesin dapat membedakan objek yang hampir serupa namun tak sama. Untuk ilustrasi sederhananya bisa dilihat pada gambar \ref{vek2}.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/vek2.png}}
+		\caption{Ilustrasi Vektorisasi Dataset Google.}
+		\label{vek2}
+		\end{figure}
+
+\item Jelaskan konsep vektorisasi untuk kata. Dilengkapi dengan ilustrasi \par
+Konsep untuk vektorisasi kata ini sama halnya dengan kita input suatu kata pada mesin pencari. Lalu hasilnya akan mengeluarkan berupa referensi mengenai kata tersebut. Jadi data kata tersebut didapatkan dari hasil pengolahan pada kalimat-kalimat sebelumnya yang telah diolah. Contoh sederhananya pada kalimat berikut ( Please subscribe my channel thank you guys ), pada kalimat tersebut terdapat konteks yakni channel, kata tersebut akan dijadikan data latih untuk mesin. Jadi ketika kita inputkan kata channel, maka mesin akan menampilkan keterkaitannya dengan kata tersebut. Ilustrasinya bisa dilihat pada gambar berikut \ref{vek3}.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/vek3.png}}
+		\caption{Ilustrasi Vektorisasi Kata.}
+		\label{vek3}
+		\end{figure}
+
+\item Jelaskan konesep vektorisasai untuk dokumen. Dilengkapi dengan ilustrasi \par
+Sama halnya dengan vektorisasi kata, yang membedakan hanya pada proses awalnya. Untuk vektorisasi dokumen ini, mesin akan membaca semua kalimat yang terdapat pada dokumen tersebut, lalu kalimat yang terdapat pada dokumen akan di pecah menjadi kata-kata. Untuk ilustrasinya dapat dilihat pada gambar berikut \ref{vek4}.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/vek4.png}}
+		\caption{Ilustrasi Vektorisasi Dokumen.}
+		\label{vek4}
+		\end{figure}
+
+\item Jelaskan apa mean dan standar deviasi. \par
+Mean merupakan nilai rata-rata. Untuk mendapatkan mean ini kita tinggal menjumlahkan data yang tersedia lalu dibagi dengan banyaknya data tersebut. Sedangkan standar deviasi adalah nilai statistik yang digunakan untuk menentukan bagaimana sebaran data dalam sampel, dan seberapa dekat titik data individu dengan rata-rata nilai sampel.
+
+\item Jelaskan apa itu skip-gram. Dilengkapi dengan ilustrasi \par
+Skip-gram sama halnya dengan vektorisasi kata, namun untuk skip-gram ia dibalik prosesnya. Yang sebelumnya dari kalimat lalu di olah untuk menemukan salah satu kata, kali ini dari keyword tersebut akan diolah menjadi suatu kalimat yang memiliki keterkaitannya dengan keyword tersebut. Ilustrasinya bisa dilihat pada gambar berikut \ref{vek5}.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/vek5.png}}
+		\caption{Ilustrasi Skip-Gram.}
+		\label{vek6}
+		\end{figure}
+
+\end{enumerate}
