@@ -73,6 +73,230 @@ Figure \ref{YNC5-4} merupakan ilustrasi sederhana.
 
 \end{enumerate}
 
+\subsection{Praktek Pemrograman / Yusniar Nur Syarif Sidiq / 1164089}
+\begin{enumerate}
+\item Cobalah dataset google, dan jelaskan vektor dari kata love, faith, fall, sick, clear, shine, bag, car, wash, motor, cycle dan cobalah untuk melakukan perbandingan similirati dari masing-masing kata tersebut. Jelaskan arti dari outputan similaritas.
+	\subitem Dimana output dari source code tersebut merupakan data vektor untuk kata love. Perhatikan figure \ref{YNC5-6}.
+
+		\begin{verbatim}
+			gmodel['love']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-6.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-6}
+		\end{figure}
+
+Output source code dibawah akan memunculkan data vektor untuk kata faith. Perhatikan figure \ref{YNC5-7}
+
+		\begin{verbatim}
+			gmodel['faith']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-7.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-7}
+		\end{figure}
+
+Output source code dibawah akan memunculkan data vektor untuk kata fall. Perhatikan figure \ref{YNC5-8}
+
+		\begin{verbatim}
+			gmodel['fall']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-8.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-8}
+		\end{figure}
+
+Output source code dibawah akan memunculkan data vektor untuk kata sick. Perhatikan figure \ref{YNC5-9}
+
+		\begin{verbatim}
+			gmodel['sick']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-9.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-9}
+		\end{figure}
+
+Output source code dibawah akan memunculkan data vektor untuk kata clear. Perhatikan figure \ref{YNC5-10}
+
+		\begin{verbatim}
+			gmodel['clear']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-10.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-10}
+		\end{figure}
+
+Output source code dibawah akan memunculkan data vektor untuk kata shine. Perhatikan figure \ref{YNC5-11}
+
+		\begin{verbatim}
+			gmodel['shine']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-11.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-11}
+		\end{figure}
+
+Output source code dibawah akan memunculkan data vektor untuk kata bag. Perhatikan figure \ref{YNC5-12}
+
+		\begin{verbatim}
+			gmodel['bag']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-12.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-12}
+		\end{figure}
+
+Output source code dibawah akan memunculkan data vektor untuk kata car. Perhatikan figure \ref{YNC5-13}
+
+		\begin{verbatim}
+			gmodel['car']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-13.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-13}
+		\end{figure}
+
+Output source code dibawah akan memunculkan data vektor untuk kata wash. Perhatikan figure \ref{YNC5-14}
+
+		\begin{verbatim}
+			gmodel['wash']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-14.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-14}
+		\end{figure}
+Output source code dibawah akan memunculkan data vektor untuk kata motor. Perhatikan figure \ref{YNC5-15}
+
+		\begin{verbatim}
+			gmodel['motor']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-15.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-15}
+		\end{figure}
+
+Output source code dibawah akan memunculkan data vektor untuk kata cycle. Perhatikan figure \ref{YNC5-16}
+
+		\begin{verbatim}
+			gmodel['cycle']
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-16.png}}
+			\caption{Vektorisasi Kata}
+			\label{YNC5-16}
+		\end{figure}
+
+	\subitem Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata cycle dan motor memiliki ke samaan atau tidak, perhatikan figure \ref{YNC5-17}
+
+		\begin{verbatim}
+			gmodel.similarity('cycle','motor')
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-17.png}}
+			\caption{Perbandingan Kata}
+			\label{YNC5-17}
+		\end{figure}
+
+Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata car dan wash memiliki ke samaan atau tidak, perhatikan figure \ref{YNC5-18}
+
+		\begin{verbatim}
+			gmodel.similarity('car','wash')
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-18.png}}
+			\caption{Perbandingan Kata}
+			\label{YNC5-18}
+		\end{figure}
+
+Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata bag dan shine memiliki ke samaan atau tidak, perhatikan figure \ref{YNC5-19}
+
+		\begin{verbatim}
+			gmodel.similarity('bag','shine')
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-19.png}}
+			\caption{Perbandingan Kata}
+			\label{YNC5-19}
+		\end{figure}
+
+Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata clear dan sick memiliki ke samaan atau tidak, perhatikan figure \ref{YNC5-20}
+
+		\begin{verbatim}
+			gmodel.similarity('clear','sick')
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-20.png}}
+			\caption{Perbandingan Kata}
+			\label{YNC5-20}
+		\end{figure}
+
+Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata fall dan faith memiliki ke samaan atau tidak, perhatikan figure \ref{YNC5-21}
+
+		\begin{verbatim}
+			gmodel.similarity('fall','faith')
+		\end{verbatim}
+
+		\begin{figure}[ht]
+			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-21.png}}
+			\caption{Perbandingan Kata}
+			\label{YNC5-21}
+		\end{figure}
+
+\item Jelaskan dengan kata dan ilustrasi fungsi dari extact\_words dan PermuteSentences.
+		
+		\begin{verbatim}
+		import re
+		def extract_words(sent):
+    			sent = sent.lower()
+   		 	sent = re.sub(r'<[^>]+>', ' ', sent) 
+    			sent = re.sub(r'(\w)\'(\w)', ' ', sent) 
+    			sent = re.sub(r'\W', ' ', sent) 
+    			sent = re.sub(r'\s+', ' ', sent) 
+    		return sent.split()
+		\end{verbatim}
+	\subitem Dimana source code tersebut akan membersihkan tag-tag yang tidak perlu dan mengubahnya ke dalam bentuk array list perkata menggunakan split.
+
+		\begin{verbatim}
+		import random
+		class PermuteSentences(object):
+    			def __init__(self, sents):
+        				self.sents = sents
+        
+    			def __iter__(self):
+        		shuffled = list(self.sents)
+        		random.shuffle(shuffled)
+        			for sent in shuffled:
+            		yield sent
+		\end{verbatim}
+	\subitem Dimana source code diatas berfungsi untuk melakukan pengacakan data supaya memperoleh data yang teratur.
+
+\end{enumerate}
+
 \section{Imron Sumadireja / 1164076}
 \subsection{Teori}
 \begin{enumerate}
