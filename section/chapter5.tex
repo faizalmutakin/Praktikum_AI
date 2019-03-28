@@ -120,3 +120,113 @@ Skip-gram sama halnya dengan vektorisasi kata, namun untuk skip-gram ia dibalik 
 		\end{figure}
 
 \end{enumerate}
+
+\subsection{Praktikum / Imron Sumadireja / 1164076}
+\begin{enumerate}
+\item Cobalah dataset google, dan jelaskan vektor dari kata love, faith, fall, sick, clear, shine, bag, car, wash, motor, cycle dan cobalah untuk melakukan perbandingan similirati dari masing-masing kata tersebut \par
+\begin{verbatim}
+import gensim, logging
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+gmodel = gensim.models.KeyedVectors.load_word2vec_format('F:/Imron/Kuliah/Semester 6/../GoogleNews-vectors-negative300.bin', binary=True, limit=500000)
+\end{verbatim}
+Hasil keluaran pada gambar \ref{sim1} untuk keluaran ke 99 itu untuk import library gensim. Gensim itu sendiri berguna untuk melakukan pemodelan dengan dataset atau topik yang telah ditentukan. Untuk keluaran 100 logging itu library opsional karena logging hanya untuk menampilkan berupa log untuk setiap code yang dijalankan. Dan keluaran 101 itu hasil load data dari file vektor google itu, disini saya menggunakan limit karena kondisi laptop yang tidak mempuni untuk melakukan running data sebesar 3 juta file, jadi saya batasi hanya melakukan running 500 ribu data saja.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim1.png}}
+		\caption{Hasil import gensim dan logging.}
+		\label{sim1}
+		\end{figure}
+
+\begin{verbatim}
+gmodel['love']
+\end{verbatim}
+Keluaran pada gambar \ref{sim2} ini untuk menampilkan data hasil vektorisasi data dari kata love, hasil tersebut berjumlah kurang lebih 300 data. Untuk kata faith, fall, sick, clear, dan lain-lain itu sama saja untuk menampilkan hasil vektorisasi dari setiap katanya. Selanjutnya akan dibandingkan setiap katanya untuk menentukan presentase kemiripan pada setiap kata tersebut.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim2.png}}
+		\caption{Data vektor dari kata love.}
+		\label{sim2}
+		\end{figure}
+
+\begin{verbatim}
+gmodel.similarity('love','faith')
+\end{verbatim}
+Hasil keluaran pada gambar \ref{sim3} merupakan presentase dari perbandingan kata love dan faith dengan hasil 37\%. Hasil tersebut didapatkan dengan 37\% karena mesin dapat membaca bahwa kata love dengan faith ini hampir memiliki arti yang sama.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim3.png}}
+		\caption{Hasil similaritas.}
+		\label{sim3}
+		\end{figure}
+
+\begin{verbatim}
+gmodel.similarity('fall','sick')
+\end{verbatim}
+Hasil keluaran pada gambar \ref{sim4} adalah hasil presentase dari perbandingan antara kata fall dan sick dengan hasil 8\%. Hasil tersebut tidak terlalu baik, karena mesin menentukan bahwa kata fall dengan sick itu tidak serupa karena memiliki presentase yang kecil.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim4.png}}
+		\caption{Hasil similaritas.}
+		\label{sim4}
+		\end{figure}
+
+\begin{verbatim}
+gmodel.similarity('clear','shine')
+\end{verbatim}
+Hasil keluaran pada gambar \ref{sim5} merupakan hasil presentase dari perbandingan antara kata clear dengan shine dengan hasil presentase 11\%. Presentase tersebut dapat memberikan kita gambaran bahwa mesin dapat menentukan bahwa kata clear dan shine itu berbeda.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim5.png}}
+		\caption{Hasil similaritas.}
+		\label{sim5}
+		\end{figure}
+
+\begin{verbatim}
+gmodel.similarity('bag','wash')
+\end{verbatim}
+Hasil keluaran pada gambar \ref{sim6} adalah hasil presentase dari perbandingan kata bag dengan wash dan hasil presentasenya 18\%. Presentase tersebut cukup bagus karena mesin dapat membedakan kata antara bag dan wash.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim6.png}}
+		\caption{Hasil similaritas.}
+		\label{sim6}
+		\end{figure}
+
+\begin{verbatim}
+gmodel.similarity('car','motor')
+\end{verbatim}
+Hasil keluaran pada gambar \ref{sim7} merupakan hasil dari perbandingan kata car dengan motor dan hasil presentasenya 48\%. Ini terbilang bagus dan bisa dikatakan mirip karena mesin dapat menentukan presentase yang cukup baik.
+		\begin{figure}[ht]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim7.png}}
+		\caption{Hasil similaritas.}
+		\label{sim7}
+		\end{figure}
+
+\item Jelaskan dengan kata dan ilustrasi fungsi dari extract words dan PermuteSentences
+\begin{verbatim}
+import re
+def extract_words(sent):
+    sent = sent.lower()
+    sent = re.sub(r'<[^>]+>', ' ', sent) #hapus tag html
+    sent = re.sub(r'(\w)\'(\w)', ' ', sent) #hapus petik satu
+    sent = re.sub(r'\W', ' ', sent) #hapus tanda baca
+    sent = re.sub(r'\s+', ' ', sent) #hapus spasi yang berurutan
+    return sent.split()
+\end{verbatim}
+Code tersebut berguna untuk menghapus tag-tag html yang tidak diperlukan pada dokumen yang telah dilakukan pelatihan dan vektorisasi, hasilnya pun tidak mengeluarkna apa-apa, hanya pemberitahuan bahwa code tersebut telah berhasil dijalankan. Dan code tersebut akan merubah kalimat yang didalamnya menjadi list kata-kata dalam bentuk array dengan menggunakan split.
+
+\begin{verbatim}
+import random
+class PermuteSentences(object):
+    def __init__(self, sents):
+        self.sents = sents
+        
+    def __iter__(self):
+        shuffled = list(self.sents)
+        random.shuffle(shuffled)
+        for sent in shuffled:
+            yield sent
+\end{verbatim}
+Code tersebut untuk melakukan pengacakan data agar data tersebut dapat menghasilkan hasil yang mempuni. Code tersebut bisa digunakan atau tidak, tetapi alangkah baiknya untuk digunakan agar hasil akhir yang didapatkan bisa prima.
+
+\item Jelaskan fungsi dari librari gensim TaggedDocument dan Doc2Vec disertai praktek pemakaiannya
+\begin{verbatim}
+from gensim.models.doc2vec import TaggedDocument
+from gensim.models import Doc2Vec
+\end{verbatim}
+Fungsi dari doc2vec itu sendiri ialah untuk membandingkan data yang terdapat pada dokumen yang lainnya, apakah kata-kata didalamnya ada yang sama atau tidak. Lalu untuk tagged document itu memasukan kata-kata pada setiap dokumennya untuk di vektorisasi.
+\end{enumerate}
