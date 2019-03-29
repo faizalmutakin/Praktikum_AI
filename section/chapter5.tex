@@ -295,6 +295,158 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata f
 		\end{verbatim}
 	\subitem Dimana source code diatas berfungsi untuk melakukan pengacakan data supaya memperoleh data yang teratur.
 
+\item Jelaskan fungsi library gensim dan Doc2Vec
+
+	\begin{verbatim}
+		from gensim.models.doc2vec import TaggedDocument
+		from gensim.models import Doc2Vec
+	\end{verbatim}	
+
+	\subitem Dimana fungsi dari library gensim sendiri yaitu untuk melakuakan pemodelan bahasa dengan unsupervised. Sedangkan Doc2Vec sendiri berifungsi untuk melakukan vectorisasi data dalam bentuk document. TaggedDocument dimana akan memasukkan tag-tag pada document.
+
+\item Jelaskan dengan kata dan praktek cara menambahan data training dari file yang dimasukkan kepada variabel dalam rangka melatih model Doc2Vec.
+
+
+	\begin{verbatim}
+	import os
+	unsup_sentences = []
+	for dirname in ["train/pos","train/neg","train/unsup","test/pos","test/neg"]:
+    	for fname in sorted(os.listdir("aclImdb/"+dirname)):
+        	if fname[-4:] == '.txt':
+           with open("aclImdb/"+dirname+"/"+fname,encoding='UTF-8') as f:
+           sent = f.read()
+           words = extract_words(sent)
+           unsup_sentences.append(TaggedDocument(words,[dirname+"/"+fname]))
+	\end{verbatim}
+
+	\subitem Pada source code diatas akan dilakukan import data training dari folde Imdb, dimana import os berarti akan melakukan import pada library os yang dimana fungsinya sebagai interekasi python dengan pc kita. Lalu kita akan mencari dimana folder Imdb itu disimpan. Setelah dicari dan ketemu selanjutnya kita akan melakukan open pada folder Imdb tersenut dan membacanya dengan format file txt. Hasil output source code tersebut dapat dilihat pada figure \ref{YNC5-22}.
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-22.jpeg}}
+		\caption{Import Data Training.}
+		\label{YNC5-22}
+	\end{figure}
+
+	\begin{verbatim}
+	 for dirname in ["txt_sentoken/pos","txt_sentoken/neg"]:
+    	 for fname in sorted(os.listdir(dirname)):
+        	 if fname[-4:] == '.txt':
+           with open(dirname+"/"+fname,encoding='UTF-8') as f:
+           for i, sent in enumerate(f):
+           words = extract_words(sent)
+           unsup_sentences.append(TaggedDocument(words,["%s/%s-%d" % (dirname,fname,i)]))
+	\end{verbatim}
+
+	\subitem Dimana Pada source code diatas sama saja akan melakukan pemanggilan data training akan tetapi dalam folder yang berbeda, sehingga dapat menambah data training tersebut. Untuk output dari source code tersebut dapat dilihat pada figure \ref{YNC5-23}
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-23.PNG}}
+		\caption{Import Data Training.}
+		\label{YNC5-23}
+	\end{figure}
+
+	\begin{verbatim}
+	with open("stanfordSentimentTreebank/original_rt_snippets.txt",encoding='UTF-8') as f:
+    	for i, sent in enumerate(f):
+        	words = extract_words(sent)
+        	unsup_sentences.append(TaggedDocument(words,["rt-%d" % i]))
+	\end{verbatim}
+
+	\subitem Dimana pada source code diatas juga akan memanggil data training pada folder stanfordSentimentTreebank, sehingga akan menambah data pada data trainingnya. Untuk output dari source code tersebut dapat dilihat pada figure \ref{YNC5-24}
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-24.PNG}}
+		\caption{Import Data Training.}
+		\label{YNC5-24}
+	\end{figure}
+
+\item Jelaskan dengan kata dan praktek mengapa harus dilakukan pengocokan dan pembersihan data.
+
+	\begin{verbatim}
+		mute=PermuteSentences(unsup_sentences)
+	\end{verbatim}
+
+	\subitem Dimana pada source code tersebut akan dilakukannya pengocokan data agar kita dapat mendapatkan data yang random sehingga membuat hasil presentasenya menjadi lebih baik. Output dari source code diatas dapat dilihat pada figure \ref{YNC5-25}.
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-25.PNG}}
+		\caption{Proses Instansiasi Pengocokan Data.}
+		\label{YNC5-25}
+	\end{figure}
+
+	\subitem Untuk pembersihan data perhatikan source code berikut,
+
+	\begin{verbatim}
+		model.delete_temporary_training_data(keep_inference=True)
+	\end{verbatim}
+
+Tujuan pembersihan data adalah untuk melakukan pengosongan file agar meringankan ram pada laptop kita, dikarenakan laptop kita telah melakukan running data sebanyak 3000000 data, agar tidak memperlambat kinerja pada langkag berikutnya maka dari itu dilakukanlah permbersihat data. Output dari source code tersebut dapat dilihat pada figure \ref{YNC5-26}.
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-26.PNG}}
+		\caption{Proses Instansiasi Pembersihan Data.}
+		\label{YNC5-26}
+	\end{figure}
+
+\item Jelaskan dengan kata dan praktek kenapa model harus di save dan kenapa temporari training harus dihapus.
+
+	\begin{verbatim}
+		model.save('haci.d2v')
+	\end{verbatim}
+	
+	\subitem Dalam souce code diatas berfungsi untuk melakukan penyimpanan pada data training yang sudah kita latih, supaya nantinya kita bisa melakukan load saat ingin membukanya dan tidak perlu melakukan pelatihan dari awal lagi. Data yang kita simpan akan terlihat seperti pada figure \ref{YNC5=27}
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-27.PNG}}
+		\caption{Save Data Training.}
+		\label{YNC5-27}
+	\end{figure}
+
+	\subitem Untuk menghapus temporari  training perhatikan source code dibawah,
+
+	\begin{verbatim}
+		model.delete_temporary_training_data(keep_inference=True)
+	\end{verbatim}		
+
+Tujuan dalam menghapus temporary training data yaitu untuk meringan ram kita dengan cara menghapus data training yang sudah kita latih sebelumnya. Melakuakan training data kembali dapat membuat kinerja pada laptop kita menurun maka dari itu data yang sudah tidak terpakai sebaiknya dihapus guna mempercepat kinerja pada latop kita. Untuk ouput dari source code tersebut dapat dilihat pada figure \ref{YNC5-26}
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-26.PNG}}
+		\caption{Proses Instansiasi Penghapusan Temporary Training Data.}
+		\label{YNC5-26}
+	\end{figure}
+
+\item Jelaskan dengan kata dan praktek maksud dari infer\_code.
+
+	\begin{verbatim}
+		model.infer_vector(extract_words("I will go home"))
+	\end{verbatim}
+
+	\subitem Dimana infer\_code disini berfungsi untuk melakukan pebandingan kata dengan vector menggunakan model infer\_vector. Data vector yang akan dibandingkan adalah data training yang sudah kita simpan. Infer\_code yang dipadukan dengan infer\_vector dapat melakukan kalkulasi vector yang telah kita cantumkan pada model yang sudah kita buat. Untuk output dari source code tersebut dapat dilihat pada figure \ref{YNC5-28}
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-28.PNG}}
+		\caption{Hasil Infer Vector.}
+		\label{YNC5-28}
+	\end{figure}
+
+\item Jelaskan dengan kata dan praktek maksud dari consine\_similarity.
+
+	\begin{verbatim}
+	from sklearn.metrics.pairwise import cosine_similarity
+	cosine_similarity(
+        	[model.infer_vector(extract_words("she going to school, after wash hand"))],
+       	 [model.infer_vector(extract_words("Services sucks."))])
+	\end{verbatim}
+
+	\subitem Dimana consine\_similarity ini akan melakukan perbandingan vektorisasi terhadap dua kata, apabila hasil vektorisasi dari kedua kata tersebut adalah 50\% hal ini dapat diperkirakan data kata tersebut memiliki kesamaan, dan apabila kurang dari 50\% maka kata tersebut tidak memiliki kesamaan. Output dari source code diatas dapat dilihat pada figure \ref{YNC5-29}.
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-29.PNG}}
+		\caption{Consine Similarity.}
+		\label{YNC5-29}
+	\end{figure}
+
 \end{enumerate}
 
 \section{Imron Sumadireja / 1164076}
