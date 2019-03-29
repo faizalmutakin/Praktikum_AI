@@ -21,7 +21,7 @@ tell about result for purpose of this research.
 \item Jelaskan kenapa kata-kata harus dilakukan vektorisasi. Dilengkapi dengan ilustrasi atau gambar.
 	\subitem Dikarenakan mesin hanya mampu membaca data dengan bentuk angka maka dari itu diperlukan vektorisasi kata atau bisa disebut dengan mengubah kata menjadi bentuk vektor agar mesin seolah-olah paham apa yang kita maksudkan. Kal inii saya memberikan ilustrasi sederhana, dimana ada sebuah data mengenai kucing, tikus, dan pulpen. Bagaimana cara mesin untuk membaca data tersebut ?, yaitu dengan cara dilakukannya vektorisasi kata. Fungsi dari vektorisasi itu sendiri ialah sebagai indentitas, misalnya di dalam dokumen kucing terdapat kata-kata yang sudah di vektorisasi dan hasilnya adalah 0.012,0.024,.....,0.300, pada dokumen tikus menghasilkan 0.015,0.026,....,0.0276, dan pada pulpen menghasilkan -0.191,...,-0.045. Data vektor tersebut merupakan identitas dari data kucing, tikus dan pulpen.Apabila nilai vektor cenderung sama, maka data tersebut memiliki similarity atau data yang memiliki konten kata yang sama akan tetapi berbeda dengan pulpen yang memiliki data vektorisasi minus, sehingga dapat disimpulkan pulpen memiliki konten kata yang berbeda. Dengan adanya vektorisasi tersebut maka mesin seolah-olah mengerti bahwa kucing dan tikus memiliki konten yang sama yaitu merupakan objek dari binatang sedangkan pulpen merupakan objek benda mati. Mengenai contoh gambarnya dapat dilihat pada figure \ref{YNC5-1}
 
-	\begin{figure}[ht]
+	\begin{figure}[!htbp]
 		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Teori/YNC5-1.png}}
 		\caption{Kata-Kata Hasil Vektorisasi}
 		\label{YNC5-1}
@@ -30,7 +30,7 @@ tell about result for purpose of this research.
 \item Jelaskan mengapa dimensi dari vektor dataset google bisa sampe 300. Dilengkapi dengan ilustrasi atau gambar.
 	\subitem Dikarenakan pada setiap dataset didalamnya memiliki identitas masing-masing yang menyebabkan jumlah vektor dataset google bisa sampe 300. Saya akan memberikan sebuah ilustrasi yang saya dapat yaitu bagaimana pembagian dataset pada google. Didalam dataset google tersebut memiliki beberapa objek yaitu spatula, cat, dan dog. Dimana ketiga dataset tersebut akan dilakukan proses perbandingan dataset sehingga diproleh hasil antara cat dan dog yaitu 76\% dikarekan pada dataset cat dan dog memiliki kesamaan data sedangkan untuk hasil perbandingan antara cat dan spatula yaitu 12\%. Mengapa lebih sedikit, dikarenakan data yang dimiliki oleh cat dan spatula tidak memiliki kesamaan data. Hal ini dapat membuktikan setelah dilakukan vektorisasi mesin jadi dapat membedakan mana dataset yang memiliki kesamaan dan mana yang bukan. Mengenai pengertian dan ikustrasi tersebut dapat kita liat kedalam bentuk figure \ref{YNC5-5}
 
-	\begin{figure}[ht]
+	\begin{figure}[!htbp]
 		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Teori/YNC5-5.png}}
 		\caption{Dataset Google}
 		\label{YNC5-5}
@@ -39,7 +39,7 @@ tell about result for purpose of this research.
 \item Jelaskan konsep vektorisasi untuk kata. Dilengkapi dengan ilustrasi atau gambar.
 	\subitem Konsep pada vektorisasi kata yaitu dimana kata tersebut merupakan sebuah hasil pengolahan kata dari sebuah kalimat-kalimat yang telah kita olah. Misalnya saat kita membuka sosial media dan terdapat banyak komentar didalamnya. Ada sebuah kalimat yang mengatakan \" Follow instagram aku yah teman-teman \" , dimana dalam kalimat tersebut memiliki kata kunci instagram dan kata tersebut akan dijadikan data training untuk mesin. Diamana nantinya mesin akan menampilkan kata-kata yang ada kaitannya dengan kata kunci tersebut. Figure \ref{YNC5-3} merupakan sebuah ilustrasi pada vektorisasi kata.
 
-	\begin{figure}[ht]
+	\begin{figure}[!htbp]
 		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Teori/YNC5-2.png}}
 		\caption{Vektorisasi Kata}
 		\label{YNC5-2}
@@ -48,7 +48,7 @@ tell about result for purpose of this research.
 \item Jelaskan konsep vektorisasi untuk dokumen. Dilengkapi dengan ilustrasi atau gambar.
 	\subitem Sebenarnya konsep pada vektorisasi dokumen dan vektorisasi kata itu sama saja, hal yang membedakannya itu hanya proses awalnya. Dimana pada vektorisasi kata akan membaca kalimat per kalimat namun pada vektorisasi dokumen akan membaca keseluruhan kalimat yang terdapat pada sebuah dokumen yang nantinya kalimat-kalimat tersebut akan dipecah menjadia kata per kata. Pada figure \ref{YNC5-3} merupakan contoh ilustrasi sederhana.
 
-	\begin{figure}[ht]
+	\begin{figure}[!htbp]
 		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Teori/YNC5-3.png}}
 		\caption{Vektorisasi Document}
 		\label{YNC5-3}
@@ -65,7 +65,7 @@ tell about result for purpose of this research.
 			\item The tennis ball
 		\end{itemize}
 Figure \ref{YNC5-4} merupakan ilustrasi sederhana.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Teori/YNC5-4.png}}
 		\caption{Kata-Kata Hasil Vektorisasi}
 		\label{YNC5-4}
@@ -82,7 +82,7 @@ Figure \ref{YNC5-4} merupakan ilustrasi sederhana.
 			gmodel['love']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-6.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-6}
@@ -94,7 +94,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata faith. Perhat
 			gmodel['faith']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-7.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-7}
@@ -106,7 +106,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata fall. Perhati
 			gmodel['fall']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-8.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-8}
@@ -118,7 +118,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata sick. Perhati
 			gmodel['sick']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-9.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-9}
@@ -130,7 +130,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata clear. Perhat
 			gmodel['clear']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-10.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-10}
@@ -142,7 +142,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata shine. Perhat
 			gmodel['shine']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-11.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-11}
@@ -154,7 +154,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata bag. Perhatik
 			gmodel['bag']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-12.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-12}
@@ -166,7 +166,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata car. Perhatik
 			gmodel['car']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-13.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-13}
@@ -178,7 +178,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata wash. Perhati
 			gmodel['wash']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-14.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-14}
@@ -189,7 +189,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata motor. Perhat
 			gmodel['motor']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-15.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-15}
@@ -201,7 +201,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata cycle. Perhat
 			gmodel['cycle']
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-16.png}}
 			\caption{Vektorisasi Kata}
 			\label{YNC5-16}
@@ -213,7 +213,7 @@ Output source code dibawah akan memunculkan data vektor untuk kata cycle. Perhat
 			gmodel.similarity('cycle','motor')
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-17.png}}
 			\caption{Perbandingan Kata}
 			\label{YNC5-17}
@@ -225,7 +225,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata c
 			gmodel.similarity('car','wash')
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-18.png}}
 			\caption{Perbandingan Kata}
 			\label{YNC5-18}
@@ -237,7 +237,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata b
 			gmodel.similarity('bag','shine')
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-19.png}}
 			\caption{Perbandingan Kata}
 			\label{YNC5-19}
@@ -249,7 +249,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata c
 			gmodel.similarity('clear','sick')
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-20.png}}
 			\caption{Perbandingan Kata}
 			\label{YNC5-20}
@@ -261,7 +261,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata f
 			gmodel.similarity('fall','faith')
 		\end{verbatim}
 
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 			\centering{\includegraphics[scale=0.5]{figures/YN/Chapter5/Praktek/YNC5-21.png}}
 			\caption{Perbandingan Kata}
 			\label{YNC5-21}
@@ -302,7 +302,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata f
 \begin{enumerate}
 \item Jelaskan kenapa kata-kata harus dilakukan vektorisasi. Dilengkapi dengan ilustrasi \par
 Karena untuk mengetahui presentase kata yang sering muncul dalam setiap kalimatnya, yang berguna untuk menetukan kata kunci, serta untuk memberikan kemudahan bagi mesin untuk mempelajari kata yang bentuk aslinya serupa namun tak sama seperti bebek dan ayam. Selain itu fungsi dari vektorisasi kata ini untuk membaca setiap kata-katanya dengan merubah kata menjadi sebuah angka atau identitas itu sendiri \ref{vek1}.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/vek1.png}}
 		\caption{Ilustrasi Vektorisasi Kata.}
 		\label{vek1}
@@ -310,7 +310,7 @@ Karena untuk mengetahui presentase kata yang sering muncul dalam setiap kalimatn
 
 \item Jelaskan mengapa dimensi dari vektor dataset google bisa sampai 300. Dilengkapi dengan ilustrasi \par
 Karena pada masing-masing objek itu memiliki identitas tersendiri, contoh sederhananya. Pada dataset google ini memiliki 3 buah objek diantaranya, cat, dog, dan spatula. Lalu dari masing-masing objek itu dibandingkan datasetnya antara cat dan dog lalu cat dan spatula. Hasil yang didapatkan untuk cat dan dog itu sekitar 76\% sedangkan untuk cat dan spatula itu memiliki presentase 12\% itu artinya bahwa mesin dapat membedakan objek yang hampir serupa namun tak sama. Untuk ilustrasi sederhananya bisa dilihat pada gambar \ref{vek2}.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/vek2.png}}
 		\caption{Ilustrasi Vektorisasi Dataset Google.}
 		\label{vek2}
@@ -318,7 +318,7 @@ Karena pada masing-masing objek itu memiliki identitas tersendiri, contoh sederh
 
 \item Jelaskan konsep vektorisasi untuk kata. Dilengkapi dengan ilustrasi \par
 Konsep untuk vektorisasi kata ini sama halnya dengan kita input suatu kata pada mesin pencari. Lalu hasilnya akan mengeluarkan berupa referensi mengenai kata tersebut. Jadi data kata tersebut didapatkan dari hasil pengolahan pada kalimat-kalimat sebelumnya yang telah diolah. Contoh sederhananya pada kalimat berikut ( Please subscribe my channel thank you guys ), pada kalimat tersebut terdapat konteks yakni channel, kata tersebut akan dijadikan data latih untuk mesin. Jadi ketika kita inputkan kata channel, maka mesin akan menampilkan keterkaitannya dengan kata tersebut. Ilustrasinya bisa dilihat pada gambar berikut \ref{vek3}.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/vek3.png}}
 		\caption{Ilustrasi Vektorisasi Kata.}
 		\label{vek3}
@@ -326,7 +326,7 @@ Konsep untuk vektorisasi kata ini sama halnya dengan kita input suatu kata pada 
 
 \item Jelaskan konesep vektorisasai untuk dokumen. Dilengkapi dengan ilustrasi \par
 Sama halnya dengan vektorisasi kata, yang membedakan hanya pada proses awalnya. Untuk vektorisasi dokumen ini, mesin akan membaca semua kalimat yang terdapat pada dokumen tersebut, lalu kalimat yang terdapat pada dokumen akan di pecah menjadi kata-kata. Untuk ilustrasinya dapat dilihat pada gambar berikut \ref{vek4}.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/vek4.png}}
 		\caption{Ilustrasi Vektorisasi Dokumen.}
 		\label{vek4}
@@ -337,7 +337,7 @@ Mean merupakan nilai rata-rata. Untuk mendapatkan mean ini kita tinggal menjumla
 
 \item Jelaskan apa itu skip-gram. Dilengkapi dengan ilustrasi \par
 Skip-gram sama halnya dengan vektorisasi kata, namun untuk skip-gram ia dibalik prosesnya. Yang sebelumnya dari kalimat lalu di olah untuk menemukan salah satu kata, kali ini dari keyword tersebut akan diolah menjadi suatu kalimat yang memiliki keterkaitannya dengan keyword tersebut. Ilustrasinya bisa dilihat pada gambar berikut \ref{vek5}.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/vek5.png}}
 		\caption{Ilustrasi Skip-Gram.}
 		\label{vek6}
@@ -354,7 +354,7 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 gmodel = gensim.models.KeyedVectors.load_word2vec_format('F:/Imron/Kuliah/Semester 6/../GoogleNews-vectors-negative300.bin', binary=True, limit=500000)
 \end{verbatim}
 Hasil keluaran pada gambar \ref{sim1} untuk keluaran ke 99 itu untuk import library gensim. Gensim itu sendiri berguna untuk melakukan pemodelan dengan dataset atau topik yang telah ditentukan. Untuk keluaran 100 logging itu library opsional karena logging hanya untuk menampilkan berupa log untuk setiap code yang dijalankan. Dan keluaran 101 itu hasil load data dari file vektor google itu, disini saya menggunakan limit karena kondisi laptop yang tidak mempuni untuk melakukan running data sebesar 3 juta file, jadi saya batasi hanya melakukan running 500 ribu data saja.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim1.png}}
 		\caption{Hasil import gensim dan logging.}
 		\label{sim1}
@@ -364,7 +364,7 @@ Hasil keluaran pada gambar \ref{sim1} untuk keluaran ke 99 itu untuk import libr
 gmodel['love']
 \end{verbatim}
 Keluaran pada gambar \ref{sim2} ini untuk menampilkan data hasil vektorisasi data dari kata love, hasil tersebut berjumlah kurang lebih 300 data. Untuk kata faith, fall, sick, clear, dan lain-lain itu sama saja untuk menampilkan hasil vektorisasi dari setiap katanya. Selanjutnya akan dibandingkan setiap katanya untuk menentukan presentase kemiripan pada setiap kata tersebut.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim2.png}}
 		\caption{Data vektor dari kata love.}
 		\label{sim2}
@@ -374,7 +374,7 @@ Keluaran pada gambar \ref{sim2} ini untuk menampilkan data hasil vektorisasi dat
 gmodel.similarity('love','faith')
 \end{verbatim}
 Hasil keluaran pada gambar \ref{sim3} merupakan presentase dari perbandingan kata love dan faith dengan hasil 37\%. Hasil tersebut didapatkan dengan 37\% karena mesin dapat membaca bahwa kata love dengan faith ini hampir memiliki arti yang sama.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim3.png}}
 		\caption{Hasil similaritas.}
 		\label{sim3}
@@ -384,7 +384,7 @@ Hasil keluaran pada gambar \ref{sim3} merupakan presentase dari perbandingan kat
 gmodel.similarity('fall','sick')
 \end{verbatim}
 Hasil keluaran pada gambar \ref{sim4} adalah hasil presentase dari perbandingan antara kata fall dan sick dengan hasil 8\%. Hasil tersebut tidak terlalu baik, karena mesin menentukan bahwa kata fall dengan sick itu tidak serupa karena memiliki presentase yang kecil.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim4.png}}
 		\caption{Hasil similaritas.}
 		\label{sim4}
@@ -394,7 +394,7 @@ Hasil keluaran pada gambar \ref{sim4} adalah hasil presentase dari perbandingan 
 gmodel.similarity('clear','shine')
 \end{verbatim}
 Hasil keluaran pada gambar \ref{sim5} merupakan hasil presentase dari perbandingan antara kata clear dengan shine dengan hasil presentase 11\%. Presentase tersebut dapat memberikan kita gambaran bahwa mesin dapat menentukan bahwa kata clear dan shine itu berbeda.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim5.png}}
 		\caption{Hasil similaritas.}
 		\label{sim5}
@@ -404,7 +404,7 @@ Hasil keluaran pada gambar \ref{sim5} merupakan hasil presentase dari perbanding
 gmodel.similarity('bag','wash')
 \end{verbatim}
 Hasil keluaran pada gambar \ref{sim6} adalah hasil presentase dari perbandingan kata bag dengan wash dan hasil presentasenya 18\%. Presentase tersebut cukup bagus karena mesin dapat membedakan kata antara bag dan wash.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim6.png}}
 		\caption{Hasil similaritas.}
 		\label{sim6}
@@ -414,7 +414,7 @@ Hasil keluaran pada gambar \ref{sim6} adalah hasil presentase dari perbandingan 
 gmodel.similarity('car','motor')
 \end{verbatim}
 Hasil keluaran pada gambar \ref{sim7} merupakan hasil dari perbandingan kata car dengan motor dan hasil presentasenya 48\%. Ini terbilang bagus dan bisa dikatakan mirip karena mesin dapat menentukan presentase yang cukup baik.
-		\begin{figure}[ht]
+		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim7.png}}
 		\caption{Hasil similaritas.}
 		\label{sim7}
@@ -452,5 +452,114 @@ Code tersebut untuk melakukan pengacakan data agar data tersebut dapat menghasil
 from gensim.models.doc2vec import TaggedDocument
 from gensim.models import Doc2Vec
 \end{verbatim}
-Fungsi dari doc2vec itu sendiri ialah untuk membandingkan data yang terdapat pada dokumen yang lainnya, apakah kata-kata didalamnya ada yang sama atau tidak. Lalu untuk tagged document itu memasukan kata-kata pada setiap dokumennya untuk di vektorisasi.
+Fungsi dari library gensim untuk pemodelan topik tanpa pengawasan dan pemrosesan bahasa alamai, atau bisa kita sebut dengan unsupervised. Fungsi dari doc2vec itu sendiri ialah untuk membandingkan bobot data yang terdapat pada dokumen yang lainnya, apakah kata-kata didalamnya ada yang sama atau tidak. Lalu untuk tagged document itu memasukan kata-kata pada setiap dokumennya untuk di vektorisasi. Dan hasil dari running coding tersebut tidak mengeluarkan apa-apa, seperti gambar berikut \ref{sim8}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim8.png}}
+		\caption{Import library.}
+		\label{sim8}
+		\end{figure}
+
+\item Jelaskan dengan kata dan praktek cara menambahkan data training dari file yang dimasukkan kepada variabel dalam rangka melatih model doc2vec
+\begin{verbatim}
+import os
+unsup_sentences = []
+for dirname in ["train/pos","train/neg","train/unsup","test/pos","test/neg"]:
+    for fname in sorted(os.listdir("aclImdb/"+dirname)):
+        if fname[-4:] == '.txt':
+            with open("aclImdb/"+dirname+"/"+fname,encoding='UTF-8') as f:
+                sent = f.read()
+                words = extract_words(sent)
+                unsup_sentences.append(TaggedDocument(words,[dirname+"/"+fname]))
+\end{verbatim}
+Untuk menambahkan data training kita melakukan import library os, library os itu sendiri berfungsi untuk melakukan interaksi antara python dengan os laptop kita masing-masing, setelah itu kita buat variable unsup sentences. Selanjutnya pilih direktori tempat data kita disimpan. Selanjutnya itu untuk menyortir data yang terdapat pada folder aclImdb dan membaca file tersebut dengan ektensi .txt. Hasil dari code pertama tersebut ialah terdapatnya data hasil running dari folder aclImdb \ref{sim9}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim9.png}}
+		\caption{Menambahkan data training.}
+		\label{sim9}
+		\end{figure}
+
+\begin{verbatim}
+with open("stanfordSentimentTreebank/original_rt_snippets.txt",encoding='UTF-8') as f:
+    for i, sent in enumerate(f):
+        words = extract_words(sent)
+        unsup_sentences.append(TaggedDocument(words,["rt-%d" % i]))
+\end{verbatim}
+Untuk code tersebut sama saja seperti yang sebelumnya, yang membedakan hanya file yang akan digunakan untuk dilakukan training. Hasil dari code tersebut menambahkan data sekitar 60 ribu data, seperti gambar berikut \ref{sim10}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim10.png}}
+		\caption{Menambahkan data training.}
+		\label{sim10}
+		\end{figure}
+
+\begin{verbatim}
+for dirname in ["review_polarity/txt_sentoken/pos","review_polarity/txt_sentoken/neg"]:
+    for fname in sorted(os.listdir(dirname)):
+        if fname[-4:] == '.txt':
+            with open(dirname+"/"+fname,encoding='UTF-8') as f:
+                for i, sent in enumerate(f):
+                    words = extract_words(sent)
+                    unsup_sentences.append(TaggedDocument(words,["%s/%s-%d" % (dirname,fname,i)]))
+\end{verbatim}
+Untuk code tersebut sama seperti code sebelumnya yakni untuk menambahkan data training, bagian ketiga ini menambahkan data training sekitar 10 ribu data. Hasilnya seperti gambar berikut \ref{sim11}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim11.png}}
+		\caption{Menambahkan data training.}
+		\label{sim11}
+		\end{figure}
+
+\item Jelaskan dengan kata dan praktek kenapa harus dilakukan pengocokan dan pembersihan data
+\begin{verbatim}
+# Pengacakan data
+mute = PermuteSentences(unsup_sentences)
+
+# Pembersihan data
+model.delete_temporary_training_data(keep_inference=True)
+\end{verbatim}
+Untuk bagian pengacakan data itu berguna untuk mengacak data supaya pada saat data di running bisa berjalan lebih baik dan hasil presentase akhirnya bisa lebih baik. Sedangkan untuk pembersihan data untuk memberikan ruang bagi ram laptop kita setelah melakukan running data sebanyak 3 juta lebih, agar lebih ringan saat proses selanjutnya. Hasil dari pengacakan data tidak ditampilkan pada spyder, namun untuk hasil dari pembersihan data pada gambar berikut \ref{sim12}. Dan sebelumnya memori yang terpakai itu sekitar 80\% lebih, setelah dikosongkan jadi 64\%.
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim12.png}}
+		\caption{Random dan Clear Data.}
+		\label{sim12}
+		\end{figure}
+
+\item Jelaskan dengan kata dan praktek kenapa model harus di save dan kenapa temporari training harus dihapus
+\begin{verbatim}
+# Save data
+model.save('ocean.d2v')
+
+# Delete temporary data
+model.delete_temporary_training_data(keep_inference=True)
+\end{verbatim}
+Save data ini berfungsi untuk menyimpan file hasil dari proses pelatihan data sebelumnya, model tersebut dilakukan penyimpanan untuk memberikan keringanan pada ram agar saat kita akan melakukan pelatihan lagi, model tersebut tinggal di load saja tanpa harus melakukan pelatihan dari awal dan bisa menghemat waktu untuk hasilnya bisa dilihat pada gambar \ref{sim13}. Sedangkan untuk delete temporary training data ini berguna untuk menghapus data latihan yang sebelumnya sudah dilakukan dan disimpan, bertujuan untuk memberikan keringanan pada ram. Karena setelah melakukan proses pelatihan ram biasanya jadi tercekik sampai laptop jadi lag. Itulah fungsi dari delete temporary training data.
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim13.png}}
+		\caption{Save dan Delete Temporary Training Data.}
+		\label{sim13}
+		\end{figure}
+
+\item Jalankan dengan kata dan praktek maksud dari infer code
+\begin{verbatim}
+model.infer_vector(extract_words("jangan lupa tobat guys"))
+\end{verbatim}
+Infer vector itu sendiri berguna untuk membandingkan kata yang tercantum dengan vektor yang mana pada dokumen yang sudah di load pada step sebelumnya. Selain itu infer vector juga untuk menghitung atau mengkalkulasikan vektor dari kata yang dicantumkan dari model yang telah kita buat. Alangkah baiknya kata yang dicantumkan itu lebih panjang lagi agar hasilnya bisa lebih baik lagi. Hasilnya seperti gambar berikut \ref{sim14}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim14.png}}
+		\caption{Infer Code.}
+		\label{sim14}
+		\end{figure}
+
+\item Jelaskan dengan praktek dan kata maksud dari cosine similarity
+\begin{verbatim}
+from sklearn.metrics.pairwise import cosine_similarity
+cosine_similarity(
+        [model.infer_vector(extract_words("katakatatatata"))],
+        [model.infer_vector(extract_words("Services sucks."))])
+\end{verbatim}
+Cosine similarity ini berfungsi untuk membandingkan vektorisasi data diantara kedua kata yang di inputkan, jika hasil presentase dari kedua kata tersebut lebih dari 50\% itu memiliki kemungkinan kata tersebut terdapat dalam 1 file. Namun jika kurang dari 50\% itu kemungkinan kata tersebut tidak terdapat dalam 1 file. Hasil yang didapatkan pada code tersebut hanya 0.8\% itu dikarenakan kata pertama dan kedua tidak memiliki kesamaan vektorisasi dan tidak terdapat pada salah satu dokumen. Untuk hasil presentasenya seperti gambar berikut \ref{sim15}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim15.png}}
+		\caption{Cosine Similarity.}
+		\label{sim15}
+		\end{figure}
+
 \end{enumerate}
