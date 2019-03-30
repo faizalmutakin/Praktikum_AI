@@ -302,7 +302,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata f
 		from gensim.models import Doc2Vec
 	\end{verbatim}	
 
-	\subitem Dimana fungsi dari library gensim sendiri yaitu untuk melakuakan pemodelan bahasa dengan unsupervised. Sedangkan Doc2Vec sendiri berifungsi untuk melakukan vectorisasi data dalam bentuk document. TaggedDocument dimana akan memasukkan tag-tag pada document.
+	\subitem Dimana fungsi dari library gensim sendiri yaitu untuk memodelkan bahasa dengan sistem unsupervised yang artinya tanpa label. Douc2Vec itu sendiri berfungsi untuk melakukan vectorisasi kata dalam satu document. Pada source code diatas dapat dijelaskan bahwa pada baris pertama akan melakukan import TaggedDocument yang artinya memasukkan document beserta tag-tagnya. Pada baris kedua yaitu akan melakukan import model Doc2Vec dari library gensim.
 
 \item Jelaskan dengan kata dan praktek cara menambahan data training dari file yang dimasukkan kepada variabel dalam rangka melatih model Doc2Vec.
 
@@ -319,7 +319,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata f
            unsup_sentences.append(TaggedDocument(words,[dirname+"/"+fname]))
 	\end{verbatim}
 
-	\subitem Pada source code diatas akan dilakukan import data training dari folde Imdb, dimana import os berarti akan melakukan import pada library os yang dimana fungsinya sebagai interekasi python dengan pc kita. Lalu kita akan mencari dimana folder Imdb itu disimpan. Setelah dicari dan ketemu selanjutnya kita akan melakukan open pada folder Imdb tersenut dan membacanya dengan format file txt. Hasil output source code tersebut dapat dilihat pada figure \ref{YNC5-22}.
+	\subitem Pada source code diatas akan dilakukan import data training dari folder Imdb. Dalam source code tersebut terdapat modul os yang dimana artinya program python yang ada pada pc kita dapat berinteraksi dengan sistem operasi yang pc kita gunakan. Setelah melakukan import pada modul os disini kita akan membuat sebuah variabel baru bernama unsup\_senteses. Selanjutnya kita akan mencari dimana folder Imdb disimpan. Selanjutnya kita akan melakukan open terhadap folder Imdb tersebut dengan menggunakan perintah with open. Selanjutnya kita akan membuat variabel baru yang bernama sent dan akan kita isikan perintah untuk membaca data folder Imdb. Selanjutnya kita akan membaut variabel baru lagi yang bernama word dan akan di isikan dengan perintah extract\_word yang dimana artinya kita akan melakukan extract kata yang ada pada variabel sent. Hasil output source code tersebut dapat dilihat pada figure \ref{YNC5-22}.
 
 	\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-22.jpeg}}
@@ -337,7 +337,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata f
            unsup_sentences.append(TaggedDocument(words,["%s/%s-%d" % (dirname,fname,i)]))
 	\end{verbatim}
 
-	\subitem Dimana Pada source code diatas sama saja akan melakukan pemanggilan data training akan tetapi dalam folder yang berbeda, sehingga dapat menambah data training tersebut. Untuk output dari source code tersebut dapat dilihat pada figure \ref{YNC5-23}
+	\subitem Pada source code diatas kita akan melakukan import data training kembali sehingga membuat data training kita bertambah. Jika source code sebelumnya kita telah menambahkan data training dari folder Imdb, kali ini kita akan menambahkan data training dari folder txt\_sentoken. Untuk setiap fungsi source code nya sama saja seperti sebelumnya. Untuk output dari source code tersebut dapat dilihat pada figure \ref{YNC5-23}
 
 	\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-23.PNG}}
@@ -352,7 +352,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata f
         	unsup_sentences.append(TaggedDocument(words,["rt-%d" % i]))
 	\end{verbatim}
 
-	\subitem Dimana pada source code diatas juga akan memanggil data training pada folder stanfordSentimentTreebank, sehingga akan menambah data pada data trainingnya. Untuk output dari source code tersebut dapat dilihat pada figure \ref{YNC5-24}
+	\subitem Pada source code sebelumnya kita telah menambahkan data training dari folder Imdb dan txt\_stoken kali ini kita akan menambahkan data training kembali dengan menggunakan folder stanfordSentimentTreebank sehingga data training kita kembali bertambah. Untuk output dari source code tersebut dapat dilihat pada figure \ref{YNC5-24}.
 
 	\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-24.PNG}}
@@ -366,7 +366,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata f
 		mute=PermuteSentences(unsup_sentences)
 	\end{verbatim}
 
-	\subitem Dimana pada source code tersebut akan dilakukannya pengocokan data agar kita dapat mendapatkan data yang random sehingga membuat hasil presentasenya menjadi lebih baik. Output dari source code diatas dapat dilihat pada figure \ref{YNC5-25}.
+	\subitem Pada source code diatas kita akan melakukan pengocokan atau pengacakan data. Sebelum dijadikan model kita perlu melakukan pengocokan agar mendapatkan hasil yang random dan bagus. Output dari source code diatas dapat dilihat pada figure \ref{YNC5-25}.
 
 	\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-25.PNG}}
@@ -380,7 +380,7 @@ Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata f
 		model.delete_temporary_training_data(keep_inference=True)
 	\end{verbatim}
 
-Tujuan pembersihan data adalah untuk melakukan pengosongan file agar meringankan ram pada laptop kita, dikarenakan laptop kita telah melakukan running data sebanyak 3000000 data, agar tidak memperlambat kinerja pada langkag berikutnya maka dari itu dilakukanlah permbersihat data. Output dari source code tersebut dapat dilihat pada figure \ref{YNC5-26}.
+	\subitem Dikarenakan kita telah melakukan running data google yang jumlahnya mencapai 300000 data, maka perlu dilakukannya pembersihan data. Mengapa harus di bersihkan ?, agar memory pada pc kita memiliki space yang lega. Output dari source code tersebut dapat dilihat pada figure \ref{YNC5-26}.
 
 	\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-26.PNG}}
@@ -394,7 +394,7 @@ Tujuan pembersihan data adalah untuk melakukan pengosongan file agar meringankan
 		model.save('haci.d2v')
 	\end{verbatim}
 	
-	\subitem Dalam souce code diatas berfungsi untuk melakukan penyimpanan pada data training yang sudah kita latih, supaya nantinya kita bisa melakukan load saat ingin membukanya dan tidak perlu melakukan pelatihan dari awal lagi. Data yang kita simpan akan terlihat seperti pada figure \ref{YNC5=27}
+	\subitem Pada source code diatas kita akan melakukan save pada data training yang sudah kita latih. Mengapa dilakukan save ?, agar kita dapat melakukan load saat ingin melatih datanya lagi. Data yang kita simpan akan terlihat seperti pada figure \ref{YNC5=27}
 
 	\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-27.PNG}}
@@ -402,13 +402,13 @@ Tujuan pembersihan data adalah untuk melakukan pengosongan file agar meringankan
 		\label{YNC5-27}
 	\end{figure}
 
-	\subitem Untuk menghapus temporari  training perhatikan source code dibawah,
+	\subitem Apabila kita ingin menghapus tempory data maka dapat menggunakan source code dibawah,
 
 	\begin{verbatim}
 		model.delete_temporary_training_data(keep_inference=True)
 	\end{verbatim}		
 
-Tujuan dalam menghapus temporary training data yaitu untuk meringan ram kita dengan cara menghapus data training yang sudah kita latih sebelumnya. Melakuakan training data kembali dapat membuat kinerja pada laptop kita menurun maka dari itu data yang sudah tidak terpakai sebaiknya dihapus guna mempercepat kinerja pada latop kita. Untuk ouput dari source code tersebut dapat dilihat pada figure \ref{YNC5-26}
+		 Tujuan dari penghapusan temporary data yaitu untuk membuat memory pada pc kita menjadi lega dikarenakan memory itu terbatas. Untuk ouput dari source code tersebut dapat dilihat pada figure \ref{YNC5-26}.
 
 	\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-26.PNG}}
@@ -422,7 +422,7 @@ Tujuan dalam menghapus temporary training data yaitu untuk meringan ram kita den
 		model.infer_vector(extract_words("I will go home"))
 	\end{verbatim}
 
-	\subitem Dimana infer\_code disini berfungsi untuk melakukan pebandingan kata dengan vector menggunakan model infer\_vector. Data vector yang akan dibandingkan adalah data training yang sudah kita simpan. Infer\_code yang dipadukan dengan infer\_vector dapat melakukan kalkulasi vector yang telah kita cantumkan pada model yang sudah kita buat. Untuk output dari source code tersebut dapat dilihat pada figure \ref{YNC5-28}
+	\subitem Pada source code diatas kuta akan melakukan infer\_code menggunakan model vector. Dimana fungsinya untuk menghitung atau mengkalkulasikan vektor dari kata yang dinputkan.  Untuk output dari source code tersebut dapat dilihat pada figure \ref{YNC5-28}
 
 	\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-28.PNG}}
@@ -446,6 +446,81 @@ Tujuan dalam menghapus temporary training data yaitu untuk meringan ram kita den
 		\caption{Consine Similarity.}
 		\label{YNC5-29}
 	\end{figure}
+
+\item Jalankan dengan praktek score dari cross validation masing-masing metode.
+
+	\subitem Untuk source code cross validation pada metode CLF dapat dilihat dibawah ini,
+
+	\begin{verbatim}
+		scores = cross_val_score(clf, sentvecs, sentiments, cv=5)
+		np.mean(scores), np.std(scores)
+	\end{verbatim}
+
+		    Dimana score yang diperoleh dari cross validation clf dapat dilihat pada figure \ref{YNC5-30}
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-30.PNG}}
+		\caption{Cross Validation CLF.}
+		\label{YNC5-30}
+	\end{figure}
+
+	\subitem Untuk source code cross validation pada metode Randon Forest, dapat dilihat dibawah ini,
+
+	\begin{verbatim}
+		scores = cross_val_score(clfrf, sentvecs, sentiments, cv=5)
+		np.mean(scores), np.std(scores)
+	\end{verbatim}
+
+		  Dimana score yang diperoleh dari cross validation Random Forest dapat dilihat pada figure \ref{YNC5-31}
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-31.PNG}}
+		\caption{Cross Validation Random Forest.}
+		\label{YNC5-31}
+	\end{figure}	
+
+	\subitem Untuk source code cross validation pada metode CountVectorizer, dapat dilihat dibawah ini,
+
+	\begin{verbatim}
+		scores = cross_val_score(pipeline,sentences,sentiments, cv=5)
+		np.mean(scores), np.std(scores)
+	\end{verbatim}
+
+		  Dimana score yang diperoleh dari cross validation CountVectorizer dapat dilihat pada figure \ref{YNC5-32}
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-32.PNG}}
+		\caption{Cross Validation CountVectorizer.}
+		\label{YNC5-32}
+	\end{figure}	
+
+\end{enumerate}
+
+\subsection{Penanganan Error / Yusniar Nur Syarif Sidiq / 1164089}
+\begin{enumerate}
+
+\item Lakukan screenshot code yang error saat melakukan praktikum, tuliskan codenya dan nama errornya, lalu bagaimana cara menanganinya.
+	\subitem Untuk error yang saya dapat dapat dilihat pada figure \ref{YNC5-34}.
+	
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-34.PNG}}
+		\caption{Name Error.}
+		\label{YNC5-34}
+	\end{figure}	
+	
+	\subitem Jenis error tersebut merupakan name error atau bisa juga disebut variabel error, dikarenakan variabel tersebut tidak terbaca,
+		
+	\begin{verbatim}
+		model.delet_temporary_training_data(keep_inference=True)
+	\end{verbatim}
+
+	\subitem Solusi dari error tersebut yaitu kita perlu membuat variabel model terlebih dahulu, maka kitakan source code pada figure \ref{YNC5-35} diatas source code errornya.
+
+	\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter5/Praktek/YNC5-35.PNG}}
+		\caption{Penangan Error.}
+		\label{YNC5-35}
+	\end{figure}	
 
 \end{enumerate}
 
