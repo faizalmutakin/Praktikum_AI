@@ -789,4 +789,67 @@ Cosine similarity ini berfungsi untuk membandingkan vektorisasi data diantara ke
 		\label{sim15}
 		\end{figure}
 
+\item Jalankan dengan praktek score dari cross validation masing-masing metode.
+\begin{verbatim}
+scores = cross_val_score(clf, sentvecs, sentiments, cv=5)
+np.mean(scores), np.std(scores)
+\end{verbatim}
+Code tersebut akan melakukan perhitungan presentase dengan menggunakan cross validation dengan metode kneighborsClassifier dan hasil yang didapatkan pada metode tersebut bisa dilihat pada gambar \ref{sim16}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim16.png}}
+		\caption{Cross Validation 1.}
+		\label{sim16}
+		\end{figure}
+
+\begin{verbatim}
+scores2 = cross_val_score(clfrf, sentvecs, sentiments, cv=5)
+np.mean(scores), np.std(scores)
+\end{verbatim}
+Code tersebut akan melakukan perhitungan presentase dengan menggunakan cross validation dengan menggunakan metode RandomForest dan hasil yang didapatkan bisa dilihat pada gambar \ref{sim17}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim17.png}}
+		\caption{Cross Validation 2.}
+		\label{sim17}
+		\end{figure}
+
+\begin{verbatim}
+from sklearn.pipeline import make_pipeline
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+pipeline = make_pipeline(CountVectorizer(), TfidfTransformer(), RandomForestClassifier())
+scores3 = cross_val_score(pipeline,sentences,sentiments, cv=5)
+np.mean(scores), np.std(scores)
+\end{verbatim}
+Code tersebut akan melakukan skoring atau presentase dari vektorisasi, tfidf, dan randomForest untuk dilakukan perbandingan dan hasil dari perbandingan tersebut bisa dilihat pada gambar \ref{sim18}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/sim18.png}}
+		\caption{Cross Validation 3.}
+		\label{sim18}
+		\end{figure}
+\end{enumerate}
+
+\subsection{Penanganan Error / Imron Sumadireja / 1164076}
+\begin{enumerate}
+
+\item Lakukan screenshot code yang error saat melakukan praktikum, tuliskan codenya dan nama errornya, lalu bagaimana cara menanganinya \par
+
+Saya mendapatkan warning seperti pada gambar berikut \ref{simW}	
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/simWarning.png}}
+		\caption{Warning.}
+		\label{simW}
+		\end{figure}
+	
+\item Jenis warning tersebut yakni memberi tahu kita bahwa ada perubahan pada code default chunkize menjadi chunkize\_serial
+		
+\begin{verbatim}
+UserWarning: detected Windows; aliasing chunkize to chunkize_serial warnings.warn("detected Windows; aliasing chunkize to chunkize_serial")
+\end{verbatim}
+
+\item Solusi dari error tersebut kita tinggal menambahkan suatu fungsi untuk memberikan filter pada warning tersebut. Untuk solusinya bisa dilihat pada gambar \ref{simSol}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/simSolusi.png}}
+		\caption{Solusi.}
+		\label{simSol}
+		\end{figure}
+
 \end{enumerate}
