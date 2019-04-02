@@ -85,3 +85,83 @@ Salah satu jenis model yang digunakan dalam perhitungan. Sequential ini membangu
 		\end{figure}
 
 \end{enumerate}
+
+\section{Yusniar Nur Syarif Sidiq / 1164089}
+\subsection{Pemahaman Teori Yusniar Nur Syarif Sidiq / 1164089}
+\begin{enumerate}
+
+\item Jelaskan kenapa file suara harus di lakukan MFCC. dilengkapi dengan ilustrasi !
+	\subitem MFCC (Mel Frequency Cepstrum Coefficients) merupakan metode untuk melakukan feature extraction, sebuah proses yang mengkonversikan signal suara menjadi beberapa parameter. Dimana dalam python MFCC digunakan untuk melakukan etraction suara menjadi bentuk vektor. Mengapa perlu dilakukan ?, dikarenakan mesin tidak dapat membaca data selain bilangan biner dan vektor, maka dari itu untuk mempermudah pembacaan data oleh mesi perlu dilakukannya MFCC. Disini saya akan memberikan ilustrasi sederhana dimana ada sebuah Mechine Learning yang ingin membaca data dalam bentuk gelombang suara. Mechine Learning tidak akan bisa membaca data tersebut, Mengapa ?, karena data tersebut masih berbentuk gelombang suara, untuk memahami Mechine Learning perlu data dalam bentuk vektor, maka gelombang suara tersebut akan diubah menjadi bentuk vektor.
+
+\item Jelaskan konsep dasar neural network. Dilengkapi dengan ilustrasi atau gambar !
+	\subitem Neural Network atau Jaringan Saraf dimana memiliki neuron dan pada tiap neuron akan saling terhubung pada lapisan - laposan berikutnya. Pada lapisan pertama dimana terjadinya proses menerima input sedangkan pada lapisan terakhir akan memberikan output. Neural Network akan mengadopsi mekanisme berpikir sebuah sistem atau aplikasi yang menyerupai otak manusia, baik dalam pemrosesan berbagai sinyal elemen yang diterima, toleransi kesalahan atau error, dan parallel processing. Dimana terdapat dua data apel dan jeruk, data tersebut akan diinputkan pada setiap layer. Data tersebut akan dilakukan proses hidden pada hidden layer. Data yang dinputkan tadi akan diubah kedalam bentuk binner, dan outputnya akan terjadi misalnya 01 itu adalah apel dan 10 itu adalah jeruk. Untuk contoh figure dapat dilihat pada figure \ref{YNC6-1}.
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Teori/YNC6-1.png}}
+		\caption{Konsep Nural Network}
+		\label{YNC6-1}
+	\end{figure}
+
+\item Jelaskan konsep pembobotan dalam neural network. Dilengkapi dengan ilustrasi atau gambar !
+	\subitem Dimana Bobot akan mewakili koneksi antar unit. Apabila bobot dari node 1 ke node 2 memiliki nilai yang kebih besar, hal ini menandakan bahwa neuron 1 memiliki pengaruh yang lebih besar terhadap neuron 2. Apabila nilai bobot mendekati nol hal ini menandakan akan merubah input namun tidak mengubah output dan apabila nilai bobot negatif hal ini menandakan akan meningkatkan input namun mengurangi output yang artinya bobot akan menentukan seberapa besar pengaruh input terhadap output. Untuk ilustrasi figure dapat dilihat pada figure \ref{YNC6-2}.
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Teori/YNC6-2.png}}
+		\caption{Konsep Pembobotan}
+		\label{YNC6-2}
+	\end{figure}	
+
+\item Jelaskan konsep fungsi aktivasi dalam neural network. Dilengkapi dengan ilustrasi atau gambar !
+	\subitem Dimana fungsi aktivasi ini merupakan operasi dalam matematika yang digunakan pada sinyal output y. Fungsi ini sering digunakan untuk mengaktifkan atau menonaktifkan neuron. Dimana perilaku dari nural network ini ditentukan oleh bobot dan input-output fungsi aktivasi yang telah ditetapkan. Contohnya dimana jaringan lapisan tunggal akan menkonversi nilai input dari suatu variabel yang bernilai continue ke suatu nilai output biner yaitu angka 0 dan 1. Untuk contoh figure dapat dilihat pada pada figure \ref{YNC6-3}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Teori/YNC6-3.png}}
+		\caption{Fungsi Aktivasi}
+		\label{YNC6-3}
+	\end{figure}	
+	
+\item Jelaskan cara membaca hasil plot dari MFCC. Dilengkapi dengan ilustrasi atau gambar !
+	\subitem Perhatikan figure \ref{YNC6-4}, dimana terlihat bahwa warna biru merupakan suara terendah, mengapa ?, dikarenakan warna biru bernilai -300, sedangkan warna merah merupakah suara tertinggi dan bernilai 200. Jika diilustrasikan ada sebuah musik yang sedang dimainkan dan diperoleh datanya lalu diplot, maka akan terlihat seperti pada figure \ref{YNC6-4}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Teori/YNC6-4.png}}
+		\caption{Plot MFCC}
+		\label{YNC6-4}
+	\end{figure}	
+
+\item Jelaskan apa itu one-hot encoding. Dilengkapi dengan ilustrasi kode dan atau gambar !
+	\subitem One-hot encoding merupakan representasi variabel berkategorikan sebagai vektor biner yang artinya hanya akang 0 dan 1. Dimana mengharuskan nilai categorinya berbentuk biner dan setiap nilai integer akan dipresentasikan kedalam vektor biner. Contoh figure dapat dilihat pada figure \ref{YNC6-5}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Teori/YNC6-5.png}}
+		\caption{One-Hot Encoding}
+		\label{YNC6-5}
+	\end{figure}	
+
+\item Jelaskan apa fungsi dari np.unique dan to\_categorical dalam kode program . Dilengkapi dengan ilustrasi atau gambar !
+	\subitem Fungsi dari np.unique yaitu sebagai indeks array input yang memberikan nilai unik, sebagai indeks array unik yang merekonstruksi array input, dan menghitung berapa kali setiap nilai unik muncul dalam array input. Contoh source code dalam pemrograman dapat dilihat pada figure \ref{YNC6-6}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Teori/YNC6-6.png}}
+		\caption{np.unique}
+		\label{YNC6-6}
+	\end{figure}	
+
+	\subitem Fungsi dari to\_categorical yaitu untuk mengubah vektor ke dalam matriks class biner. Contoh source code to\_categorical dapat dilihat pada figure \ref{YNC6-7}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Teori/YNC6-7.png}}
+		\caption{categorical}
+		\label{YNC6-7}
+	\end{figure}	
+
+\item Jelaskan apa fungsi dari Sequential dalam kode program. Dilengkapi dengan ilustrasi atau gambar !
+	\subitem Dimana fungsi dari Sequential dalam source code program hanyalah sebagai tumpukan linear lapisan, dimana contih source code dalam program dapat dilihat pada figure \ref{YNC6-8}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Teori/YNC6-8.png}}
+		\caption{Sequential}
+		\label{YNC6-8}
+	\end{figure}
+
+\end{enumerate}
