@@ -83,7 +83,120 @@ Salah satu jenis model yang digunakan dalam perhitungan. Sequential ini membangu
 		\caption{Sequential.}
 		\label{cc8}
 		\end{figure}
+\end{enumerate}
 
+\subsection{Praktikum Program / Imron Sumadireja / 1164076}
+\begin{enumerate}
+\item Jelaskan isi dari data GTZAN Genre Collection dan data dari freesound. Buat kode program untuk meload data tersebut untuk digunakan pada MFCC. \par
+Isi data dari GTZAN ini merupakan sekumpulan data yang berisi genre lagu yang di dalamnya terdapat 10 genre dengan masing-masing genre memiliki 100 lagu yang akan kita lakukan proses MFCC begitu pula dengan freesound yang membedakan hanya isi dari lagu tersebut, jika GTZAN memiliki beberapa genre kalau freesound hanya untuk 1 lagu saja. Untuk code programnya bisa dilihat seperti berikut: \lstinputlisting[firstline=16, lastline=25]{src/ron/Sounds.py} Baris pertama itu untuk me-load song yang akan kita gunakan, lalu pada baris keduanya akan membaca lagu tersebut dengan menggunakan librosa dan akan di lakukan vektorisasi dengan menggunakan MFCC. Setelah itu hasilnya akan di plot seperti gambar berikut \ref{classic1}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/suara1.png}}
+		\caption{Display MFCC.}
+		\label{classic1}
+		\end{figure}
+
+\item Jelaskan perbaris kode program dengan kata-kata dan dilengkapi ilustrasi gambar fungsi dari display mfcc(). \par
+ \lstinputlisting[firstline=27, lastline=27]{src/ron/Genre.py}
+Code tersebut menjelaskan bahwa akan menampilkan hasil dari proses mfcc dan hasil yang akan ditampilkan dari code berikut seperti gambar \ref{suara2}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/suara2.png}}
+		\caption{Display MFCC.}
+		\label{suara2}
+		\end{figure}
+
+\item Jelaskan perbaris kode program dengan kata-kata dan dilengkapi ilustrasi gambar fungsi dari extract features song(). \par
+\lstinputlisting[firstline=46, lastline=54]{src/ron/Genre.py}
+Baris pertama itu untuk me-load inputan. Pada baris kedua itu akan me-load data inputan dengan menggunakan librosa. Lalu selanjutnya untuk membuat sebuah fitur untuk mfcc dari y atau parameter inputan. Lalu akan me-return menjadi array dan akan mengambil 25000 data saja dari hasil vektorisasi dalam 1 lagu.  Hasil running dari code tersebut tidak mengeluarkan keluaran.
+
+\item Jelaskan perbaris kode program dengan kata-kata dan dilengkapi ilustrasi gambar fungsi dari generate features and labels(). \par
+\lstinputlisting[firstline=58, lastline=75]{src/ron/Genre.py}
+Code tersebut akan melakukan fungsi yang sebelumnya kita telah jalankan. Lalu pada bagian genres itu disesuaikan dengan nama folder dataset. Untuk baris selanjutnya itu akan melakukan looping dari folder genres dengan ektensi .au. Lalu akan memanggil fungsi ekstrak lagu. Pada setiap file yang terdapat pada folder itu akan di ekstrak menjadi vektor dan akan dimasukan kedalam fitur. Dan fungsi append itu menumpuk file-file yang telah di vektorisasi. Hasil dari code tersebut tidak menampilkan keluaran.
+
+\item Jelaskan dengan kata dan praktek kenapa penggunaan fungsi generate features and labels() sangat lama ketika meload dataset genre. \par
+\lstinputlisting[firstline=78, lastline=78]{src/ron/Genre.py}
+Karena mesin akan melakukan vektorisasi terhadap semua file yang berada pada setiap foldernya, di sini terdapat 10 folder dengan masing-masing folder terdiri atas 100 buah lagu, setiap lagu tersebut akan dilakukan vektorisasi atau ekstraksi data menggunakan mfcc. Makanya proses itu cukup memakan waktu. Hasilnya bisa dilihat pada gambar \ref{suara3} dan \ref{suara4}. Bedanya float 64 dengan 32 itu kapasitas variabelnya saja.
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/suara3.png}}
+		\caption{Load Data.}
+		\label{suara3}
+		\end{figure}
+
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/suara4.png}}
+		\caption{Hasil Load Data.}
+		\label{suara4}
+		\end{figure}
+
+\item Jelaskan kenapa harus dilakukan pemisahan data training dan data set sebesar 80 persen? \par
+\lstinputlisting[firstline=84, lastline=84]{src/ron/Genre.py}
+Agar mesin dapat terus belajar mengenai data-data baru, sehingga pada saat dilakukan prediksi mengenai data-data yang sudah dilatihkan itu bisa mendapatkan presentase yang cukup baik. Untuk hasilnya seperti gambar \ref{suara5}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/suara5.png}}
+		\caption{Hasil Pemecahan Data Training dan Testing.}
+		\label{suara5}
+		\end{figure}
+
+\item Praktekkan dan jelaskan masing-masing parameter dari fungsi Sequential(). \par
+\lstinputlisting[firstline=106, lastline=111]{src/ron/Genre.py}
+Sebuah model untuk menentukan aktivasi pada setiap neuron, di sini terdapat dense 100 merupakan 100 neurons pertama dari data training. Fungsi relu itu sendiri untuk melakukan aktivasi dari neuron-neuron atau inputan yang memiliki nilai maksimal. Sedangkan untuk dense 10 itu merupakan keluaran dari hasil neuron yang telah berhasil di aktivasi, untuk dense 10 ini di aktivasi dengan menggunakan softmax. Pada code tersebut tidak menampilkan keluran, hanya menampilkan code yang dijalankan seperti gambar \ref{suara6}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/suara6.png}}
+		\caption{Fungsi Sequential.}
+		\label{suara6}
+		\end{figure}
+
+\item Praktekkan dan jelaskan masing-masing parameter dari fungsi compile(). \par
+\lstinputlisting[firstline=113, lastline=116]{src/ron/Genre.py}
+Hasil keluaran pada code tersebut seperti gambar \ref{suara7} menjelaskan bahwa dense pertama itu memiliki 100 neurons dengan parameter sekitar 2 juta lebih dengan aktviasi 100, jadi untuk setiap neurons memiliki masing-masing 1 aktivasi. Sama halnya seperti dense 2 memiliki jumlah neurons sebanyak 10 dengan parameter 1010 dan jumlah aktivasinya 10 untuk setiap neurons tersebut dan total parameternya sekitar 2.5 juta data yang akan dilatih pada mesin tersebut.
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/suara7.png}}
+		\caption{Fungsi Compile.}
+		\label{suara7}
+		\end{figure}
+
+\item Praktekkan dan jelaskan masing-masing parameter dari fungsi fit(). \par
+\lstinputlisting[firstline=118, lastline=119]{src/ron/Genre.py}
+Code tersebut untu melatih mesin dengan data training input dan training label. Epochs ini merupakan iterasi atau pengulangan berapa kali data tersebut akan dilakukan. Batch\_size ini adalah jumlah file yang akan dilakukan pelatihan pada setiap 1 kali pengulangan. Sedangkan validation\_split itu untuk menentukan presentase dari cross validation atau k-fold sebanyak 20\% dari masing-masing data pengulangan. Hasilnya bisa dilihat pada gambar \ref{suara8}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/suara8.png}}
+		\caption{Fungsi Fit.}
+		\label{suara8}
+		\end{figure}
+
+\item Praktekkan dan jelaskan masing-masing parameter dari fungsi evaluate(). \par
+\lstinputlisting[firstline=121, lastline=124]{src/ron/Genre.py}
+Fungsi dari evaluate ini untuk mengevaluasi dari data testing dari masing-masing file. Di sini terdapat prediksi yang loss, maksudnya data yang diprediksi mesin itu salah, sedangkan untuk akurasi keseluruhannya sekitar 55\%. Untuk hasilnya bisa dilihat pada gambar \ref{suara9}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/suara9.png}}
+		\caption{Fungsi Evaluate.}
+		\label{suara9}
+		\end{figure}
+
+\item Praktekkan dan jelaskan masing-masing parameter dari fungsi predict(). \par
+\lstinputlisting[firstline=127, lastline=127]{src/ron/Genre.py}
+Code tersebut akan melakukan testing satu data lagu dan hasilnya seperti gambar \ref{suara10}. Gambar tersebut menjelaskan file yang di jalankan tersebut termasuk ke dalam genre apa, hasilnya bisa dilihat pada gambar tersebut presentase yang paling besar yakni genre rock. Maka lagu tersebut termasuk ke dalam genre rock dengan perbandingan presentase hasil prediksi.
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/suara10.png}}
+		\caption{Fungsi Predict.}
+		\label{suara10}
+		\end{figure}
+\end{enumerate}
+
+\subsection{Penanganan Error / Imron Sumadireja / 1164076}
+\begin{enumerate}
+\item Screenshot error \ref{nn1}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/errorNN1.png}}
+		\caption{Error TensorFlow.}
+		\label{nn1}
+		\end{figure}
+\item Tuliskan kode error dan jenis errornya
+\lstinputlisting[firstline=106, lastline=111]{src/ron/Genre.py}
+Jenis errornya tidak terdapatnya atribut get default graph pada module tensorflow
+
+\item Solusi pemecahan masalah error
+\lstinputlisting[firstline=7, lastline=9]{src/ron/Genre.py}
+Dengan menambahkan tensorflow.python pada library keras. Sehingga saat melakukan running code tersebut tidak akan menemukan error kembali, karena atribut get default graphnya sudah terpanggil.
 \end{enumerate}
 
 \section{Yusniar Nur Syarif Sidiq / 1164089}
