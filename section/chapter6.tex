@@ -278,3 +278,124 @@ Dengan menambahkan tensorflow.python pada library keras. Sehingga saat melakukan
 	\end{figure}
 
 \end{enumerate}
+
+\subsection{Praktek Program / Yusniar Nur Syarif Sidiq / 1164089}
+\begin{enumerate}
+
+\item Jelaskan isi dari data GTZAN genre collection dan data dari freesound. Buat kode program untuk meload data tersebut untuk digunakan pada MFCC. Jelaskan arti dari setiap baris kode yang dibuat !
+	\subitem Dimana data GTZAN merupakan dataset yang terdiri dari 10 genre lagu yang berbeda beda dan masing-masing genre memiliki 100 lagu. Jika kita ingin melakukanload data tersebut source code sederhananya dapat dilihat sebagai berikut,
+	\lstinputlisting[firstline=134, lastline=135]{src/yns/GenreIdentifier.py}
+Dimana source code tersebut akan melakukan load pada data yang ber genre blus dengan durasi selama 30 detik.
+
+\item Jelaskan perbaris kode program dengan kata-kata dan dilengkapi ilustrasi gambar fungsi dari display\_mfcc() !
+	\lstinputlisting[firstline=25, lastline=25]{src/yns/GenreIdentifier.py}
+	\subitem Perhatikan figure \ref{YNC6-9}, dimana pada figure tersebut memiliki data hz dan time. Dalam figure tersebut memiliki warna yang berbeda. Pada warna biru, menunjukkan power berada di titik terendah sedangkan warna biru menunjukkan power berada di titik tertinggi.
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Praktek/YNC6-9.png}}
+		\caption{Output Pada Fungsi Display}
+		\label{YNC6-9}
+	\end{figure}
+
+\item Jelaskan perbaris kode program dengan kata-kata dan dilengkapi ilustrasi gambar fungsi dari ectract\_features\_song(). Jelaskan juga mengapa yang diambil 25.000 baris pertama !
+	\lstinputlisting[firstline=48, lastline=58]{src/yns/GenreIdentifier.py}
+	\subitem Pada source code tersebut akan menghasilkan output seperti pada figure \ref{YNC6-10}, Mengapa kita cuman mengambil 25.000 data pertamanya saja ?, dikarenakan untuk meringankan kinerja laptop kita sehingga tidak memakan memory lebih besar, maka dari itu kita batasi data yang diambil hanya 25.000.
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Praktek/YNC6-10.png}}
+		\caption{Output Instasiasi Pada Fungsi ectract\_features\_song()}
+		\label{YNC6-10}
+	\end{figure}
+
+\item  Jelaskan perbaris kode program dengan kata-kata dan dilengkapi ilustrasi gambar fungsi dari generate\_feature\_and\_labels() !
+	\lstinputlisting[firstline=62, lastline=79]{src/yns/GenreIdentifier.py}
+	\subitem Dimana source code tersebut akan melakukan fungsi pada source code sebelumnya. Data generes merupakan dataset yang telah kita download. Lalu kita akan melakukan looping atau pengulangan untuk file yang berekstensi .au dan akan melakuan ekstrak pada folder genres. File yang diekskrak akan dibentuk menjadi vektor dan dimasukkan kedalam fitur. Append akan melakukan penumpukan file yang sudah dilaukan vektorisasi.
+
+\item Jelaskan dengan kata dan praktek kenapa penggunaan fungsi generat\_features\_and\_labels() sangat lama ketika meload dataset genre !
+	\lstinputlisting[firstline=83, lastline=83]{src/yns/GenreIdentifier.py}
+	\subitem Hal ini dikarenakan mesin akan melakukan vektorisasi kepada file yang berada dalam folder genres. Dalam folder genres terdapat 10 folder dan masing-masing folder terdapat 100 data dan data tersebut akan dilakukan vektorisasi atau melakukan ekstrasi menggunakan fitur mfcc. Maka dari itu fungsi tersebut akan memakan waktu yang cukup lama. Hasil output dari source code nya dapat dilihat pada figure \ref{YNC6-11}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Praktek/YNC6-11.png}}
+		\caption{Output Pada Source Code generate\_feature\_and\_labels()}
+		\label{YNC6-11}
+	\end{figure} 
+
+\item dilakukan pemisahan data training dan data set sebesar 80\% ? Praktekkan dengan kode dan tunjukkan keluarannya dari komputer sendiri dan artikan maksud setiap luaran yang didapatkan !
+	\lstinputlisting[firstline=88, lastline=88]{src/yns/GenreIdentifier.py}
+	\subitem Supaya mesin akan belajar tentang data-data testing atau data baru sehingga pada saat dilakukan training dan di prediksi dapat menunjukkan presentase yang baik. Hasil dari source codenya dapat dilihat pada figure \ref{YNC6-12}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Praktek/YNC6-12.png}}
+		\caption{Pemisahan Data Training Dan Testing}
+		\label{YNC6-12}
+	\end{figure} 
+
+\item Praktekkan dan jelaskan masing-masing parameter dari fungsi Sequential() !
+	\lstinputlisting[firstline=110, lastline=115]{src/yns/GenreIdentifier.py}
+	\subitem Dimana model tersebut akan menentukan aktivasi dalam setiap neuron. Dimana pada kasus kali ini terdaoat 100 neurons pada data training. Pada source code tercantum Activation relu yang dimana fungsinya akan melakukan aktivasi terhadap neuron yang memiliki nilai max. Hasil penguluaran akan ditunjukan oleh dense. Dense akan dilakukan aktivasi menggunakan softmax. Hasil source code akan menunjukkan proses intasiasi yang ditunjukkan pada figure \ref{YNC6-13}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Praktek/YNC6-13.png}}
+		\caption{Sequential}
+		\label{YNC6-13}
+	\end{figure} 	
+
+\item Praktekkan dan jelaskan masing-masing parameter dari fungsi compile() !
+	\lstinputlisting[firstline=117, lastline=120]{src/yns/GenreIdentifier.py}
+	\subitem Dimana source code tersebut akan menampilkan data dense pertama berjumlah 100 neurons dan memiliki parameters sebanyak 2500100 dan aktivasi 100 yang dimana setiap 1 neuraons memiliki 1 aktivasi. Untuk dense 2 sama saja seperti dense 1 hanya saja datanya yang berbeda. Hasil output yang diberikan akan terlihat seperti figure \ref{YNC6-14}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Praktek/YNC6-14.png}}
+		\caption{Fungsi Compile}
+		\label{YNC6-14}
+	\end{figure} 	
+
+\item Praktekkan dan jelaskan masing-masing parameter dari fungsi fit() !
+	\lstinputlisting[firstline=121, lastline=125]{src/yns/GenreIdentifier.py}
+	\subitem Dimana source code akan melakukan training pada mesin dengan data training input dan data training label. Terdapat epochs yang menunjukan berapa kali data tersebut akan diulang. Lalu ada batch\_size yang dimana artinya menunjukkan jumlah file yang akan dilakukan training dalam setiap satu kali pengulangan. Lalu validation\_split akan menunjukkan score dari validasi silang sebanyak 0.2 atau dalam presentase yaitu 20\% untuk setiap data pengulangan. Hasil dari output source code dapat dilihat pada figure \ref{YNC6-15}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Praktek/YNC6-15.png}}
+		\caption{Fungsi Fit}
+		\label{YNC6-15}
+	\end{figure} 	
+
+\item Praktekkan dan jelaskan masing-masing parameter dari fungsi evaluate() !
+	\lstinputlisting[firstline=125, lastline=128]{src/yns/GenreIdentifier.py}
+	\subitem Diamana fungsi ini akan mengevaluasi data testing pada setiap file. Data loss menunjukkan hasil prediksi mesin yang salah dan akurasi yang dihasilkan yaitu 0.6100 atau dalam presentase yaitu 61\%. Hasil dari source code dapat dilihat pada figure \ref{YNC6-16}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Praktek/YNC6-16.png}}
+		\caption{Fungsi Evaluate}
+		\label{YNC6-16}
+	\end{figure} 	
+
+\item Praktekkan dan jelaskan masing-masing parameter dari fungsi predict() !
+	\lstinputlisting[firstline=131, lastline=131]{src/yns/GenreIdentifier.py}
+	\subitem Dimana pada source code tersebut akan melakukan prediksi pada data testing dan hanya satu data testing sehingga dapat dijelaskan data testing tersebut termasuk kedalam genre yang mana. Hasilnya akan ditampilkan kedalam bentuk ndarray. Output yang diberikan dapat dilihat pada figure \ref{YNC6-17}
+
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Praktek/YNC6-17.png}}
+		\caption{Fungsi Predict}
+		\label{YNC6-17}
+	\end{figure} 	
+
+\end{enumerate}
+
+\subsection{Penangan Error / Yusniar Nur Syarif Sidiq / 1164089}
+\begin{enumerate}
+
+\item Screenshoot Error yang di dapat figure \ref{YNC6-18}. 
+	
+	\begin{figure}[!htbp]
+		\centering{\includegraphics[scale=0.5]{figures/YN/Chapter6/Praktek/YNC6-18.png}}
+		\caption{Fungsi Evaluate}
+		\label{YNC6-18}
+	\end{figure} 
+
+\item Tuliskan kode error dan jenis errornya dan bagaimana cara menanganinya.
+		\lstinputlisting[firstline=139, lastline=148]{src/yns/GenreIdentifier.py}
+
+
+\end{enumerate}
