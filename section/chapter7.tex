@@ -76,8 +76,47 @@ DNN adalah salah satu algoritma berbasis jaringan saraf tiruan yang memiliki dar
 		\label{YNC7-1}
 	\end{figure}
 
-\item Jelaskan konsep dasar K Fold Cross Validation pada dataset komentar Youtube !
+\item Jelaskan konsep dasar K Fold Cross Validation pada dataset komentar Youtube pada source code dibawah. Dilengkapi dengan ilustrasi atau gambar !
+
+	\begin{verbatim}
+		k f o l d = S t r a t i f i e d K F o l d ( n s p l i t s =5)
+		2 s p l i t s = k f o l d . s p l i t ( d , d ['CLASS'] )
+	\end{verbatim}
+
+	\subitem Pada variabel kfold berisikan StratifieldKFold yang dimana akan diisikan sebuah sempel dan dibagi menjadi 5 dengan nsplits pada setiap class. Lalu akan dibuat variabel baru yang dinamakan dengan 2splits dan disikan class dari dataset Youtube.
 
 \item Jelaskan apa maksudnya kode program for train, test in splits. Dilengkapi dengan ilustrasi atau gambar !
+	\subitem Dimana fungsi tersebut digunakan untuk melakukan pengujian terhadap data yang sudah di split atau belum dalam dataset dan tidak akan terjadi penumpukan, maksudnya pada setiap class tidak akan menampilkan id yang sama. Kali ini saya akan memberikan ilustrasi sederhana, misalkan ada seseorang yang ingin menyumbangkan buku cerita kepada perpustakan, lalu pihak perpustakaan akan menerimanya, dikarenakan yang di sumbangkan adalah buku cerita dan bermacam - macam maka tidak akan ada buku yang sama hal ini sama saja bisa dibilang tidak adanya id yang sama.
+
+\item Jelaskan apa yang dimaksud kode program dibawah. Dilengkapi dengan ilustrasi atau gambar !
+	
+	\begin{verbatim}
+	#1
+	train content = d['CONTENT'].iloc[train idx]
+	#2
+	test content = d['CONTENT'].iloc[test idx]
+	\end{verbatim}
+
+	\subitem Dimana source code tersebut akan mengambil data dari kolom Content yaitu kolom tersebut merupakan bagian dari train\_idx dan test\_idx. Ilustrasi yang saya berikan yaitu apabila kita telah mengubah suatu data menjadi data training atau data testing maka kita dapat menampilkan data tersebut dengan isi kolom yang kita mau.
+
+\item Jelaskan apa maksud dari fungsi tokenizer = Tokenizer(num\_words=2000) dan tokenizer.fit\_on\_texts(train\_content), dilengkapi ilustrasi atau gambar !
+	\subitem Variabel tokenizer tersebut akan melakukan proses vektorisasi kata sebanyak 2000 kata dengan menggunakan fungsi Tokenizer. Pada source code tokenizer.fit\_on\_texts(train\_content) akan melakukan fit dengan menggunakan fungsi tokenizer akan tetapi hanya pada data training saja pada kolom content.
+
+\item
+
+\item
+
+\item
+
+\item
+
+\item
+
+\item Jelaskan apa itu Deep Learning !
+	\subitem Deep Learning merupakan sebuah cabang dari Mechine Learning dimana konesep yang deep learning ini hampir serupa dengan Mechine Learning hanya saja deep learning dilakukan dengan metode yang lebih cerdas, contohnya dalam menditeksi wajah itu termasuk deep learning.
+
+\item Jelaskan apa itu Deep Neural Network dan apa bedanya dengan Deep Learning !
+	\subitem Deep Neural Network merupakan sebuah algoritma berbasis Neural Netowork yang digunakan dalam pengambilan sebuah keputusan. Perbedaan DNN dengan DL antara lain DNN merupakan algoritma yang digunakan terhadap DL sedangkan DL yang akan menggunakan algoritma tersebut.
+
 
 \end{enumerate}
