@@ -12,6 +12,55 @@ Tokenizer merupakan proses membagi teks yang dapat berupa kalimat, paragraf atau
 		\label{toke1}
 		\end{figure}
 
+\item Jelaskan konsep dasar K Fold Cross Validation pada dataset komentar Youtube pada kode listing 7.1.dilengkapi dengan ilustrasi atau gambar \par
+\begin{verbatim}
+kfold = StratifiedKFold(n_splits=5)
+splits = kfold.split(d, d['CLASS'])
+\end{verbatim}
+Pada code tesebut terdapat kfold yang bertujuan untuk melakukan split data menjadi 5 bagian dari dataset komentar Youtube tersebut. Sehingga dari setiap data yang sudah dibagi tersebut akan menghasilkan presentase dari setiap bagiannya, untuk menghasilkan hasil akhir dengan presentase yang cukup baik. Untuk ilustrasi sederhananya bisa dilihat pada gambar \ref{toke2}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/toke2.png}}
+		\caption{Ilustrasi K-Fold Cross Validation.}
+		\label{toke2}
+		\end{figure}
+
+\item Jelaskan apa maksudnya kode program for train, test in splits. Dilengkapi dengan ilustrasi atau gambar \par
+For train ini untuk membagi data tersebut menjadi data training. Sedangkan test in splits ini untuk menguji apakah dataset tersebut sudah dibagi menjadi beberapa bagian atau masih menumpuk. Untuk ilustrasi sederhananya bisa dilihat pada gambar \ref{toke3}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/toke3.png}}
+		\caption{For Train dan Test In Splits.}
+		\label{toke3}
+		\end{figure}
+
+\item Jelaskan apa maksudnya kode program train content = d['CONTENT'].iloc[train idx] dan test content = d['CONTENT'].iloc[test idx]. dilengkapi dengan ilustrasi atau gambar \par
+Code tersebut untuk mengambil data pada kolom atau index CONTENT yang merupakan bagian dari train\_idx dan test\_idx. Contoh sederhananya ketika data telah diubah menjadi data train dan data test maka kita dapat memilihnya untuk ditampilkan pada kolom yang diinginkan. Untuk ilustrasinya bisa dilihat pada gambar \ref{toke4}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/toke4.png}}
+		\caption{Ilustrasi Content.}
+		\label{toke4}
+		\end{figure}
+
+\item Jelaskan apa maksud dari fungsi tokenizer = Tokenizer(num words=2000) dan tokenizer.fit on texts(train content), dilengkapi dengan ilustrasi atau gambar \par
+Variabel tokenizer ini berfungsi untuk melakukan vektorisasi data kedalam bentuk token sebanyak 2000 kata. Dan selanjutnya akan melakukan fit tokenizer hanya untuk data training saja tidak dengan data testingnya. Untuk ilustrasinya bisa dilihat pada gambar 
+
+\item Jelaskan apa maksud dari fungsi d train inputs = tokenizer.texts to matrix(train content, mode='tdf') dan d test inputs = tokenizer.texts to matrix(test content, mode='tdf'), dilengkapi dengan ilustrasi kode dan atau gambar \par
+
+\item Jelaskan apa maksud dari fungsi d train inputs = d train inputs/np.amax(np.absolute(d train dan d test inputs = d test inputs/np.amax(np.absolute(d test inputs)), dilengkapi dengan ilustrasi atau gambar \par
+
+\item Jelaskan apa maksud fungsi dari d train outputs = np utils.to categorical(d['CLASS'].iloc[train dan d test outputs = np utils.to categorical(d['CLASS'].iloc[test idx]) dalam kode program, dilengkapi dengan ilustrasi atau gambar \par
+
+\item Jelaskan apa maksud dari fungsi di listing 7.2. Gambarkan ilustrasi Neural Network nya dari model kode tersebut \par
+
+\item Jelaskan apa maksud dari fungsi di listing 7.3 dengan parameter tersebut \par
+
+\item Jelaskan apa itu Deep Learning \par
+Deep Learning adalah salah satu cabang dari ilmu machine learning yang terdiri dari algoritma pemodelan abstraksi tingkat tinggi pada data menggunakan sekumpulan fungsi transformasi non-linear yang ditata berlapis-lapis dan mendalam. Teknik dan algoritma dalam machine learning dapat digunakan baik untuk supervised learning dan unsupervised learning.
+
+\item Jelaskan apa itu Deep Neural Network, dan apa bedanya dengan Deep Learning \par
+DNN adalah salah satu algoritma berbasis jaringan saraf tiruan yang memiliki dari 1 lapisan saraf tersembunyi yang dapat digunakan untuk pengambilan keputun. Perbedaannya dengan deep learning, yakni: DNN dapat menentukan dan mencerna karakteristik tertentu di suatu rangkaian data, kapabilitas lebih kompleks untuk mempelajari, mencerna, dan mengklasifikasikan data, serta dibagi ke dalam berbagai lapisan dengan fungsi yang berbeda-beda.
+
+\item Jelaskan dengan ilustrasi gambar buatan sendiri(langkah per langkah) bagaimana perhitungan algoritma konvolusi dengan ukuran stride (NPM mod3+1) x (NPM mod3+1) yang terdapat max pooling \par
+
 \end{enumerate}
 
 \section{Yusniar Nur Syarif Sidiq / 1164089}
