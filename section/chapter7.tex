@@ -13,10 +13,7 @@ Tokenizer merupakan proses membagi teks yang dapat berupa kalimat, paragraf atau
 		\end{figure}
 
 \item Jelaskan konsep dasar K Fold Cross Validation pada dataset komentar Youtube pada kode listing 7.1.dilengkapi dengan ilustrasi atau gambar \par
-\begin{verbatim}
-kfold = StratifiedKFold(n_splits=5)
-splits = kfold.split(d, d['CLASS'])
-\end{verbatim}
+\lstinputlisting[firstline=1, lastline=2]{src/ron/tujuh.py}
 Pada code tesebut terdapat kfold yang bertujuan untuk melakukan split data menjadi 5 bagian dari dataset komentar Youtube tersebut. Sehingga dari setiap data yang sudah dibagi tersebut akan menghasilkan presentase dari setiap bagiannya, untuk menghasilkan hasil akhir dengan presentase yang cukup baik. Untuk ilustrasi sederhananya bisa dilihat pada gambar \ref{toke2}
 		\begin{figure}[!htbp]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/toke2.png}}
@@ -40,18 +37,40 @@ Code tersebut untuk mengambil data pada kolom atau index CONTENT yang merupakan 
 		\label{toke4}
 		\end{figure}
 
-\item Jelaskan apa maksud dari fungsi tokenizer = Tokenizer(num words=2000) dan tokenizer.fit on texts(train content), dilengkapi dengan ilustrasi atau gambar \par
-Variabel tokenizer ini berfungsi untuk melakukan vektorisasi data kedalam bentuk token sebanyak 2000 kata. Dan selanjutnya akan melakukan fit tokenizer hanya untuk data training saja tidak dengan data testingnya. Untuk ilustrasinya bisa dilihat pada gambar 
+\item Jelaskan apa maksud dari fungsi tokenizer = Tokenizer(num words=2000) dan tokenizer fit on texts(train content), dilengkapi dengan ilustrasi atau gambar \par
+Variabel tokenizer ini berfungsi untuk melakukan vektorisasi data kedalam bentuk token sebanyak 2000 kata. Dan selanjutnya akan melakukan fit tokenizer hanya untuk data training saja tidak dengan data testingnya. Untuk ilustrasinya bisa dilihat pada gambar \ref{toke5}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/toke5.png}}
+		\caption{Ilustrasi Fungsi Tokenizer.}
+		\label{toke5}
+		\end{figure}
 
-\item Jelaskan apa maksud dari fungsi d train inputs = tokenizer.texts to matrix(train content, mode='tdf') dan d test inputs = tokenizer.texts to matrix(test content, mode='tdf'), dilengkapi dengan ilustrasi kode dan atau gambar \par
+\item Jelaskan apa maksud dari fungsi d train inputs = tokenizer.texts to matrix(train content, mode='tdf') dan d test inputs = tokenizer.texts to matrix(test content, mode='tdf'), dilengkapi dengan ilustrasi kode dan atau gambar \par
+Code pertama yakni untuk merubah atau vektorisasi dari data training yang berupa teks menjadi matrix dengan menggunakan model tfidf. Code kedua sama halnya seperti yang pertama, yang membedakan hanya data yang dirubah. Untuk yang ini merubah data testing yang berupa teks menjadi matrix dengan menggunakan model tfidf. Ilustrasinya bisa dilihat pada gambar \ref{toke6}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/toke6.png}}
+		\caption{Ilustrasi d\_train\_inputs.}
+		\label{toke6}
+		\end{figure}
 
 \item Jelaskan apa maksud dari fungsi d train inputs = d train inputs/np.amax(np.absolute(d train dan d test inputs = d test inputs/np.amax(np.absolute(d test inputs)), dilengkapi dengan ilustrasi atau gambar \par
+Code tersebut akan membagi matrix tfidf dengan amax yakni mengembalikan nilai maksimum array, dan hasilnya akan dimasukan kedalam variabel d train inputs untuk data train dan d test inputs untuk data testing dengan nominal absolut atau tanda adanya bilangan negatif dan koma. Ilustrasinya bisa dilihat pada gambar \ref{toke7}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/toke7.png}}
+		\caption{Ilustrasi d\_train\_inputs.}
+		\label{toke7}
+		\end{figure}
 
 \item Jelaskan apa maksud fungsi dari d train outputs = np utils.to categorical(d['CLASS'].iloc[train dan d test outputs = np utils.to categorical(d['CLASS'].iloc[test idx]) dalam kode program, dilengkapi dengan ilustrasi atau gambar \par
+Code tersebut ditujukan untuk melakukan one-hot encoding agar dapat digunakan pada proses neural network. One-hot encoding tersebut diambil dari `CLASS' yang terdapat 2 neuron, yakni (1,0) dan (01) karena pilihannya hanya 2 yakni spam atau bukan spam.
 
 \item Jelaskan apa maksud dari fungsi di listing 7.2. Gambarkan ilustrasi Neural Network nya dari model kode tersebut \par
+\lstinputlisting[firstline=4, lastline=9]{src/ron/tujuh.py}
+Code tersebut bertujuan untuk melakukan sequential, membandingkan setiap satu elemen dengan cara satu persatu secara beruntun. Dimana terdapat 512 neurons inputan dengan jumlah shape 2000 yang sebelumnya sudah dinormalisasi. Lalu model tersebut dilakukan aktivasi dengan menggunakan fungsi relu. Kemudian dilakukan pemotongan model tree sebesar 50\% agar tidak terjadi overfitting. Pada outputnya terdapat 2 neurons yakni (1,0) dan (0,1) yang akan di aktivasi dengan menggunakan fungsi softmax.
 
 \item Jelaskan apa maksud dari fungsi di listing 7.3 dengan parameter tersebut \par
+\lstinputlisting[firstline=11, lastline=11]{src/ron/tujuh.py}
+Code tersebut akan melakukan compile model dengan fungsi optimizer, loss dan matrix.
 
 \item Jelaskan apa itu Deep Learning \par
 Deep Learning adalah salah satu cabang dari ilmu machine learning yang terdiri dari algoritma pemodelan abstraksi tingkat tinggi pada data menggunakan sekumpulan fungsi transformasi non-linear yang ditata berlapis-lapis dan mendalam. Teknik dan algoritma dalam machine learning dapat digunakan baik untuk supervised learning dan unsupervised learning.
@@ -60,8 +79,14 @@ Deep Learning adalah salah satu cabang dari ilmu machine learning yang terdiri d
 DNN adalah salah satu algoritma berbasis jaringan saraf tiruan yang memiliki dari 1 lapisan saraf tersembunyi yang dapat digunakan untuk pengambilan keputun. Perbedaannya dengan deep learning, yakni: DNN dapat menentukan dan mencerna karakteristik tertentu di suatu rangkaian data, kapabilitas lebih kompleks untuk mempelajari, mencerna, dan mengklasifikasikan data, serta dibagi ke dalam berbagai lapisan dengan fungsi yang berbeda-beda.
 
 \item Jelaskan dengan ilustrasi gambar buatan sendiri(langkah per langkah) bagaimana perhitungan algoritma konvolusi dengan ukuran stride (NPM mod3+1) x (NPM mod3+1) yang terdapat max pooling \par
-
+Konvolusi pada gambar dilakukan dalam image processing untuk menerapkan operator yang memiliki nilai output dari piksel gambar yang berasal dari kombinasi linear nilai input piksel, semakin nilai piksel tersebut maka kualitas gambar bisa semakin bagus. Untuk ilustrasinya bisa dilihat pada gambar \ref{toke13}
+		\begin{figure}[!htbp]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/im/toke13.png}}
+		\caption{Ilustrasi Algoritma Konvolusi.}
+		\label{toke13}
+		\end{figure}
 \end{enumerate}
+
 
 \section{Yusniar Nur Syarif Sidiq / 1164089}
 \subsection{Teori / Yusniar Nur Syarif Sidiq / 1164089}
