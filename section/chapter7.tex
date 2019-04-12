@@ -175,7 +175,43 @@ Keluaran dari code tersebut dapat dilihat pada gambar \ref{math5}. Pada code ter
 
 \item Jelaskan apa maksud dari fungsi tokenizer = Tokenizer(num\_words=2000) dan tokenizer.fit\_on\_texts(train\_content), dilengkapi ilustrasi atau gambar !
 	\subitem Variabel tokenizer tersebut akan melakukan proses vektorisasi kata sebanyak 2000 kata dengan menggunakan fungsi Tokenizer. Pada source code tokenizer.fit\_on\_texts(train\_content) akan melakukan fit dengan menggunakan fungsi tokenizer akan tetapi hanya pada data training saja pada kolom content. Untuk ilustrasi dapat dilihat pada figure \ref{YNC7-4}
+	\begin{figure}[!htbp!]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter7/YNC7-4.png}}
+		\caption{Fungsi Tokenizer.}
+		\label{YNC7-4}
+	\end{figure}
 
+\item Jelaskan apa yang dimaksud dari fungsi source code dibawah !
+	\lstinputlisting[firstline=42, lastline=43]{src/yns/sc7.py}
+	\subitem Pada source code baris pertama akan melakukan vektorisasi dari data training yang dimana data tersebut berbentuk string atau teks dan diubah kedalam bentuk matrix menggunakan model tdf. Untuk source code baris kedua akan melakukan vektorisasi data testing yang akan diubah kedalam bentuk matrix dengan mode tdf. Dimana kita ilustrasi source code nya adalah seperti yang ditampilkan pada figure \ref{YNC7-5}.
+
+	\begin{figure}[!htbp!]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter7/YNC7-5.png}}
+		\caption{Vektorisasi TDF Data Training Dan Testing.}
+		\label{YNC7-5}
+	\end{figure}
+
+\item Jelaskan apa yang dimaksud dari fungsi d\_train\_inputs = d\_train\_inputs/np.amax(np.absolute(d\_train)) dan  d\_test\_inputs = d\_test\_inputs/np.amax(np.absolute(d\_test)), dilengkapi dengan ilustrasi atau gambar !
+	\subitem Pada source code tersebut akan melakukan pembagian data matrix yang sudah kita buat pada data trainig dan testing dan akan mengembalikan nilai maksimum array menggunakan class amax. Untuk ilustrasi dapat dilihat pada figure \ref{YNC7-6}.
+
+	\begin{figure}[!htbp!]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter7/YNC7-6.png}}
+		\caption{Pembagian Data Matrix.}
+		\label{YNC7-6}
+	\end{figure}
+
+\item Jelaskan apa yang dimaksud fungsi d\_train\_outputs = np\_utils.to\_categorical(d[CLASS].iloc[train\_idx] dan  d\_test\_outputs = np\_utils.to\_categorical(d[CLASS].iloc[test\_idx] dalam kode program dilengkapi dengan ilustrasi atau gamabar !
+	\subitem Source code tersebut digunakan untuk melakuakan fungsi yang dinamakan One-hot encoding yang nantinya data tersebut dapat digunakan dalam proses Neural Network. Data yang diambil terdiri dari CLASS yaitu Spam dan No Spam dari data training dan data testing. Untuk ilustrasi dapat dilihat pada figure \ref{YNC7-7}.
+
+	\begin{figure}[!htbp!]
+		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter7/YNC7-7.png}}
+		\caption{One-hot Encoding.}
+		\label{YNC7-7}
+	\end{figure}
+
+\item Jelaskan apa yang dimaksud dengan dari fungsi source code dibawah,
+	\lstinputlisting[firstline=8, lastline=13]{src/yns/sc7.py}
+	\subitem Source Code tersebut akan melakukan sequential yang diamana akan melakukan perbandingan pada setiap elemen secara satu persatu dan berurut. Terdapat 512 Neurons dengan jumlah input shape sebesar 2000 yang dimana sudah dilakukan normalisasi. Mpdel tersebut akan dilakukan aktivasi menggunakan model relu lalu dilakukan dropout atau pemotongan sebesar 50\%. Pada neurons selanjutnya terdapat 2  yang kemudian akan dilakukan aktivasi menggunakan fungsi softmax.
 	\begin{figure}[!htbp!]
 		\centerline{\includegraphics[width=0.5\textwidth]{figures/YN/Chapter7/YNC7-4.png}}
 		\caption{Fungsi Tokenizer.}
@@ -240,6 +276,5 @@ Keluaran dari code tersebut dapat dilihat pada gambar \ref{math5}. Pada code ter
 		\caption{Algoritma Konvolusi Dengan Matrix (3x3).}
 		\label{YNC7-8}
 	\end{figure}	
-
 
 \end{enumerate}
